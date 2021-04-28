@@ -1,2 +1,0 @@
-# viko-labirintas
-college stuff
