@@ -15,7 +15,7 @@ Pereinam į kitą direktoriją.
 cd viko-labirintas
 ```
 
-Panaudojam [npm](https://www.npmjs.com/), kad parsisiųstume libus.
+Panaudojam [npm](https://www.npmjs.com/), kad parsisiųstume libus. (Reikia [nodejs](https://nodejs.org/en/download/))
 
 ```bash
 npm install
