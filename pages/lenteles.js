@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, TextInput, Button  } from 'react-native';
 
 export default function Lenteles() {
 
-  const UselessTextInput = () => {
     const [number, onChangeNumber] = React.useState(null);
   
     return (
@@ -20,9 +19,7 @@ export default function Lenteles() {
 
 
     );
-  };
 }
-export default UselessTextInput;
 
 const styles = StyleSheet.create({
   container: {
@@ -35,7 +32,7 @@ const styles = StyleSheet.create({
   input: {
     height: 40,
     margin: 12,
-    borderWidth: 1,
+    borderWidth: 2,
   }
 });
 
