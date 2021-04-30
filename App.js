@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Lenteles from '.pages/lenteles';
+import Lenteles from './pages/lenteles';
 
 export default function App() {
   return (
