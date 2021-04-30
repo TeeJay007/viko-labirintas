@@ -1,15 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { TextInput } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button  } from 'react-native';
 
 export default function Lenteles() {
-  const first = 56;
+
   const UselessTextInput = () => {
     const [number, onChangeNumber] = React.useState(null);
   
     return (
       <View style={styles.container}>
-      <SafeAreaView>
+
         <TextInput
           style={styles.input}
           onChangeText={onChangeNumber}
@@ -17,11 +16,13 @@ export default function Lenteles() {
           placeholder="Atsakymas"
           keyboardType="numeric"
         />
-      </SafeAreaView>
       </View>
+
+
     );
+  };
 }
-}
+export default UselessTextInput;
 
 const styles = StyleSheet.create({
   container: {
