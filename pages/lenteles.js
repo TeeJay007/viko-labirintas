@@ -8,6 +8,7 @@ export default function Lenteles() {
     const [number, onChangeNumber] = React.useState(null);
   
     return (
+      <View style={styles.container}>
       <SafeAreaView>
         <TextInput
           style={styles.input}
@@ -17,6 +18,7 @@ export default function Lenteles() {
           keyboardType="numeric"
         />
       </SafeAreaView>
+      </View>
     );
 }
 }
