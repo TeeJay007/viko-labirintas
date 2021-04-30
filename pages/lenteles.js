@@ -1,12 +1,24 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { TextInput } from 'react-native';
 
 export default function Lenteles() {
-  return (
-    <View style={styles.container}>
-      <Text>Tai yra lentelių užduotis!</Text>
-    </View>
-  );
+  const first = 56;
+  const UselessTextInput = () => {
+    const [number, onChangeNumber] = React.useState(null);
+  
+    return (
+      <SafeAreaView>
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeNumber}
+          value={number}
+          placeholder="useless placeholder"
+          keyboardType="numeric"
+        />
+      </SafeAreaView>
+    );
+}
 }
 
 const styles = StyleSheet.create({
@@ -18,3 +30,10 @@ const styles = StyleSheet.create({
   },
 });
 
+const styles = StyleSheet.create({
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+  },
+});
