@@ -10,14 +10,14 @@ export default function Lenteles() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>
+      <Text style={styles.questions}>
         1. Tarp 3 (trijų) ir 5 (penkių)?
       </Text>
-      <Text style={styles.header}>
-        2. Mažiausias neneigiamas skaičius 	0 (nulis)	?
+      <Text style={styles.questions}>
+        2. Mažiausias neneigiamas skaičius?
       </Text>
-      <Text style={styles.header}>
-        3. „... kregždė, dar ne pavasaris“	1 (viena)	?
+      <Text style={styles.questions}>
+        3. „... kregždė, dar ne pavasaris“?
       </Text>
       <View style={styles.holder}>
         {atsakymas1.split('').map((_, i) =>
@@ -26,7 +26,7 @@ export default function Lenteles() {
             placeholder={i + 1}
             style={[
               styles.input,
-              (atsakymas1[i] == ats1.skaiciai1[i] && (i == 0 || i == 1 || i == 2)) && styles.inputCorrect,
+              atsakymas1[i] == ats1.skaiciai1[i] && styles.inputCorrect, 
             ]}
             onChangeText={(r) => {
               let skaiciai1 = ats1.skaiciai1
@@ -38,24 +38,23 @@ export default function Lenteles() {
           />
         )}
       </View>
-      <Text style={styles.header}>
-        4. 22 – du kvadratu	4 (keturi) ?
+      <Text style={styles.questions}>
+        4. 22 – du kvadratu?
       </Text>
-      <Text style={styles.header}>
+      <Text style={styles.questions}>
         5. Taško skersmuo?
       </Text>
-      <Text style={styles.header}>
+      <Text style={styles.questions}>
         6. Mobiliajame telefone su mygtukais yra kartu su raidėm a, b, c ?
       </Text>
       <View style={styles.holder}>
         {atsakymas2.split('').map((_, i) =>
           <TextInput
-
             key={i}
-            placeholder={3 + i + 1}
+            placeholder={i + 4}
             style={[
               styles.input,
-              (atsakymas2[i] == ats2.skaiciai2[i] && (i == 0 || i == 1 || i == 2)) && styles.inputCorrect,
+              atsakymas2[i] == ats2.skaiciai2[i] && styles.inputCorrect,
             ]}
             onChangeText={(r) => {
               let skaiciai2 = ats2.skaiciai2
@@ -79,19 +78,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'column'
   },
-  header: {
-    fontSize: 24,
-    textAlign: 'center',
+  questions: {
+    fontSize: 20,
+    textAlign: 'justify',
     paddingBottom: 8
   },
   holder: {
     paddingTop: 16,
     justifyContent: 'center',
     flexDirection: 'row',
-  },
-  title: {
-    textAlign: 'center',
-    marginVertical: 8,
   },
   inputCorrect: {
     backgroundColor: 'green'
