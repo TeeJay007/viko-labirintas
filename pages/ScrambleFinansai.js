@@ -1,228 +1,130 @@
-import React, { Component } from 'react';
-import { LogBox, Animated, TouchableWithoutFeedback, StyleSheet, Text, View, SafeAreaView  } from 'react-native';
+import React, { Component } from "react";
+import {
+  LogBox,
+  Animated,
+  PanResponder,
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  Dimensions,
+} from "react-native";
 import "react-native-gesture-handler";
+import update from 'react-addons-update';
 
+const LETTERSBOX_RADIUS = 30;
+const Window = Dimensions.get('window');
+const LettersMap = { 0: {letter:'F'}, 1: {letter:'I'}, 2: {letter:'N'}, 3: {letter:'A'}, 4: {letter:'N'}, 5: {letter:'S'}, 6: {letter:'A'}, 7: {letter:'I'}};
+const BOXHEIGHT = 200;
+class ScrambleFinansai extends Component {
+  constructor(props) {
+    super(props);
 
-
-class ScrambleFinansai extends Component{
+    this.dataDrag = [0,1,2,3,4,5,6,7];
+      this.pan = this.dataDrag.map( () => new Animated.ValueXY() );
+  
+      this.state = {
+        showDraggable: true,
+        dropZoneValues: null,
+  
+        StartPlaces: {  0: { x: -150, y: BOXHEIGHT, u: false,},
+                        1: { x:  -50, y: BOXHEIGHT, u: false,},
+                        2: { x:   50, y: BOXHEIGHT, u: false,},
+                        3: { x:  150, y: BOXHEIGHT, u: false,},
+                        4: { x: -150, y: BOXHEIGHT +100, u: false,},
+                        5: { x:  -50, y: BOXHEIGHT +100, u: false,},
+                        6: { x:   50, y: BOXHEIGHT +100, u: false,},
+                        7: { x:  150, y: BOXHEIGHT +100, u: false,},},
+      };
+  
+      this.GivePlaces();
     
+  }
+
+  GivePlaces =() => {
     
-
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            F0letter: false,
-            I0letter: false,
-            N0letter: false,
-            A0letter: false,
-            N1letter: false,
-            S0etter: false,
-            A1etter: false,
-            I1etter: false,
+    for (let i = 0; i < 8; i++) {
+      
+        let randomNumber = Math.floor(Math.random() * 8);
+        if (this.state.StartPlaces[randomNumber].u == false) {
+          
+          Animated.timing(
+            this.pan[i],
+            {toValue:{x: this.state.StartPlaces[randomNumber].x, y: this.state.StartPlaces[randomNumber].y},
+            duration: 800,
+            useNativeDriver: true,
+          }
+            
+          ).start();
+            
+          this.state.StartPlaces[randomNumber].u = true;
         }
-        
-        this.LetterF0 = new Animated.ValueXY({ x: -175, y:  150 })
-        this.LetterI0 = new Animated.ValueXY({ x: -125, y:  105 })
-        this.LetterN0 = new Animated.ValueXY({ x: -75,  y:  60 })
-        this.LetterA0 = new Animated.ValueXY({ x: -25,  y:  15 })
-        this.LetterN1 = new Animated.ValueXY({ x:  25,  y: -30 })
-        this.LetterS0 = new Animated.ValueXY({ x:  75,  y: -75 })
-        this.LetterA1 = new Animated.ValueXY({ x:  125, y: -120 })
-        this.LetterI1 = new Animated.ValueXY({ x:  175, y: -165 })
-        
-    }
-
-    MoveLetters = (letter) => {
-        
-        if(letter == 0)
-        if (this.state.F0letter == false){
-            Animated.spring(this.LetterF0, {
-                toValue: {x: 0, y: 150},
-                duration: 500,
-              }).start()
-            this.setState({F0letter : true})
-        }
-        else{
-            Animated.spring(this.LetterF0, {
-                toValue: {x: -175, y: 150},
-                duration: 500,
-              }).start()
-            this.setState({F0letter : false})
-        }
-        
-        if(letter == 1)
-        if (this.state.I0letter == false){
-            Animated.spring(this.LetterI0, {
-                toValue: {x: 0, y: 150},
-                duration: 500,
-              }).start()
-            this.setState({I0letter : true})
-        }
-        else{
-            Animated.spring(this.LetterI0, {
-                toValue: {x: -125, y: 105},
-                duration: 500,
-              }).start()
-            this.setState({I0letter : false})
-        }
-
-        if(letter == 2)
-        if (this.state.N0letter == false){
-            Animated.spring(this.LetterN0, {
-                toValue: {x: 0, y: 150},
-                duration: 500,
-              }).start()
-            this.setState({N0letter : true})
-        }
-        else{
-            Animated.spring(this.LetterN0, {
-                toValue: {x: -75, y: 60},
-                duration: 500,
-              }).start()
-            this.setState({N0letter : false})
-        }
-
-
-        if(letter == 3)
-        if (this.state.A0letter == false){
-            Animated.spring(this.LetterA0, {
-                toValue: {x: 0, y: 150},
-                duration: 500,
-              }).start()
-            this.setState({A0letter : true})
-        }
-        else{
-            Animated.spring(this.LetterA0, {
-                toValue: {x: -25, y: 15},
-                duration: 500,
-              }).start()
-            this.setState({A0letter : false})
-        }
-
-        if(letter == 4)
-        if (this.state.N1letter == false){
-            Animated.spring(this.LetterN1, {
-                toValue: {x: 0, y: 150},
-                duration: 500,
-              }).start()
-            this.setState({N1letter : true})
-        }
-        else{
-            Animated.spring(this.LetterN1, {
-                toValue: {x: 25, y: -30},
-                duration: 500,
-              }).start()
-            this.setState({N1letter : false})
-        }
-        
-        if(letter == 5)
-        if (this.state.S0letter == false){
-            Animated.spring(this.LetterS0, {
-                toValue: {x: 0, y: 150},
-                duration: 500,
-              }).start()
-            this.setState({S0letter : true})
-        }
-        else{
-            Animated.spring(this.LetterS0, {
-                toValue: {x: 75, y: -75},
-                duration: 500,
-              }).start()
-            this.setState({S0letter : false})
-        }
-
-        if(letter == 6)
-        if (this.state.A1letter == false){
-            Animated.spring(this.LetterA1, {
-                toValue: {x: 0, y: 150},
-                duration: 500,
-              }).start()
-            this.setState({A1letter : true})
-        }
-        else{
-            Animated.spring(this.LetterA1, {
-                toValue: {x: 125, y: -120},
-                duration: 500,
-              }).start()
-            this.setState({A1letter : false})
-        }
-
-        if(letter == 7)
-        if (this.state.I1letter == false){
-            Animated.spring(this.LetterI1, {
-                toValue: {x: 0, y: 150},
-                duration: 500,
-              }).start()
-            this.setState({I1letter : true})
-        }
-        else{
-            Animated.spring(this.LetterI1, {
-                toValue: {x: 175, y: -165},
-                duration: 500,
-              }).start()
-            this.setState({I1letter : false})
+        else {
+            i--;
         }
     }
+  }
 
+  getPanResponder(index) {
+      return PanResponder.create({
+          onStartShouldSetPanResponder: () => true,
+          onPanResponderMove              : Animated.event([null,{
+              dx  : this.pan[index].x,
+              dy  : this.pan[index].y
+          }], {useNativeDriver: false}),
+          onPanResponderRelease           : (e, gesture) => {
+              if(this.isDropZone(gesture)){
+                  this.setState({
+                      showDraggable : false
+                  });
+              }else{
+                  Animated.timing(
+                      this.pan[index],
+                      {toValue:{x:0,y:0},
+                      duration: 800,
+                      useNativeDriver: true,}
+                  ).start();
+              }
+          }
+      });    
+  }
 
+  isDropZone(gesture){
+      var dz = this.state.dropZoneValues;
+      return gesture.moveY > dz.y && gesture.moveY < dz.y + dz.height;
+  }
 
-    render(){
-        //LogBox.ignoreAllLogs();
+  setDropZoneValues(event){
+      this.setState({
+          dropZoneValues : event.nativeEvent.layout
+      });
+  }
+
+  render() {
+    LogBox.ignoreAllLogs(true);
     return (
-        <SafeAreaView style = {styles.safeAreaView} >
-            <View style = {styles.container}>
-                
-                <Animated.View style={[styles.letterbox, this.LetterF0.getLayout()]}>
-                    <TouchableWithoutFeedback style={styles.button} onPress={ () => {this.MoveLetters(0); }}>
-                        <Text style={styles.buttonText}>F</Text>
-                    </TouchableWithoutFeedback> 
-                </Animated.View>
+      <SafeAreaView style={styles.safeAreaView}>
+         <View style={styles.mainContainer}>
+              <View style={styles.zeroZone}>
+                <Text> Koks tai žodis? </Text>
+              </View>
+              
+              <View
+                  onLayout={this.setDropZoneValues.bind(this)}
+                  style={styles.dropZone}>
+                  <Text style={styles.text}>Drop me here!</Text>
+              </View>
 
-                <Animated.View style={[styles.letterbox, this.LetterI0.getLayout()]}>
-                    <TouchableWithoutFeedback style={styles.button} onPress={ () => {this.MoveLetters(1); }}>
-                        <Text style={styles.buttonText}>I</Text>
-                    </TouchableWithoutFeedback> 
-                </Animated.View>
-
-                <Animated.View style={[styles.letterbox, this.LetterN0.getLayout()]}>
-                    <TouchableWithoutFeedback style={styles.button} onPress={ () => {this.MoveLetters(2); }}>
-                        <Text style={styles.buttonText}>N</Text>
-                    </TouchableWithoutFeedback> 
-                </Animated.View>
-                
-                <Animated.View style={[styles.letterbox, this.LetterA0.getLayout()]}>
-                    <TouchableWithoutFeedback style={styles.button} onPress={ () => {this.MoveLetters(3); }}>
-                        <Text style={styles.buttonText}>A</Text>
-                    </TouchableWithoutFeedback>
-                </Animated.View>
-
-                <Animated.View style={[styles.letterbox, this.LetterN1.getLayout()]}>
-                    <TouchableWithoutFeedback style={styles.button} onPress={ () => {this.MoveLetters(4); }}>
-                        <Text style={styles.buttonText}>N</Text>
-                    </TouchableWithoutFeedback>
-                </Animated.View>
-
-                <Animated.View style={[styles.letterbox, this.LetterS0.getLayout()]}>
-                    <TouchableWithoutFeedback style={styles.button} onPress={ () => {this.MoveLetters(5); }}>
-                        <Text style={styles.buttonText}>S</Text>
-                    </TouchableWithoutFeedback>
-                </Animated.View>
-
-                <Animated.View style={[styles.letterbox, this.LetterA1.getLayout()]}>
-                    <TouchableWithoutFeedback style={styles.button} onPress={ () => {this.MoveLetters(6); }}>
-                        <Text style={styles.buttonText}>A</Text>
-                    </TouchableWithoutFeedback>
-                </Animated.View>
-
-                <Animated.View style={[styles.letterbox, this.LetterI1.getLayout()]}>
-                    <TouchableWithoutFeedback style={styles.button} onPress={ () => {this.MoveLetters(7); }}>
-                        <Text style={styles.buttonText}>I</Text>
-                    </TouchableWithoutFeedback>
-                </Animated.View>
-
-            </View>
-        </SafeAreaView>
+              {this.dataDrag.map((d, index) => (
+                  <Animated.View
+                      key={index}
+                      {...this.getPanResponder(index).panHandlers}
+                      style={[styles.draggableContainer, this.pan[index].getTranslateTransform(), styles.letterBox]}>
+                      <Text style={styles.textInLetter}>{LettersMap[index].letter}</Text>
+                  </Animated.View>
+              ))}
+          </View>
+      </SafeAreaView>
     );
   }
 }
@@ -230,30 +132,47 @@ class ScrambleFinansai extends Component{
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
   safeAreaView: {
     flex: 1,
-    paddingTop: 30
+    paddingTop: 30,
   },
-  letterbox: {
+  dropZone: {
+    height: 200,
+    backgroundColor:'#2c3e50',
+    justifyContent: 'center'
+  },
+  zeroZone: {
+    height: 350,
+    backgroundColor: 'blue',
+  },
+  text: {
+    textAlign: 'center',
+    textAlignVertical: 'bottom',
+    color: 'white',
+    fontSize: 24,
+  },
+  textInLetter: {
+    textAlign: 'center',
+    color: '#333',
+    fontSize: 24,
+  },
+  draggableContainer: {
+    position: 'absolute',
+    marginTop: Window.height/2 - LETTERSBOX_RADIUS,
+    marginLeft: Window.width/2 - LETTERSBOX_RADIUS,
+  },
+  letterBox      : {
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center',  
     backgroundColor: 'gainsboro',
-    borderRadius: 10,
-    width: 45,
-    height: 45,
-  },
-  button: {
-    paddingTop: 24,
-    paddingBottom: 24,
-  },
-  buttonText: {
-    fontSize: 24,
-    color: '#333',
+    width: LETTERSBOX_RADIUS*2,
+    height: LETTERSBOX_RADIUS*2,
+    borderRadius: 5,
   },
 });
 
