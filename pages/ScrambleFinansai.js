@@ -10,9 +10,8 @@ import {
   Dimensions,
 } from "react-native";
 import "react-native-gesture-handler";
-import update from 'react-addons-update';
 
-const LETTERSBOX_RADIUS = 30;
+const LETTERSBOX_RADIUS = 25;
 const Window = Dimensions.get('window');
 const LettersMap = { 0: {letter:'F'}, 1: {letter:'I'}, 2: {letter:'N'}, 3: {letter:'A'}, 4: {letter:'N'}, 5: {letter:'S'}, 6: {letter:'A'}, 7: {letter:'I'}};
 const BOXHEIGHT = 200;
@@ -23,20 +22,37 @@ class ScrambleFinansai extends Component {
     this.dataDrag = [0,1,2,3,4,5,6,7];
       this.pan = this.dataDrag.map( () => new Animated.ValueXY() );
   
-      this.state = {
+      this.state = 
+      {
         showDraggable: true,
         dropZoneValues: null,
   
-        StartPlaces: {  0: { x: -150, y: BOXHEIGHT, u: false,},
-                        1: { x:  -50, y: BOXHEIGHT, u: false,},
-                        2: { x:   50, y: BOXHEIGHT, u: false,},
-                        3: { x:  150, y: BOXHEIGHT, u: false,},
-                        4: { x: -150, y: BOXHEIGHT +100, u: false,},
-                        5: { x:  -50, y: BOXHEIGHT +100, u: false,},
-                        6: { x:   50, y: BOXHEIGHT +100, u: false,},
-                        7: { x:  150, y: BOXHEIGHT +100, u: false,},},
+        StartPlaces: 
+        {  
+          0: { x: -150, y: BOXHEIGHT, u: false},
+          1: { x:  -50, y: BOXHEIGHT, u: false},
+          2: { x:   50, y: BOXHEIGHT, u: false},
+          3: { x:  150, y: BOXHEIGHT, u: false},
+          4: { x: -150, y: BOXHEIGHT +100, u: false},
+          5: { x:  -50, y: BOXHEIGHT +100, u: false},
+          6: { x:   50, y: BOXHEIGHT +100, u: false},
+          7: { x:  150, y: BOXHEIGHT +100, u: false},
+        },
+
+        IndexPlaces:
+        {
+          0: { place: 0},
+          1: { place: 0},
+          2: { place: 0},
+          3: { place: 0},
+          4: { place: 0},
+          5: { place: 0},
+          6: { place: 0},
+          7: { place: 0},
+        },
+
       };
-  
+      
       this.GivePlaces();
     
   }
@@ -48,16 +64,10 @@ class ScrambleFinansai extends Component {
         let randomNumber = Math.floor(Math.random() * 8);
         if (this.state.StartPlaces[randomNumber].u == false) {
           
-          Animated.timing(
-            this.pan[i],
-            {toValue:{x: this.state.StartPlaces[randomNumber].x, y: this.state.StartPlaces[randomNumber].y},
-            duration: 800,
-            useNativeDriver: true,
-          }
-            
-          ).start();
-            
+          this.state.IndexPlaces[i].place = randomNumber; 
           this.state.StartPlaces[randomNumber].u = true;
+          this.pan[i].x.setValue(this.state.StartPlaces[randomNumber].x);
+          this.pan[i].y.setValue(this.state.StartPlaces[randomNumber].y);
         }
         else {
             i--;
@@ -67,26 +77,34 @@ class ScrambleFinansai extends Component {
 
   getPanResponder(index) {
       return PanResponder.create({
-          onStartShouldSetPanResponder: () => true,
-          onPanResponderMove              : Animated.event([null,{
-              dx  : this.pan[index].x,
-              dy  : this.pan[index].y
-          }], {useNativeDriver: false}),
-          onPanResponderRelease           : (e, gesture) => {
-              if(this.isDropZone(gesture)){
-                  this.setState({
-                      showDraggable : false
-                  });
-              }else{
-                  Animated.timing(
-                      this.pan[index],
-                      {toValue:{x:0,y:0},
-                      duration: 800,
-                      useNativeDriver: true,}
-                  ).start();
-              }
-          }
-      });    
+          
+        onStartShouldSetPanResponder: () => true,
+        
+        onPanResponderGrant: () => {
+          this.pan[index].setOffset({
+            x: this.pan[index].x._value,
+            y: this.pan[index].y._value
+          });
+        },
+        
+        onPanResponderMove: (_,gesture) => {
+          this.pan[index].x.setValue(gesture.dx)
+          this.pan[index].y.setValue(gesture.dy)
+        },
+
+        onPanResponderRelease: (e, gesture) => {
+          this.pan[index].flattenOffset()  
+          if(this.isDropZone(gesture)){
+                this.setState({
+                    showDraggable : false
+                });
+            }else{
+              let randomPlace = this.state.IndexPlaces[index].place;
+              this.pan[index].x.setValue(this.state.StartPlaces[randomPlace].x);
+              this.pan[index].y.setValue(this.state.StartPlaces[randomPlace].y);
+            }
+        }
+    });    
   }
 
   isDropZone(gesture){
@@ -107,6 +125,7 @@ class ScrambleFinansai extends Component {
          <View style={styles.mainContainer}>
               <View style={styles.zeroZone}>
                 <Text> Koks tai žodis? </Text>
+                <Text> {this.state.IndexPlaces[4].place}</Text>
               </View>
               
               <View
@@ -146,7 +165,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   zeroZone: {
-    height: 350,
+    height: 100,
     backgroundColor: 'blue',
   },
   text: {
