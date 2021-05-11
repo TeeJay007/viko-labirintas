@@ -17,6 +17,7 @@ const LETTERSBOX_RADIUS = 25;
 const Window = Dimensions.get('window');
 const LettersMap = { 0: {letter:'F'}, 1: {letter:'I'}, 2: {letter:'N'}, 3: {letter:'A'}, 4: {letter:'N'}, 5: {letter:'S'}, 6: {letter:'A'}, 7: {letter:'I'}, 8: {letter:''}};
 const BOXHEIGHT = 50;
+const DropZoneHeight = -55;
 class ScrambleFinansai extends Component {
   constructor(props) {
     super(props);
@@ -42,6 +43,18 @@ class ScrambleFinansai extends Component {
           7: { x:  162, y: BOXHEIGHT +100, u: false},
         },
 
+        DropZonePlaces: 
+        {  
+          0: { x: -189.0, y: DropZoneHeight, u: false},
+          1: { x: -135.0, y: DropZoneHeight, u: false},
+          2: { x:  -81.0, y: DropZoneHeight, u: false},
+          3: { x:  -27.0, y: DropZoneHeight, u: false},
+          4: { x:   27.0, y: DropZoneHeight, u: false},
+          5: { x:   81.0, y: DropZoneHeight, u: false},
+          6: { x:  135.0, y: DropZoneHeight, u: false},
+          7: { x:  189.0, y: DropZoneHeight, u: false},
+        },
+
         IndexPlaces:
         {
           0: { place: 0},
@@ -54,6 +67,17 @@ class ScrambleFinansai extends Component {
           7: { place: 0},
         },
         
+        IndexPlacesInDropZone:
+        {
+          0: { BoxWithIndex: 0, IndexOfPlace: 0},
+          1: { BoxWithIndex: 0, IndexOfPlace: 0},
+          2: { BoxWithIndex: 0, IndexOfPlace: 0},
+          3: { BoxWithIndex: 0, IndexOfPlace: 0},
+          4: { BoxWithIndex: 0, IndexOfPlace: 0},
+          5: { BoxWithIndex: 0, IndexOfPlace: 0},
+          6: { BoxWithIndex: 0, IndexOfPlace: 0},
+          7: { BoxWithIndex: 0, IndexOfPlace: 0},
+        },
         
       };
       
@@ -62,8 +86,6 @@ class ScrambleFinansai extends Component {
   }
 
   GivePlaces =() => {
-
-    
 
     for (let i = 0; i < 8; i++) {
       
@@ -81,7 +103,36 @@ class ScrambleFinansai extends Component {
     }
   }
 
+  SetInDropZone = (index) => {
 
+    let shortestAndFree = 1000;
+    let indexofplace = 1000;
+    console.log('--------------');
+    for (let i = 0; i < 8; i++) {
+      if (this.state.DropZonePlaces[i].u == false)
+      {
+        let stringFormat = JSON.stringify(this.pan[index].x);
+        let PanXfloatFormat = parseFloat(stringFormat);
+
+        let DropZoneXFloat = parseFloat(this.state.DropZonePlaces[i].x);
+        
+        let distance = DropZoneXFloat - PanXfloatFormat;
+        if(distance < 0) distance = distance * -1;
+        console.log(distance);
+
+        if(shortestAndFree > distance){
+          shortestAndFree = distance;
+          indexofplace = i;
+          //this.state.IndexPlacesInDropZone[indexofplace].BoxWithIndex = index;
+          this.state.IndexPlacesInDropZone[index].IndexOfPlace = indexofplace;
+        }
+      }
+    }
+    this.state.DropZonePlaces[indexofplace].u = true;
+    this.pan[index].x.setValue(this.state.DropZonePlaces[indexofplace].x);
+    this.pan[index].y.setValue(this.state.DropZonePlaces[indexofplace].y);
+    console.log(indexofplace + " <- Kur padeta | deze -> " + index);
+  }
 
   getPanResponder(index) {
       return PanResponder.create({
@@ -98,14 +149,17 @@ class ScrambleFinansai extends Component {
         onPanResponderMove: (_,gesture) => {
           this.pan[index].x.setValue(gesture.dx)
           this.pan[index].y.setValue(gesture.dy)
+          let BoxToFree = this.state.IndexPlacesInDropZone[index].IndexOfPlace;
+          this.state.DropZonePlaces[BoxToFree].u = false;
         },
 
         onPanResponderRelease: (e, gesture) => {
           this.pan[index].flattenOffset()  
           if(this.isDropZone(gesture)){
                 this.setState({
-                    showDraggable : false
+                    showDraggable : false,
                 });
+              this.SetInDropZone(index);  
             }else{
               let randomPlace = this.state.IndexPlaces[index].place;
               this.pan[index].x.setValue(this.state.StartPlaces[randomPlace].x);
@@ -209,7 +263,7 @@ const styles = StyleSheet.create({
   dropZone: {
     height: 70,
     backgroundColor:'#2c3e50',
-    justifyContent: 'center'
+    justifyContent: 'flex-start',
   },
   locationZone: {
     flex:1,
