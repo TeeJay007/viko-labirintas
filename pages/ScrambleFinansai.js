@@ -8,35 +8,38 @@ import {
   View,
   SafeAreaView,
   Dimensions,
+  Touchable,
+  TouchableOpacity,
 } from "react-native";
 import "react-native-gesture-handler";
 
 const LETTERSBOX_RADIUS = 25;
 const Window = Dimensions.get('window');
-const LettersMap = { 0: {letter:'F'}, 1: {letter:'I'}, 2: {letter:'N'}, 3: {letter:'A'}, 4: {letter:'N'}, 5: {letter:'S'}, 6: {letter:'A'}, 7: {letter:'I'}};
-const BOXHEIGHT = 200;
+const LettersMap = { 0: {letter:'F'}, 1: {letter:'I'}, 2: {letter:'N'}, 3: {letter:'A'}, 4: {letter:'N'}, 5: {letter:'S'}, 6: {letter:'A'}, 7: {letter:'I'}, 8: {letter:''}};
+const BOXHEIGHT = 50;
 class ScrambleFinansai extends Component {
   constructor(props) {
     super(props);
 
-    this.dataDrag = [0,1,2,3,4,5,6,7];
+      this.dataDrag = [0,1,2,3,4,5,6,7];
+      
       this.pan = this.dataDrag.map( () => new Animated.ValueXY() );
-  
+      
       this.state = 
       {
         showDraggable: true,
         dropZoneValues: null,
-  
+        
         StartPlaces: 
         {  
-          0: { x: -150, y: BOXHEIGHT, u: false},
-          1: { x:  -50, y: BOXHEIGHT, u: false},
-          2: { x:   50, y: BOXHEIGHT, u: false},
-          3: { x:  150, y: BOXHEIGHT, u: false},
-          4: { x: -150, y: BOXHEIGHT +100, u: false},
-          5: { x:  -50, y: BOXHEIGHT +100, u: false},
-          6: { x:   50, y: BOXHEIGHT +100, u: false},
-          7: { x:  150, y: BOXHEIGHT +100, u: false},
+          0: { x: -162, y: BOXHEIGHT, u: false},
+          1: { x:  -53, y: BOXHEIGHT, u: false},
+          2: { x:   53, y: BOXHEIGHT, u: false},
+          3: { x:  162, y: BOXHEIGHT, u: false},
+          4: { x: -162, y: BOXHEIGHT +100, u: false},
+          5: { x:  -53, y: BOXHEIGHT +100, u: false},
+          6: { x:   53, y: BOXHEIGHT +100, u: false},
+          7: { x:  162, y: BOXHEIGHT +100, u: false},
         },
 
         IndexPlaces:
@@ -50,7 +53,8 @@ class ScrambleFinansai extends Component {
           6: { place: 0},
           7: { place: 0},
         },
-
+        
+        
       };
       
       this.GivePlaces();
@@ -58,7 +62,9 @@ class ScrambleFinansai extends Component {
   }
 
   GivePlaces =() => {
+
     
+
     for (let i = 0; i < 8; i++) {
       
         let randomNumber = Math.floor(Math.random() * 8);
@@ -74,6 +80,8 @@ class ScrambleFinansai extends Component {
         }
     }
   }
+
+
 
   getPanResponder(index) {
       return PanResponder.create({
@@ -122,26 +130,59 @@ class ScrambleFinansai extends Component {
     LogBox.ignoreAllLogs(true);
     return (
       <SafeAreaView style={styles.safeAreaView}>
-         <View style={styles.mainContainer}>
+         <View style= {styles.container}>
+              
               <View style={styles.zeroZone}>
-                <Text> Koks tai žodis? </Text>
-                <Text> {this.state.IndexPlaces[4].place}</Text>
+                <Text style={styles.titleText}>Tai yra terminas, apibrėžiantis metodus, kuriais asmenys ar organizacijos įgyja, sukaupia, kontroliuoja ir naudoja piniginius išteklius per laikotarpį, įvertinant patiriamą riziką.</Text>
+                <Text></Text>
+                <Text style={styles.titleText}> Koks tai terminas? </Text>
               </View>
               
               <View
                   onLayout={this.setDropZoneValues.bind(this)}
                   style={styles.dropZone}>
-                  <Text style={styles.text}>Drop me here!</Text>
+                  <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
+                  <Text style={styles.HintPlace}></Text>
+                  <Text style={styles.HintPlace}></Text>
+                  <Text style={styles.HintPlace}></Text>
+                  <Text style={styles.HintPlace}></Text>
+                  <Text style={styles.HintPlace}></Text>
+                  <Text style={styles.HintPlace}></Text>
+                  <Text style={styles.HintPlace}></Text>
+                  <Text style={styles.HintPlace}></Text>
+                  </View>
+              </View>
+              <View style={styles.buttonsZone} >
+                  <View style={{flexDirection: 'row',justifyContent: 'space-around'}}>
+                  <Text style={styles.ButtonsHintPlace}></Text>
+                  <Text style={styles.ButtonsHintPlace}></Text>
+                  <Text style={styles.ButtonsHintPlace}></Text>
+                  <Text style={styles.ButtonsHintPlace}></Text>
+                  </View>
+                  <Text></Text>
+                  <Text></Text>
+                  <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
+                  <Text style={styles.ButtonsHintPlace}></Text>
+                  <Text style={styles.ButtonsHintPlace}></Text>
+                  <Text style={styles.ButtonsHintPlace}></Text>
+                  <Text style={styles.ButtonsHintPlace}></Text>
+                  </View>
+              </View>
+              <View style={styles.locationZone}>
+                <Text> jklasdjaskljdjkl </Text>
               </View>
 
+              
               {this.dataDrag.map((d, index) => (
                   <Animated.View
                       key={index}
                       {...this.getPanResponder(index).panHandlers}
                       style={[styles.draggableContainer, this.pan[index].getTranslateTransform(), styles.letterBox]}>
+                      
                       <Text style={styles.textInLetter}>{LettersMap[index].letter}</Text>
                   </Animated.View>
               ))}
+
           </View>
       </SafeAreaView>
     );
@@ -152,21 +193,41 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
   },
   safeAreaView: {
     flex: 1,
     paddingTop: 30,
   },
+  button: {
+    alignItems: "center",
+    backgroundColor: "#DDDDDD",
+    padding: 10,
+    borderRadius: 10,
+    width: 150,
+    height: 40,
+  },
   dropZone: {
-    height: 200,
+    height: 70,
     backgroundColor:'#2c3e50',
     justifyContent: 'center'
   },
+  locationZone: {
+    flex:1,
+    alignItems:'center',
+    justifyContent:'center',
+    alignSelf:'stretch',
+    backgroundColor:'blue',
+  },
+  buttonsZone: {
+    height: 220,
+    backgroundColor:'#444444',
+    justifyContent: 'center'
+  },
   zeroZone: {
-    height: 100,
+    height: Window.height/2.5,
     backgroundColor: 'blue',
+    alignItems:'center',
+    justifyContent:'center',
   },
   text: {
     textAlign: 'center',
@@ -174,10 +235,29 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 24,
   },
+  buttonsHints:{
+    
+  },
   textInLetter: {
     textAlign: 'center',
     color: '#333',
     fontSize: 24,
+  },
+  HintPlace: {
+    display: 'flex',
+    backgroundColor: 'grey',
+    width: 51,
+    height: 51,
+    borderRadius: 5,
+    margin: 1,
+  },
+  ButtonsHintPlace: {
+    display: 'flex',
+    backgroundColor: 'grey',
+    width: 61,
+    height: 61,
+    borderRadius: 5,
+    margin: 1,
   },
   draggableContainer: {
     position: 'absolute',
@@ -193,6 +273,11 @@ const styles = StyleSheet.create({
     height: LETTERSBOX_RADIUS*2,
     borderRadius: 5,
   },
+  titleText: {
+    textAlign: 'center',
+    fontSize: 20,
+    fontWeight: "bold"
+  }
 });
 
 export default ScrambleFinansai;
