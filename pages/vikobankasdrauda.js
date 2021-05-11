@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
 
-export default function Lenteles() {
+export default function Vikobankasdrauda() {
 
   const atsakymas1 = "401";
   const atsakymas2 = "402";
@@ -23,7 +23,7 @@ export default function Lenteles() {
         {atsakymas1.split('').map((_, i) =>
           <TextInput
             key={i}
-            placeholder={i + 1}
+            placeholder={i + 1 + "."}
             style={[
               styles.input,
               atsakymas1[i] == ats1.skaiciai1[i] && styles.inputCorrect, 
@@ -51,7 +51,7 @@ export default function Lenteles() {
         {atsakymas2.split('').map((_, i) =>
           <TextInput
             key={i}
-            placeholder={i + 4}
+            placeholder={i + 4 + "."}
             style={[
               styles.input,
               atsakymas2[i] == ats2.skaiciai2[i] && styles.inputCorrect,
@@ -73,7 +73,7 @@ export default function Lenteles() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column'
