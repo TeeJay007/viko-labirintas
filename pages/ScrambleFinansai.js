@@ -216,11 +216,9 @@ class ScrambleFinansai extends Component {
   };
 
   render() {
-    LogBox.ignoreAllLogs(true);
+    //LogBox.ignoreAllLogs(true);
     return (
-      <ImageBackground source={backgroundImage} style={styles.image}>
-
-      
+      <ImageBackground source={require('../Images/finb.jpg')} style={styles.image}>
       <SafeAreaView style={styles.safeAreaView}>
          <View style= {styles.container}>
               <View style={styles.zeroZone}>
@@ -301,7 +299,7 @@ const styles = StyleSheet.create({
   },
   button: {
     alignItems: "center",
-    backgroundColor: "#DDDDDD",
+    //backgroundColor: "#DDDDDD",
     padding: 10,
     borderRadius: 10,
     width: 150,
@@ -314,6 +312,7 @@ const styles = StyleSheet.create({
   },
   locationZone: {
     flex:1,
+    flexDirection: 'row',
     alignItems:'center',
     justifyContent:'center',
     alignSelf:'stretch',
@@ -343,8 +342,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   refreshButton: {
-    width: 100,
-    height: 40,
+    width: 120,
+    height: 50,
     backgroundColor: "dodgerblue",
     marginLeft: 10,
     justifyContent: "center",
@@ -358,7 +357,7 @@ const styles = StyleSheet.create({
   },
   HintPlace: {
     display: 'flex',
-    backgroundColor: 'grey',
+    backgroundColor: 'dodgerblue',
     width: 51,
     height: 51,
     borderRadius: 5,
@@ -366,7 +365,7 @@ const styles = StyleSheet.create({
   },
   ButtonsHintPlace: {
     display: 'flex',
-    backgroundColor: 'grey',
+    backgroundColor: 'dodgerblue',
     width: 61,
     height: 61,
     borderRadius: 5,
