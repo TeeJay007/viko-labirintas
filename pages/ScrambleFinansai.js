@@ -8,16 +8,19 @@ import {
   View,
   SafeAreaView,
   Dimensions,
-  Touchable,
+  ImageBackground,
   TouchableOpacity,
 } from "react-native";
 import "react-native-gesture-handler";
 
 const LETTERSBOX_RADIUS = 25;
 const Window = Dimensions.get('window');
-const LettersMap = { 0: {letter:'F'}, 1: {letter:'I'}, 2: {letter:'N'}, 3: {letter:'A'}, 4: {letter:'N'}, 5: {letter:'S'}, 6: {letter:'A'}, 7: {letter:'I'}, 8: {letter:''}};
+const LettersMap = { 0: {letter:'F'}, 1: {letter:'I'}, 2: {letter:'N'}, 3: {letter:'A'}, 4: {letter:'N'}, 5: {letter:'S'}, 6: {letter:'A'}, 7: {letter:'I'}, 8: {letter:'X'}};
 const BOXHEIGHT = 50;
 const DropZoneHeight = -55;
+const backgroundImage = {
+  uri: "https://sc.bns.lt/logos/1/20200902094253_VIKO_LOGO_PAGRINDINIS_V_LT.jpg",
+};
 class ScrambleFinansai extends Component {
   constructor(props) {
     super(props);
@@ -30,6 +33,7 @@ class ScrambleFinansai extends Component {
       {
         showDraggable: true,
         dropZoneValues: null,
+        Word: "XXXXXXXX",
         
         StartPlaces: 
         {  
@@ -45,14 +49,14 @@ class ScrambleFinansai extends Component {
 
         DropZonePlaces: 
         {  
-          0: { x: -189.0, y: DropZoneHeight, u: false},
-          1: { x: -135.0, y: DropZoneHeight, u: false},
-          2: { x:  -81.0, y: DropZoneHeight, u: false},
-          3: { x:  -27.0, y: DropZoneHeight, u: false},
-          4: { x:   27.0, y: DropZoneHeight, u: false},
-          5: { x:   81.0, y: DropZoneHeight, u: false},
-          6: { x:  135.0, y: DropZoneHeight, u: false},
-          7: { x:  189.0, y: DropZoneHeight, u: false},
+          0: { x: -189.0, y: DropZoneHeight, u: false, c: false},
+          1: { x: -135.0, y: DropZoneHeight, u: false, c: false},
+          2: { x:  -81.0, y: DropZoneHeight, u: false, c: false},
+          3: { x:  -27.0, y: DropZoneHeight, u: false, c: false},
+          4: { x:   27.0, y: DropZoneHeight, u: false, c: false},
+          5: { x:   81.0, y: DropZoneHeight, u: false, c: false},
+          6: { x:  135.0, y: DropZoneHeight, u: false, c: false},
+          7: { x:  189.0, y: DropZoneHeight, u: false, c: false},
         },
 
         IndexPlaces:
@@ -69,16 +73,16 @@ class ScrambleFinansai extends Component {
         
         IndexPlacesInDropZone:
         {
-          0: { BoxWithIndex: 0, IndexOfPlace: 0},
-          1: { BoxWithIndex: 0, IndexOfPlace: 0},
-          2: { BoxWithIndex: 0, IndexOfPlace: 0},
-          3: { BoxWithIndex: 0, IndexOfPlace: 0},
-          4: { BoxWithIndex: 0, IndexOfPlace: 0},
-          5: { BoxWithIndex: 0, IndexOfPlace: 0},
-          6: { BoxWithIndex: 0, IndexOfPlace: 0},
-          7: { BoxWithIndex: 0, IndexOfPlace: 0},
+          0: { IndexOfPlace: 0},
+          1: { IndexOfPlace: 0},
+          2: { IndexOfPlace: 0},
+          3: { IndexOfPlace: 0},
+          4: { IndexOfPlace: 0},
+          5: { IndexOfPlace: 0},
+          6: { IndexOfPlace: 0},
+          7: { IndexOfPlace: 0},
         },
-        
+
       };
       
       this.GivePlaces();
@@ -103,11 +107,19 @@ class ScrambleFinansai extends Component {
     }
   }
 
+  SetToFreeBoxPlaces = () => {
+    for (let i = 0; i < 8; i++) {
+      this.state.StartPlaces[i].u = false
+      this.state.DropZonePlaces[i].u = false;
+      this.state.IndexPlacesInDropZone[i].IndexOfPlace = 0;
+    }
+  }
+
   SetInDropZone = (index) => {
 
     let shortestAndFree = 1000;
     let indexofplace = 1000;
-    console.log('--------------');
+    //console.log('--------------');
     for (let i = 0; i < 8; i++) {
       if (this.state.DropZonePlaces[i].u == false)
       {
@@ -118,20 +130,20 @@ class ScrambleFinansai extends Component {
         
         let distance = DropZoneXFloat - PanXfloatFormat;
         if(distance < 0) distance = distance * -1;
-        console.log(distance);
+        //console.log(distance);
 
         if(shortestAndFree > distance){
           shortestAndFree = distance;
           indexofplace = i;
-          //this.state.IndexPlacesInDropZone[indexofplace].BoxWithIndex = index;
           this.state.IndexPlacesInDropZone[index].IndexOfPlace = indexofplace;
         }
       }
     }
     this.state.DropZonePlaces[indexofplace].u = true;
+    this.state.DropZonePlaces[indexofplace].c = true;
     this.pan[index].x.setValue(this.state.DropZonePlaces[indexofplace].x);
     this.pan[index].y.setValue(this.state.DropZonePlaces[indexofplace].y);
-    console.log(indexofplace + " <- Kur padeta | deze -> " + index);
+    //console.log(indexofplace + " <- Kur padeta | deze -> " + index);
   }
 
   getPanResponder(index) {
@@ -180,12 +192,35 @@ class ScrambleFinansai extends Component {
       });
   }
 
+  handleSubmitRefresh = () => {
+    this.SetToFreeBoxPlaces();
+    this.GivePlaces();
+    this.state.Word = "";
+  };
+
+  handleSubmitCheckWord = () => {
+    let Place = 1000;
+    let Letter = '';
+    this.state.Word = "";
+
+    for (let i = 0; i < 8; i++) {
+      Place = this.state.IndexPlacesInDropZone[i].IndexOfPlace;
+      Letter = LettersMap[Place].letter;
+      this.state.Word = this.state.Word + Letter;
+    }
+
+    if(this.state.Word == "FINANSAI")
+    console.log("Correct - " + this.state.Word);
+    else
+    console.log("Incorrect - " + this.state.Word)
+  };
+
   render() {
-    LogBox.ignoreAllLogs(true);
+    //LogBox.ignoreAllLogs(true);
     return (
+      <ImageBackground source={require('../Images/finb.jpg')} style={styles.image}>
       <SafeAreaView style={styles.safeAreaView}>
          <View style= {styles.container}>
-              
               <View style={styles.zeroZone}>
                 <Text style={styles.titleText}>Tai yra terminas, apibrėžiantis metodus, kuriais asmenys ar organizacijos įgyja, sukaupia, kontroliuoja ir naudoja piniginius išteklius per laikotarpį, įvertinant patiriamą riziką.</Text>
                 <Text></Text>
@@ -222,10 +257,20 @@ class ScrambleFinansai extends Component {
                   <Text style={styles.ButtonsHintPlace}></Text>
                   </View>
               </View>
+              
               <View style={styles.locationZone}>
-                <Text> jklasdjaskljdjkl </Text>
+                <TouchableOpacity onPress={this.handleSubmitRefresh}>
+                  <View style={styles.refreshButton}>
+                    <Text style={styles.refreshButtonText}>Perkrauti</Text>
+                  </View>
+                </TouchableOpacity>
+                <Text></Text>
+                <TouchableOpacity onPress={this.handleSubmitCheckWord}>
+                  <View style={styles.refreshButton}>
+                    <Text style={styles.refreshButtonText}>Patikrinti</Text>
+                  </View>
+                </TouchableOpacity>
               </View>
-
               
               {this.dataDrag.map((d, index) => (
                   <Animated.View
@@ -236,9 +281,9 @@ class ScrambleFinansai extends Component {
                       <Text style={styles.textInLetter}>{LettersMap[index].letter}</Text>
                   </Animated.View>
               ))}
-
           </View>
       </SafeAreaView>
+      </ImageBackground>
     );
   }
 }
@@ -246,7 +291,7 @@ class ScrambleFinansai extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    //backgroundColor: "#fff",
   },
   safeAreaView: {
     flex: 1,
@@ -254,7 +299,7 @@ const styles = StyleSheet.create({
   },
   button: {
     alignItems: "center",
-    backgroundColor: "#DDDDDD",
+    //backgroundColor: "#DDDDDD",
     padding: 10,
     borderRadius: 10,
     width: 150,
@@ -262,24 +307,25 @@ const styles = StyleSheet.create({
   },
   dropZone: {
     height: 70,
-    backgroundColor:'#2c3e50',
+    //backgroundColor:'#2c3e50',
     justifyContent: 'flex-start',
   },
   locationZone: {
     flex:1,
+    flexDirection: 'row',
     alignItems:'center',
     justifyContent:'center',
     alignSelf:'stretch',
-    backgroundColor:'blue',
+   // backgroundColor:'blue',
   },
   buttonsZone: {
     height: 220,
-    backgroundColor:'#444444',
+    //backgroundColor:'#444444',
     justifyContent: 'center'
   },
   zeroZone: {
     height: Window.height/2.5,
-    backgroundColor: 'blue',
+    //backgroundColor: 'blue',
     alignItems:'center',
     justifyContent:'center',
   },
@@ -289,8 +335,20 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 24,
   },
-  buttonsHints:{
-    
+  refreshButtonText: {
+    fontSize: 24,
+    lineHeight: 24,
+    color: "white",
+    fontWeight: "bold",
+  },
+  refreshButton: {
+    width: 120,
+    height: 50,
+    backgroundColor: "dodgerblue",
+    marginLeft: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 10,
   },
   textInLetter: {
     textAlign: 'center',
@@ -299,7 +357,7 @@ const styles = StyleSheet.create({
   },
   HintPlace: {
     display: 'flex',
-    backgroundColor: 'grey',
+    backgroundColor: 'dodgerblue',
     width: 51,
     height: 51,
     borderRadius: 5,
@@ -307,7 +365,7 @@ const styles = StyleSheet.create({
   },
   ButtonsHintPlace: {
     display: 'flex',
-    backgroundColor: 'grey',
+    backgroundColor: 'dodgerblue',
     width: 61,
     height: 61,
     borderRadius: 5,
@@ -331,7 +389,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 20,
     fontWeight: "bold"
-  }
+  },
+  image: {
+    height: "100%",
+    width: "100%",
+    resizeMode: "cover",
+  },
 });
 
 export default ScrambleFinansai;
