@@ -1,11 +1,12 @@
 import React, {useRef} from 'react';
+import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, PanResponder, Animated, useWindowDimensions, TouchableOpacity } from 'react-native';
 
 const IMAGE = "https://upload.wikimedia.org/wikipedia/commons/b/bd/Spitzkoppe_360_Panorama.jpg";
 const IMAGE_WIDTH = 10000;
 const IMAGE_HEIGHT = 1768;
 
-export default function Panorama() {
+export default function Second({ navigation: { navigate } }) {
     const pan = useRef(new Animated.ValueXY()).current;
 
     const {width: screenW, height: screenH} = useWindowDimensions()
@@ -72,6 +73,7 @@ export default function Panorama() {
                     top: 0,
                 }
             ]}>
+                {/* // Zemiau komponentai nupesti ant panoramos paveikslelio ir paveikslelis */}
                 <Text style={{
                     position: 'absolute',
                     top: resizeHeight(550),
@@ -83,7 +85,7 @@ export default function Panorama() {
                     position: 'absolute',
                     top: resizeHeight(420),
                     left: resizeWidth(7124)
-                }}><Text style={{color: 'white'}}>Tekstas ant kalno?</Text></TouchableOpacity>
+                }}><Text style={{color: 'white'}}>Tekstas ant kalno kitam puslapyje</Text></TouchableOpacity>
 
 
 
@@ -100,6 +102,7 @@ export default function Panorama() {
                     source={{ uri: IMAGE }}
                 />
             </Animated.View>
+            <StatusBar hidden={true} />
         </View>
     );
 }
@@ -107,7 +110,7 @@ export default function Panorama() {
 const styles = StyleSheet.create({
     panorama: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#000000',
         overflow: 'hidden',
         height: '100%',
         alignItems: 'center'
