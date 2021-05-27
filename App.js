@@ -16,41 +16,47 @@ import Second from './pages/navigation_pages/second'
 const Stack = createStackNavigator();
 
 export default function App() {
-  return (
-    <Balloons/>
-    
-    // <NavigationContainer>
-    //   {/* TODO: kur initialRouteName turetu but pradinis programos route name */}
-    //   <Stack.Navigator initialRouteName="first">
-    //     {/* <Stack.Screen
-    //       name="lenteles"
-    //       component={Lenteles}
-    //       options={{ title: 'Lentelės' }} /> */}
+  return (    
+    <NavigationContainer>
+      {/* TODO: kur initialRouteName turetu but pradinis programos route name */}
+      <Stack.Navigator initialRouteName="finansai">
+        {/* <Stack.Screen
+          name="lenteles"
+          component={Lenteles}
+          options={{ title: 'Lentelės' }} /> */}
 
-    //     {/* Navigacija po pastata */}
-    //     <Stack.Screen
-    //       name="first"
-    //       component={First}
-    //       options={{ title: 'Pirmas' , headerShown: false, cardStyleInterpolator: forFade}} />
-    //     <Stack.Screen
-    //       name="second"
-    //       component={Second}
-    //       options={{ title: 'Antras' , headerShown: false, cardStyleInterpolator: forFade}} />
+        {/* Navigacija po pastata */}
+        <Stack.Screen
+          name="baloons"
+          component={Balloons}
+          options={{title: 'Balionai'}} />
+        <Stack.Screen
+          name="first"
+          component={First}
+          options={{ title: 'Pirmas' , headerShown: false, cardStyleInterpolator: forFade}} />
+        <Stack.Screen
+          name="second"
+          component={Second}
+          options={{ title: 'Antras' , headerShown: false, cardStyleInterpolator: forFade}} />
 
-    //     <Stack.Screen
-    //       name="proLanga"
-    //       component={ProLanga}
-    //       options={{ title: 'Pro langą' }} />
-    //     <Stack.Screen
-    //       name="scrambleFinansai"
-    //       component={ScrambleFinansai}
-    //       options={{ title: 'Finansai' }} />
-    //     <Stack.Screen
-    //       name="vikoBankasDrauda"
-    //       component={Vikobankasdrauda}
-    //       options={{ title: 'Viko bankas drauda' }} />
-    //   </Stack.Navigator>
-    // </NavigationContainer>
+        <Stack.Screen
+          name="proLanga"
+          component={ProLanga}
+          options={{ title: 'Pro langą' }} />
+        <Stack.Screen
+          name="scrambleFinansai"
+          component={ScrambleFinansai}
+          options={{ title: 'Finansai' }} />
+        <Stack.Screen
+          name="finansai"
+          component={Finansai}
+          options={{ title: 'Finansai' }} />
+        <Stack.Screen
+          name="vikoBankasDrauda"
+          component={Vikobankasdrauda}
+          options={{ title: 'Viko bankas drauda' }} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useContext, useState } from 'react';
-import { StyleSheet, Text, View, PanResponder, Animated, useWindowDimensions } from 'react-native';
+import { StyleSheet, Text, View, PanResponder, Animated, useWindowDimensions, Platform } from 'react-native';
 
 const Draggable = ({letter = " " }) => {
     const pan = useRef(new Animated.ValueXY()).current;
@@ -10,8 +10,8 @@ const Draggable = ({letter = " " }) => {
     const panResponder = PanResponder.create({
         onStartShouldSetPanResponder: () => true,
         onPanResponderMove: Animated.event([
-            null, { dx: pan.x, dy: pan.y },
-        ]),
+            null, { dx: pan.x, dy: pan.y }
+        ],{useNativeDriver: false}),
         onPanResponderRelease: (e, gesture) => {
             for(let i in letters){
                 const letterData = letters[i]
@@ -26,7 +26,7 @@ const Draggable = ({letter = " " }) => {
                 }
             }
             Animated.spring(
-                pan, { toValue: { x: 0, y: 0 } }
+                pan, { toValue: { x: 0, y: 0 }, useNativeDriver: false }
             ).start();
         },
     });
@@ -66,26 +66,32 @@ const InputBox = ({letter = '', id = 0, size = 50}) => {
             height: size,
             maxWidth: 50,
             maxHeight: 50
-        }]} onLayout={({nativeEvent}) => {
-            if(letters[id] == undefined){
-                setLetters(old => [...old, {
-                    id,
-                    letter,
-                    hidden: true,
-                    x: nativeEvent.layout.left,
-                    y: nativeEvent.layout.top,
-                    size: nativeEvent.layout.width
-                }])
-            }else{
-                setLetters(old => old.map(v => v.id == id ? {
-                    id,
-                    letter,
-                    hidden: true,
-                    x: nativeEvent.layout.left,
-                    y: nativeEvent.layout.top,
-                    size: nativeEvent.layout.width
-                } : v))
-            }
+        }]} onLayout={(event) => {
+            const target = Platform.OS === 'web' ? event.nativeEvent.target : event.target
+
+            target.measure((x, y, width, height, pageX, pageY) =>{
+                if(letters[id] == undefined){
+                    setLetters(old => [...old, {
+                        id,
+                        letter,
+                        hidden: true,
+                        x: pageX,
+                        y: pageY,
+                        size: width
+                    }])
+                }else{
+                    setLetters(old => old.map(v => v.id == id ? {
+                        id,
+                        letter,
+                        hidden: true,
+                        x: pageX,
+                        y: pageY,
+                        size: width
+                    } : v))
+                }
+            })
+
+
         }}>
             <Text style={styles.inputLetterText}>{getLetter()}</Text>
         </View>
