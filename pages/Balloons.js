@@ -27,9 +27,9 @@ class Balloons extends Component{
             mainRed: require('../Images/red1.png'),
             imageHeight: 192,
             imageWidth: 130,
-            numberOne: 0,
-            numberTwo: 0,
-            numberThree: 0,
+            numberOne: "",
+            numberTwo: "",
+            numberThree: "",
         }
     }
 
@@ -109,7 +109,7 @@ class Balloons extends Component{
     }
 
     render(){
-        LogBox.ignoreAllLogs(true);
+        //LogBox.ignoreAllLogs(true);
         return (
             <ImageBackground source={require('../Images/sa.jpg')} style={styles.image}>
                 <View style={styles.container}>
@@ -136,13 +136,13 @@ class Balloons extends Component{
                         <Text style={{fontSize: 24, fontWeight: "bold"}} >Įrašykite:</Text>
                         
                         <View style={{flexDirection: 'row'}}>
-                        <TextInput style={styles.input} value={this.state.numberOne} placeholder="0" keyboardType='numeric' maxLength={1}
+                        <TextInput style={styles.input} value={this.state.numberOne.toString()} placeholder="0" keyboardType='numeric' maxLength={1}
                         onChangeText={(text) => this.numberOneChange(text)}
                         />
-                        <TextInput style={styles.input} value={this.state.numberTwo} placeholder="0" keyboardType='numeric' maxLength={1}
+                        <TextInput style={styles.input} value={this.state.numberTwo.toString()} placeholder="0" keyboardType='numeric' maxLength={1}
                         onChangeText={(text) => this.numberTwoChange(text)}
                         />
-                        <TextInput style={styles.input} value={this.state.numberThree} placeholder="0" keyboardType='numeric' maxLength={1}
+                        <TextInput style={styles.input} value={this.state.numberThree.toString()} placeholder="0" keyboardType='numeric' maxLength={1}
                         onChangeText={(text) => this.numberThreeChange(text)}
                         />
                         </View>
