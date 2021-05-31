@@ -1,20 +1,30 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 
 export default function Pavyzdinis() {
   return (
-    <View style={styles.container}>
-      <Text>Tai yra pavyzdinis langelis</Text>
-    </View>
+    <ScrollView contentContainerStyle={styles.container} horizontal={true}>
+
+  <Text style={{margin:1000}}>Child 1</Text>
+  <Text>Child 2</Text>
+  <Text>Child 3</Text>
+
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'gray',
     alignItems: 'center',
     justifyContent: 'center',
+    
+  },
+  vert: {
+    flexDirection: "column",
+  },
+  horz: {
+    flexDirection: "row",
   },
 });
  
