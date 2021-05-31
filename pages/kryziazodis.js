@@ -1,4 +1,4 @@
-import React, { Component, useState, useRef } from "react";
+import React, { Component, useState, useRef,useEffect } from "react";
 import { render } from "react-dom";
 import {
   View,
@@ -10,6 +10,8 @@ import {
   StyleSheet,
   TextInput,
   Alert,
+  Platform,
+  
   
 } from "react-native";
 import { color } from "react-native-reanimated";
@@ -18,6 +20,7 @@ import { color } from "react-native-reanimated";
 const PositionLayout = () => {
   const [position, setPosition] = useState("absolute");
   const [complete, setcomplete] = useState("0");
+  const [wdd, setwdd] = useState(1000);
   //----------Uzrakinimo values-----------
   const [res1,setres1]=useState(true);
   const [res1_2,setres1_2]=useState(true);
@@ -70,123 +73,125 @@ const PositionLayout = () => {
   const [_16,set_16]=useState("");
   //--------------Ref-------------------
   //---------------1--------------------
-  const _1_1ref = useRef();
-  const _1_2ref = useRef();
-  const _1_3ref = useRef();
-  const _1_4ref = useRef();
-  const _1_5ref = useRef();
-  const _1_6ref = useRef();
-  const _1_7ref = useRef();
-  const _1_8ref = useRef();
-  const _1_9ref = useRef();
+  constructor
+  const _1_1ref = useRef("");
+  const _1_2ref = useRef("");
+  const _1_3ref = useRef("");
+  const _1_4ref = useRef("");
+  const _1_5ref = useRef("");
+  const _1_6ref = useRef("");
+  const _1_7ref = useRef("");
+  const _1_8ref = useRef("");
+  const _1_9ref = useRef("");
   
   //---------------2--------------------
-  const _2_1ref = useRef();
-  const _2_2ref = useRef();
-  const _2_3ref = useRef();
-  const _2_4ref = useRef();
-  const _2_5ref = useRef();
-  const _2_6ref = useRef();
-  const _2_7ref = useRef();
-  const _2_8ref = useRef();
+  const _2_1ref = useRef("");
+  const _2_2ref = useRef("");
+  const _2_3ref = useRef("");
+  const _2_4ref = useRef("");
+  const _2_5ref = useRef("");
+  const _2_6ref = useRef("");
+  const _2_7ref = useRef("");
+  const _2_8ref = useRef("");
  
   //---------------3--------------------
-  const _3_1ref = useRef();
-  const _3_2ref = useRef();
-  const _3_3ref = useRef();
-  const _3_4ref = useRef();
-  const _3_5ref = useRef();
+  const _3_1ref = useRef("");
+  const _3_2ref = useRef("");
+  const _3_3ref = useRef("");
+  const _3_4ref = useRef("");
+  const _3_5ref = useRef("");
   //---------------4--------------------
-  const _4_1ref = useRef();
-  const _4_2ref = useRef();
-  const _4_3ref = useRef();
-  const _4_4ref = useRef();
-  const _4_5ref = useRef();
-  const _4_6ref = useRef();
+  const _4_1ref = useRef("");
+  const _4_2ref = useRef("");
+  const _4_3ref = useRef("");
+  const _4_4ref = useRef("");
+  const _4_5ref = useRef("");
+  const _4_6ref = useRef("");
   //---------------5--------------------
-  const _5_1ref = useRef();
-  const _5_2ref = useRef();
-  const _5_3ref = useRef();
-  const _5_4ref = useRef();
-  const _5_5ref = useRef();
-  const _5_6ref = useRef();
-  const _5_7ref = useRef();
-  const _5_8ref = useRef();
-  const _5_9ref = useRef();
-  const _5_10ref = useRef();
-  const _5_11ref = useRef();
+  const _5_1ref = useRef("");
+  const _5_2ref = useRef("");
+  const _5_3ref = useRef("");
+  const _5_4ref = useRef("");
+  const _5_5ref = useRef("");
+  const _5_6ref = useRef("");
+  const _5_7ref = useRef("");
+  const _5_8ref = useRef("");
+  const _5_9ref = useRef("");
+  const _5_10ref = useRef("");
+  const _5_11ref = useRef("");
   //---------------6--------------------
-  const _6_1ref = useRef();
-  const _6_2ref = useRef();
-  const _6_3ref = useRef();
-  const _6_4ref = useRef();
-  const _6_5ref = useRef();
-  const _6_6ref = useRef();
-  const _6_7ref = useRef();
+  const _6_1ref = useRef("");
+  const _6_2ref = useRef("");
+  const _6_3ref = useRef("");
+  const _6_4ref = useRef("");
+  const _6_5ref = useRef("");
+  const _6_6ref = useRef("");
+  const _6_7ref = useRef("");
   //---------------7--------------------
-  const _7_1ref = useRef();
-  const _7_2ref = useRef();
-  const _7_3ref = useRef();
-  const _7_4ref = useRef();
-  const _7_5ref = useRef();
+  const _7_1ref = useRef("");
+  const _7_2ref = useRef("");
+  const _7_3ref = useRef("");
+  const _7_4ref = useRef("");
+  const _7_5ref = useRef("");
   //---------------8--------------------
-  const _8_1ref = useRef();
-  const _8_2ref = useRef();
-  const _8_3ref = useRef();
-  const _8_4ref = useRef();
-  const _8_5ref = useRef();
+  const _8_1ref = useRef("");
+  const _8_2ref = useRef("");
+  const _8_3ref = useRef("");
+  const _8_4ref = useRef("");
+  const _8_5ref = useRef("");
   //---------------9--------------------
-  const _9_1ref = useRef();
-  const _9_2ref = useRef();
-  const _9_3ref = useRef();
-  const _9_4ref = useRef();
-  const _9_5ref = useRef();
+  const _9_1ref = useRef("");
+  const _9_2ref = useRef("");
+  const _9_3ref = useRef("");
+  const _9_4ref = useRef("");
+  const _9_5ref = useRef("");
   //---------------10--------------------
-  const _10_1ref = useRef();
-  const _10_2ref = useRef();
-  const _10_3ref = useRef();
-  const _10_4ref = useRef();
-  const _10_5ref = useRef();
-  const _10_6ref = useRef();
-  const _10_7ref = useRef();
+  const _10_1ref = useRef("");
+  const _10_2ref = useRef("");
+  const _10_3ref = useRef("");
+  const _10_4ref = useRef("");
+  const _10_5ref = useRef("");
+  const _10_6ref = useRef("");
+  const _10_7ref = useRef("");
   //---------------11--------------------
-  const _11_1ref = useRef();
-  const _11_2ref = useRef();
+  const _11_1ref = useRef("");
+  const _11_2ref = useRef("");
   
   //---------------12--------------------
-  const _12_1ref = useRef();
-  const _12_2ref = useRef();
+  const _12_1ref = useRef("");
+  const _12_2ref = useRef("");
 ;
   //---------------13--------------------
-  const _13_1ref = useRef();
-  const _13_2ref = useRef();
+  const _13_1ref = useRef("");
+  const _13_2ref = useRef("");
 
   //---------------14--------------------
-  const _14_1ref = useRef();
-  const _14_2ref = useRef();
-  const _14_3ref = useRef();
-  const _14_4ref = useRef();
+  const _14_1ref = useRef("");
+  const _14_2ref = useRef("");
+  const _14_3ref = useRef("");
+  const _14_4ref = useRef("");
   //---------------15--------------------
-  const _15_1ref = useRef();
-  const _15_2ref = useRef();
-  const _15_3ref = useRef();
-  const _15_4ref = useRef();
-  const _15_5ref = useRef();
-  const _15_6ref = useRef();
-  const _15_7ref = useRef();
-  const _15_8ref = useRef();
-  const _15_9ref = useRef();
+  const _15_1ref = useRef("");
+  const _15_2ref = useRef("");
+  const _15_3ref = useRef("");
+  const _15_4ref = useRef("");
+  const _15_5ref = useRef("");
+  const _15_6ref = useRef("");
+  const _15_7ref = useRef("");
+  const _15_8ref = useRef("");
+  const _15_9ref = useRef("");
   //---------------16--------------------
-  const _16_1ref = useRef();
-  const _16_2ref = useRef();
-  const _16_3ref = useRef();
-  const _16_4ref = useRef();
-  const _16_5ref = useRef();
-  const _16_6ref = useRef();
-  const _16_7ref = useRef();
-  
+  const _16_1ref = useRef("");
+  const _16_2ref = useRef("");
+  const _16_3ref = useRef("");
+  const _16_4ref = useRef("");
+  const _16_5ref = useRef("");
+  const _16_6ref = useRef("");
+  const _16_7ref = useRef("");
+
   
 
+  
   //--------------Check-----------------
   const clicktest = (check,value) =>{
     
@@ -1931,8 +1936,14 @@ const PositionLayout = () => {
             if(value!=""){
               
               CheckAnswer("ats15");
+              console.log(_15_2ref.current.value)
               if(_15_2ref.current.value=="")
-              _15_2ref.current.focus();
+              {
+                console.log("test2")
+                _15_2ref.current.focus();
+              }
+              
+              console.log("test3")
             }
             else{
               
@@ -2283,7 +2294,7 @@ const PositionLayout = () => {
       case "ats1":
         if(_1_1ref.current.value!="" && _1_2ref.current.value!="" && _1_3ref.current.value!=""&& _1_4ref.current.value!="" &&_1_5ref.current.value!="" && _1_6ref.current.value!="" && _1_7ref.current.value!="" && _1_8ref.current.value!="" && _1_9ref.current.value!="" ){
           var cc = _1_1ref.current.value+ _1_2ref.current.value+ _1_3ref.current.value+ _1_4ref.current.value + _1_5ref.current.value + _1_6ref.current.value+ _1_7ref.current.value+ _1_8ref.current.value+ _1_9ref.current.value;
-          let lowercasetext = cc.toLowerCase();
+          let lowercasetext = cc.toString().toLowerCase();
           set_1(lowercasetext)
           
           
@@ -2300,7 +2311,7 @@ const PositionLayout = () => {
       case "ats2":
         if(_1_5ref.current.value!="" && _2_1ref.current.value!="" && _2_2ref.current.value!=""&& _2_3ref.current.value!="" &&_2_4ref.current.value!="" && _2_5ref.current.value!="" && _2_6ref.current.value!="" && _2_7ref.current.value!="" && _2_8ref.current.value!="" ){
           var cc = _1_5ref.current.value+ _2_1ref.current.value+ _2_2ref.current.value+ _2_3ref.current.value+_2_4ref.current.value+ _2_5ref.current.value+ _2_6ref.current.value+_2_7ref.current.value+ _2_8ref.current.value;
-          let lowercasetext = cc.toLowerCase();
+          let lowercasetext = cc.toString().toLowerCase();
           set_2(lowercasetext)
           
           
@@ -2320,7 +2331,7 @@ const PositionLayout = () => {
       case "ats3":
         if(_3_1ref.current.value!="" && _3_2ref.current.value!="" && _3_3ref.current.value!=""&& _3_4ref.current.value!="" &&_3_5ref.current.value!=""){
           var cc = _3_1ref.current.value+ _3_2ref.current.value+_3_3ref.current.value+_3_4ref.current.value+_3_5ref.current.value;
-          let lowercasetext = cc.toLowerCase();
+          let lowercasetext = cc.toString().toLowerCase();
           set_3(lowercasetext)
           
           
@@ -2337,7 +2348,7 @@ const PositionLayout = () => {
       case "ats4":
         if(_4_1ref.current.value!="" && _4_2ref.current.value!="" && _4_3ref.current.value!=""&& _2_2ref.current.value!="" &&_4_4ref.current.value!=""&&_4_5ref.current.value!=""&&_4_6ref.current.value!=""){
           var cc = _4_1ref.current.value+_4_2ref.current.value+ _4_3ref.current.value+ _2_2ref.current.value+_4_4ref.current.value+_4_5ref.current.value+_4_6ref.current.value;
-          let lowercasetext = cc.toLowerCase();
+          let lowercasetext = cc.toString().toLowerCase();
           set_4(lowercasetext)
           
           
@@ -2354,7 +2365,7 @@ const PositionLayout = () => {
       case "ats5":
         if(_5_1ref.current.value!="" && _5_2ref.current.value!="" && _5_3ref.current.value!=""&& _5_4ref.current.value!="" &&_5_5ref.current.value!="" && _5_6ref.current.value!="" && _5_7ref.current.value!="" && _5_8ref.current.value!="" && _5_9ref.current.value!="" && _5_10ref.current.value!="" && _5_11ref.current.value!="" ){
           var cc = _5_1ref.current.value+ _5_2ref.current.value+ _5_3ref.current.value+ _5_4ref.current.value+_5_5ref.current.value+_5_6ref.current.value+_5_7ref.current.value+ _5_8ref.current.value+_5_9ref.current.value+ _5_10ref.current.value+ _5_11ref.current.value;
-          let lowercasetext = cc.toLowerCase();
+          let lowercasetext = cc.toString().toLowerCase();
           set_5(lowercasetext)
           
           
@@ -2376,7 +2387,7 @@ const PositionLayout = () => {
       case "ats6":
         if(_6_1ref.current.value!="" && _6_2ref.current.value!="" && _3_4ref.current.value!=""&& _6_3ref.current.value!="" &&_6_4ref.current.value!="" && _6_5ref.current.value!="" && _5_2ref.current.value!="" && _6_6ref.current.value!="" && _2_5ref.current.value!="" && _6_7ref.current.value!="" ){
           var cc = _6_1ref.current.value+ _6_2ref.current.value+ _3_4ref.current.value+ _6_3ref.current.value+_6_4ref.current.value+ _6_5ref.current.value+ _5_2ref.current.value+ _6_6ref.current.value+ _2_5ref.current.value+ _6_7ref.current.value ;
-          let lowercasetext = cc.toLowerCase();
+          let lowercasetext = cc.toString().toLowerCase();
           set_6(lowercasetext)
           
           
@@ -2395,7 +2406,7 @@ const PositionLayout = () => {
       case "ats7":
         if(_7_1ref.current.value!="" && _7_2ref.current.value!="" && _7_3ref.current.value!=""&& _7_4ref.current.value!="" &&_7_5ref.current.value!=""){
           var cc = _7_1ref.current.value+_7_2ref.current.value+ _7_3ref.current.value+ _7_4ref.current.value+_7_5ref.current.value;
-          let lowercasetext = cc.toLowerCase();
+          let lowercasetext = cc.toString().toLowerCase();
           set_7(lowercasetext)
           
           
@@ -2413,7 +2424,7 @@ const PositionLayout = () => {
       case "ats8":
         if(_8_1ref.current.value!="" && _8_2ref.current.value!="" && _5_5ref.current.value!=""&& _8_3ref.current.value!="" &&_2_8ref.current.value!=""&&_8_4ref.current.value!=""&&_8_5ref.current.value!=""){
           var cc =_8_1ref.current.value+ _8_2ref.current.value+ _5_5ref.current.value+_8_3ref.current.value+_2_8ref.current.value+_8_4ref.current.value+_8_5ref.current.value;
-          let lowercasetext = cc.toLowerCase();
+          let lowercasetext = cc.toString().toLowerCase();
           set_8(lowercasetext)
           
           
@@ -2432,7 +2443,7 @@ const PositionLayout = () => {
       case "ats9":
         if(_9_1ref.current.value!="" && _9_2ref.current.value!="" && _9_3ref.current.value!=""&& _9_4ref.current.value!="" && _15_9ref.current.value!=""){
           var cc =_9_1ref.current.value+_9_2ref.current.value+ _9_3ref.current.value+ _9_4ref.current.value+ _15_9ref.current.value;
-          let lowercasetext = cc.toLowerCase();
+          let lowercasetext = cc.toString().toLowerCase();
           set_9(lowercasetext)
           
           
@@ -2448,7 +2459,7 @@ const PositionLayout = () => {
       case "ats10":
         if(_7_5ref.current.value!="" && _10_1ref.current.value!="" && _10_2ref.current.value!=""&& _10_3ref.current.value!="" && _10_4ref.current.value!=""&& _10_5ref.current.value!=""&& _10_6ref.current.value!="" && _5_7ref.current.value!=""&& _10_7ref.current.value!="" ){
           var cc =_7_5ref.current.value+ _10_1ref.current.value+ _10_2ref.current.value+ _10_3ref.current.value+ _10_4ref.current.value+ _10_5ref.current.value+ _10_6ref.current.value+ _5_7ref.current.value+ _10_7ref.current.value;
-          let lowercasetext = cc.toLowerCase();
+          let lowercasetext = cc.toString().toLowerCase();
           set_10(lowercasetext)
           
           
@@ -2465,7 +2476,7 @@ const PositionLayout = () => {
       case "ats11":
         if(_11_1ref.current.value!="" && _11_2ref.current.value!="" && _15_7ref.current.value!="" ){
           var cc =_11_1ref.current.value+ _11_2ref.current.value+ _15_7ref.current.value ;
-          let lowercasetext = cc.toLowerCase();
+          let lowercasetext = cc.toString().toLowerCase();
           set_11(lowercasetext)
           
           
@@ -2481,7 +2492,7 @@ const PositionLayout = () => {
       case "ats12":
         if(_12_1ref.current.value!="" && _12_2ref.current.value!="" && _16_2ref.current.value!="" ){
           var cc =_12_1ref.current.value+ _12_2ref.current.value+ _16_2ref.current.value ;
-          let lowercasetext = cc.toLowerCase();
+          let lowercasetext = cc.toString().toLowerCase();
           set_12(lowercasetext)
           
           
@@ -2497,7 +2508,7 @@ const PositionLayout = () => {
       case "ats13":
         if(_13_1ref.current.value!="" && _14_1ref.current.value!="" && _13_2ref.current.value!="" ){
           var cc =_13_1ref.current.value+ _14_1ref.current.value+ _13_2ref.current.value ;
-          let lowercasetext = cc.toLowerCase();
+          let lowercasetext = cc.toString().toLowerCase();
           set_13(lowercasetext)
           
          
@@ -2513,7 +2524,7 @@ const PositionLayout = () => {
       case "ats14":
         if(_14_1ref.current.value!="" && _14_2ref.current.value!="" && _16_5ref.current.value!="" && _14_3ref.current.value!=""&& _14_4ref.current.value!=""){
           var cc =_14_1ref.current.value+ _14_2ref.current.value+ _16_5ref.current.value+ _14_3ref.current.value+ _14_4ref.current.value ;
-          let lowercasetext = cc.toLowerCase();
+          let lowercasetext = cc.toString().toLowerCase();
           set_14(lowercasetext)
           
           
@@ -2530,7 +2541,7 @@ const PositionLayout = () => {
       case "ats15":
         if(_5_9ref.current.value!="" && _15_1ref.current.value!="" && _15_2ref.current.value!="" && _15_3ref.current.value!=""&& _15_4ref.current.value!=""&& _15_5ref.current.value!=""&& _15_6ref.current.value!=""&& _15_7ref.current.value!=""&& _15_8ref.current.value!=""&& _15_9ref.current.value!=""){
           var cc =_5_9ref.current.value+ _15_1ref.current.value+_15_2ref.current.value+ _15_3ref.current.value+ _15_4ref.current.value+ _15_5ref.current.value+ _15_6ref.current.value+ _15_7ref.current.value+ _15_8ref.current.value+ _15_9ref.current.value ;
-          let lowercasetext = cc.toLowerCase();
+          let lowercasetext = cc.toString().toLowerCase();
           set_15(lowercasetext)
           
           
@@ -2549,7 +2560,7 @@ const PositionLayout = () => {
       case "ats16":
         if(_16_1ref.current.value!="" && _16_2ref.current.value!="" && _16_3ref.current.value!="" && _16_4ref.current.value!=""&& _16_5ref.current.value!=""&& _16_6ref.current.value!=""&& _16_7ref.current.value!=""&& _5_11ref.current.value!=""){
           var cc =_16_1ref.current.value+ _16_2ref.current.value+ _16_3ref.current.value+ _16_4ref.current.value+_16_5ref.current.value+ _16_6ref.current.value+ _16_7ref.current.value+ _5_11ref.current.value ;
-          let lowercasetext = cc.toLowerCase();
+          let lowercasetext = cc.toString().toLowerCase();
           set_16(lowercasetext)
           
           
@@ -2573,54 +2584,46 @@ const PositionLayout = () => {
   
   //-------------Viewas-----------------
   return (
-    <View style = {styles.container}>
-    
+    <View style={styles.cont}>
+    <ScrollView contentContainerStyle={{height: Platform.OS === 'web' ? 800 : 1100,}}>
+    <ScrollView contentContainerStyle={styles.contain} horizontal={true} >
+      
+    <View style={{marginTop:40}}>
     
       {/*---------- 1 ----------*/}
+      <View style={{ flexDirection: 'row', position: 'absolute', left: -180}}>
       <View
         
         style={[
           styles.box,
           {
-            top: 15,
-            left: 500,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
            
         ]}
       >
-        <Text style={[styles.Crossnum]}>1</Text>
+        <Text style={[styles.Crossnum]}>1 {_1}</Text>
 
         <TextInput editable={res1} ref={_1_1ref}  onChangeText={ (e)=> {
         clicktest("_1_1",e)
         
         }} maxLength={1}
         />
-       
-        
-        
-        
-        
-     </View>
+      </View>
+
       <View
         style={[
           styles.box,
           {
-            top: 15,
-            left: 540,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
-            
           },
           
         ]}
        
       >
 
-       
         <TextInput ref={_1_2ref} editable={res1} onChangeText={ (e)=> {
         clicktest("_1_2",e)
         
@@ -2629,13 +2632,12 @@ const PositionLayout = () => {
        
         
       </View>
+      
+      
       <View
         style={[
           styles.box,
           {
-            top: 15,
-            left: 580,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -2652,9 +2654,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 15,
-            left: 620,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -2673,9 +2672,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 15,
-            left: 660,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -2692,9 +2688,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 15,
-            left: 700,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -2711,9 +2704,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 15,
-            left: 740,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -2729,9 +2719,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 15,
-            left: 780,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -2748,9 +2735,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 15,
-            left: 820,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -2763,14 +2747,13 @@ const PositionLayout = () => {
         />
       </View>
       
+      </View>
       {/*---------- 2 ----------*/}
+      <View style={{ flexDirection: 'column', position: 'absolute',top: 40, left:-20}}>
       <View
         style={[
           styles.box,
           {
-            top: 55,
-            left: 660,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -2786,9 +2769,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 95,
-            left: 660,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -2805,9 +2785,7 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 135,
-            left: 660,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -2823,9 +2801,7 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 175,
-            left: 660,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -2841,9 +2817,7 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 215,
-            left: 660,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -2859,9 +2833,7 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 255,
-            left: 660,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -2877,9 +2849,7 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 295,
-            left: 660,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -2895,9 +2865,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 335,
-            left: 660,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -2909,14 +2876,13 @@ const PositionLayout = () => {
         }} maxLength={1}
         />
       </View>
+      </View>
       {/*---------- 3 ----------*/}
+      <View style={{ flexDirection: 'column', position: 'absolute', top: 80, left: -260}}>
       <View
         style={[
           styles.box,
           {
-            top: 95,
-            left: 420,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -2933,9 +2899,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 135,
-            left: 420,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -2951,9 +2914,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 175,
-            left: 420,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -2964,14 +2924,13 @@ const PositionLayout = () => {
         
         }} maxLength={1}
         />
+        </View>
       </View>
+      <View style={{ flexDirection: 'row', position: 'absolute', top:240, left: -260}}>
       <View
         style={[
           styles.box,
           {
-            top: 255,
-            left: 420,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -2983,14 +2942,14 @@ const PositionLayout = () => {
         }} maxLength={1}
         />
       </View>
+      </View>
       {/*---------- 4 ----------*/}
+      <View style={{ flexDirection: 'row', position: 'absolute', top:80, left: -140}}>
       <View
         style={[
           styles.box,
           {
-            top: 95,
-            left: 540,
-            position,
+  
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3006,9 +2965,7 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 95,
-            left: 580,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3023,9 +2980,7 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 95,
-            left: 620,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3036,13 +2991,12 @@ const PositionLayout = () => {
         
         }} maxLength={1}/>
       </View>
+      </View>
+      <View style={{ flexDirection: 'row', position: 'absolute', top:80, left:20,}}>
       <View
         style={[
           styles.box,
           {
-            top: 95,
-            left: 700,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3057,9 +3011,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 95,
-            left: 740,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3074,9 +3025,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 95,
-            left: 780,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3087,14 +3035,14 @@ const PositionLayout = () => {
         
         }} maxLength={1}/>
       </View>
+      </View>
+      
       {/*---------- 5 ----------*/}
+      <View style={{ flexDirection: 'column', position: 'absolute',top:160, left:-100}}>
       <View
         style={[
           styles.box,
           {
-            top: 175,
-            left: 580,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3111,9 +3059,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 215,
-            left: 580,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3129,9 +3074,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 255,
-            left: 580,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3147,9 +3089,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 295,
-            left: 580,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3165,9 +3104,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 335,
-            left: 580,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3183,9 +3119,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 375,
-            left: 580,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3201,9 +3134,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 415,
-            left: 580,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3219,9 +3149,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 455,
-            left: 580,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3237,9 +3164,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 495,
-            left: 580,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3256,9 +3180,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 535,
-            left: 580,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3274,9 +3195,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 575,
-            left: 580,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3288,14 +3206,14 @@ const PositionLayout = () => {
         }} maxLength={1}
         />
       </View>
+      </View>
       {/*---------- 6 ----------*/}
+      <View style={{ flexDirection: 'row', position: 'absolute', top:200 ,left:-340,}}>
       <View
         style={[
           styles.box,
           {
-            top: 215,
-            left: 340,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3312,9 +3230,7 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 215,
-            left: 380,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3330,9 +3246,7 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 215,
-            left: 420,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3349,9 +3263,7 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 215,
-            left: 460,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3367,9 +3279,7 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 215,
-            left: 500,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3385,9 +3295,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 215,
-            left: 540,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3399,13 +3306,12 @@ const PositionLayout = () => {
         }} maxLength={1}
         />
       </View>
+      </View>
+      <View style={{ flexDirection: 'row', position: 'absolute', top:200 ,left:-60,}}>
       <View
         style={[
           styles.box,
           {
-            top: 215,
-            left: 620,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3416,14 +3322,13 @@ const PositionLayout = () => {
         
         }} maxLength={1}
         />
+        </View>
       </View>
+      <View style={{ flexDirection: 'row', position: 'absolute', top:200 ,left:20,}}>
       <View
         style={[
           styles.box,
           {
-            top: 215,
-            left: 700,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3435,15 +3340,13 @@ const PositionLayout = () => {
         }} maxLength={1}
         />
       </View>
-      
+      </View>
       {/*---------- 7 ----------*/}
+      <View style={{ flexDirection: 'column', position: 'absolute',top:240 ,left:-380,}}>
       <View
         style={[
           styles.box,
           {
-            top: 255,
-            left: 300,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3460,9 +3363,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 295,
-            left: 300,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3478,9 +3378,7 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 335,
-            left: 300,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3496,9 +3394,7 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 375,
-            left: 300,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3514,9 +3410,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 415,
-            left: 300,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3529,14 +3422,13 @@ const PositionLayout = () => {
         }} maxLength={1}
         />
       </View>
+      </View>
       {/*---------- 8 ----------*/}
+      <View style={{ flexDirection: 'row', position: 'absolute' ,top:320 ,left:-180}}>
       <View
         style={[
           styles.box,
           {
-            top: 335,
-            left: 500,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3553,9 +3445,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 335,
-            left: 540,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3567,14 +3456,13 @@ const PositionLayout = () => {
         }} maxLength={1}
         />
       </View>
-      
+      </View>
+      <View style={{ flexDirection: 'row', position: 'absolute',top:320 ,left:-60}}>
       <View
         style={[
           styles.box,
           {
-            top: 335,
-            left: 620,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3586,13 +3474,12 @@ const PositionLayout = () => {
         }} maxLength={1}
         />
       </View>
+      </View>
+      <View style={{ flexDirection: 'row', position: 'absolute',top:320 ,left:20}}>
       <View
         style={[
           styles.box,
           {
-            top: 335,
-            left: 700,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3608,9 +3495,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 335,
-            left: 740,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3622,14 +3506,13 @@ const PositionLayout = () => {
         }} maxLength={1}
         />
       </View>
+      </View>
       {/*---------- 9 ----------*/}
+      <View style={{ flexDirection: 'column', position: 'absolute',top:320 ,left:260}}>
       <View
         style={[
           styles.box,
           {
-            top: 335,
-            left: 940,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3646,9 +3529,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 375,
-            left: 940,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3664,9 +3544,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 415,
-            left: 940,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3682,9 +3559,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 455,
-            left: 940,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3696,14 +3570,14 @@ const PositionLayout = () => {
         }} maxLength={1}
         />
       </View>
+      </View>
       {/*---------- 10 ----------*/}
+      <View style={{ flexDirection: 'row', position: 'absolute',top:400 ,left:-340}}>
       <View
         style={[
           styles.box,
           {
-            top: 415,
-            left: 340,
-            position,
+ 
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3719,9 +3593,7 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 415,
-            left: 380,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3737,9 +3609,7 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 415,
-            left: 420,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3755,9 +3625,7 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 415,
-            left: 460,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3773,9 +3641,7 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 415,
-            left: 500,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3791,9 +3657,7 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 415,
-            left: 540,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3805,13 +3669,13 @@ const PositionLayout = () => {
         }} maxLength={1}
         />
       </View>
+      </View>
+      <View style={{ flexDirection: 'row', position: 'absolute',top:400 ,left:-60}}>
       <View
         style={[
           styles.box,
           {
-            top: 415,
-            left: 620,
-            position,
+    
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3823,14 +3687,14 @@ const PositionLayout = () => {
         }} maxLength={1}
         />
       </View>
+      </View>
       {/*---------- 11 ----------*/}
+      <View style={{ flexDirection: 'column', position: 'absolute' ,top:400 ,left:180}}>
       <View
         style={[
           styles.box,
           {
-            top: 415,
-            left: 860,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3848,9 +3712,7 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 455,
-            left: 860,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3862,14 +3724,14 @@ const PositionLayout = () => {
         }} maxLength={1}
         />
       </View>
+      </View>
       {/*---------- 12 ----------*/}
+      <View style={{ flexDirection: 'column', position: 'absolute',top:480 ,left:-340}}>
       <View
         style={[
           styles.box,
           {
-            top: 495,
-            left: 340,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3886,9 +3748,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 535,
-            left: 340,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3899,15 +3758,15 @@ const PositionLayout = () => {
         
         }} maxLength={1}
         />
+        </View>
       </View>
       {/*---------- 13 ----------*/}
+      <View style={{ flexDirection: 'row', position: 'absolute',top:480 ,left:-260}}>
       <View
         style={[
           styles.box,
           {
-            top: 495,
-            left: 420,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3920,13 +3779,13 @@ const PositionLayout = () => {
         }} maxLength={1}
         />
       </View>
+      </View>
+      <View style={{ flexDirection: 'row', position: 'absolute',top:480 ,left:-180}}>
       <View
         style={[
           styles.box,
           {
-            top: 495,
-            left: 500,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3938,14 +3797,14 @@ const PositionLayout = () => {
         }} maxLength={1}
         />
       </View>
+      </View>
       {/*---------- 14 ----------*/}
+      <View style={{ flexDirection: 'column', position: 'absolute',top:480 ,left:-220}}>
       <View
         style={[
           styles.box,
           {
-            top: 495,
-            left: 460,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3962,9 +3821,7 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 535,
-            left: 460,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3976,13 +3833,13 @@ const PositionLayout = () => {
         }} maxLength={1}
         />
       </View>
+      </View>
+      <View style={{ flexDirection: 'column', position: 'absolute',top:600 ,left:-220}}>
       <View
         style={[
           styles.box,
           {
-            top: 615,
-            left: 460,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -3998,9 +3855,7 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 655,
-            left: 460,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -4012,14 +3867,13 @@ const PositionLayout = () => {
         }} maxLength={1}
         />
       </View>
+      </View>
       {/*---------- 15 ----------*/}
+      <View style={{ flexDirection: 'row', position: 'absolute',top:480 ,left:-60}}>
       <View
         style={[
           styles.box,
           {
-            top: 495,
-            left: 620,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -4035,9 +3889,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 495,
-            left: 660,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -4053,9 +3904,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 495,
-            left: 700,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -4071,9 +3919,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 495,
-            left: 740,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -4089,9 +3934,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 495,
-            left: 780,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -4107,9 +3949,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 495,
-            left: 820,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -4125,9 +3964,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 495,
-            left: 860,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -4143,9 +3979,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 495,
-            left: 900,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -4161,9 +3994,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 495,
-            left: 940,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -4175,14 +4005,13 @@ const PositionLayout = () => {
         }} maxLength={1}
         />
       </View>
+      </View>
       {/*---------- 16 ----------*/}
+      <View style={{ flexDirection: 'row', position: 'absolute',top:560 ,left:-380}}>
       <View
         style={[
           styles.box,
           {
-            top: 575,
-            left: 300,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -4199,9 +4028,6 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 575,
-            left: 340,
-            position,
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -4217,9 +4043,7 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 575,
-            left: 380,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -4235,9 +4059,7 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 575,
-            left: 420,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -4253,9 +4075,7 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 575,
-            left: 460,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -4271,9 +4091,7 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 575,
-            left: 500,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -4289,9 +4107,7 @@ const PositionLayout = () => {
         style={[
           styles.box,
           {
-            top: 575,
-            left: 540,
-            position,
+
             backgroundColor: "white",
             borderWidth: 1,
           },
@@ -4303,17 +4119,10 @@ const PositionLayout = () => {
         }} maxLength={1}
         />
       </View>
+      </View>
       {/*---------- Text ----------*/}
-      <View style={[
-        styles.box,
-        {
-          top: 25,
-          left: 1000,
-          height: 500,
-          width: 500,
-          position,
-        },
-      ]}>
+      <View style={styles.text_klaus}>
+        <View>
         <Text style={styles.Text} >Across</Text>
         <Text>1. Piktnaudžiavimas patikėta galia siekiant asmeninės naudos</Text>
         <Text>4. Nedarbo pasekmė</Text>
@@ -4323,6 +4132,8 @@ const PositionLayout = () => {
         <Text>13. Pridėtinės vertės mokestis</Text>
         <Text>15. Bendrojo kainų lygio kilimas, dėl kurio krinta piniginio vieneto perkamoji galia</Text>
         <Text>16. Prekės ir paslaugos, kurias perkame iš kitų šalių</Text>
+        </View>
+        <View>
         <Text style={styles.Text} >Down</Text>
         <Text>2. Laikas tarp dviejų paskaitų</Text>
         <Text>3. Kas administruoja jums priklausančias valstybės išmokas</Text>
@@ -4332,83 +4143,64 @@ const PositionLayout = () => {
         <Text>11. Institucija, atsakinga už mokesčių administravimą</Text>
         <Text>12. Gyventojų pajamų mokestis</Text>
         <Text>14. Prekės galia, pasireiškianti ją mainant į kitas prekes arba paslaugas</Text>
-      </View>
-   
-    
+        </View>
+
     </View>
+    
+   </View>
+   </ScrollView>
+  </ScrollView>
+  </View>
   );
 };
 
 
 
-
-
-
 const styles = StyleSheet.create({
-  container: {
+  
+  cont:{
     flex: 1,
     backgroundColor: "aliceblue",
-    minHeight: 500,
-    justifyContent: 'center', 
-     alignItems: 'center' 
+    
+  },
+  contain:{
+    width: Platform.OS === 'web' ? 1250 : 800,
+    height: Platform.OS === 'web' ? 800 : 1300,
+    justifyContent: "center",
   },
   box: {
     width: 40,
     height: 40,
   },
-  row: {
+  text_klaus:{
+    flexDirection: Platform.OS === 'web' ? "column" : "row", 
+    position: 'absolute',
+    width:Platform.OS === 'web' ?  300 : 300 ,
+    top: Platform.OS === 'web' ? 50:700 ,
+    left: Platform.OS === 'web' ? 330: -370,
+  },
+  boxhorizontal:{
+   
     flexDirection: "row",
-    flexWrap: "wrap",
+    
   },
-  button: {
-    paddingHorizontal: 8,
-    paddingVertical: 6,
-    borderRadius: 4,
-    backgroundColor: "oldlace",
-    alignSelf: "flex-start",
-    marginHorizontal: "1%",
-    marginBottom: 6,
-    minWidth: "48%",
-    textAlign: "center",
-  },
-  selected: {
-    backgroundColor: "coral",
-    borderWidth: 0,
-  },
-  buttonLabel: {
-    fontSize: 12,
-    fontWeight: "500",
-    color: "coral",
-  },
-  selectedLabel: {
-    color: "white",
-  },
-  label: {
-    textAlign: "center",
-    marginBottom: 10,
-    fontSize: 24,
+  boxvertical:{
+    
+    flexDirection: "column",
+    
   },
   TextInput: {
+
     textAlign: "center",
     textAlignVertical: "center",
   },
   Text:{
+
     fontStyle: "italic",
     fontWeight: "900",
     textDecorationLine: "underline",
   },
-  Textcent:{
-    
-
-     flexDirection: 'row', 
-     justifyContent: 'center', 
-     alignItems: 'center' 
-  },
-  Crossnum:{
-    fontSize: 10, 
-    padding: 0 , 
-    margin: 0,
-  }
+  
 });
 
 export default PositionLayout;
