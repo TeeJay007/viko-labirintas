@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, PanResponder, Animated, useWindowDimensions, TouchableOpacity } from 'react-native';
 
@@ -8,6 +8,7 @@ const IMAGE_HEIGHT = 1612;
 
 export default function LaukoIejimas({ navigation: { navigate } }) {
     const pan = useRef(new Animated.ValueXY()).current;
+    const [imageLoaded, setImageLoaded] = useState(false);
 
     const {width: screenW, height: screenH} = useWindowDimensions()
 
@@ -67,14 +68,13 @@ export default function LaukoIejimas({ navigation: { navigate } }) {
             <Animated.View {...panResponder.panHandlers} style={[
                 pan.getLayout(),
                 {
-                    backgroundColor: '#fff',
                     width: getScreenWidth(),
                     height: getScreenHeight(),
                     top: 0,
                 }
             ]}>
                 {/* // Zemiau komponentai nupesti ant panoramos paveikslelio ir paveikslelis */}
-                <TouchableOpacity onPress={() => {}}  style={{
+                { imageLoaded && <TouchableOpacity onPress={() => {}}  style={{
                     backgroundColor: 'white',
                     padding: 10,
                     position: 'absolute',
@@ -92,7 +92,7 @@ export default function LaukoIejimas({ navigation: { navigate } }) {
                     }}>
                         SPAUSK ČIA
                     </Text>
-                </TouchableOpacity>
+                </TouchableOpacity>}
 
 
 
@@ -105,6 +105,7 @@ export default function LaukoIejimas({ navigation: { navigate } }) {
                         zIndex: -9
                     }
                 ]}
+                onLoad={()=>setImageLoaded(true)}
                 resizeMethod='resize'
                     source={IMAGE}
                 />
