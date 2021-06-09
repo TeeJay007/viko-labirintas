@@ -106,7 +106,7 @@ export default function LaukoIejimas({ navigation: { navigate } }) {
                     }
                 ]}
                 resizeMethod='resize'
-                    source={{ uri: IMAGE }}
+                    source={IMAGE}
                 />
             </Animated.View>
             <StatusBar hidden={true} />
