@@ -13,6 +13,8 @@ import Vikobankasdrauda from './pages/vikobankasdrauda';
 import First from './pages/navigation_pages/first'
 import Second from './pages/navigation_pages/second'
 
+import LaukoIejimas from './pages/navigation_pages/lauko_iejimas'
+
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -20,7 +22,7 @@ export default function App() {
     
     <NavigationContainer>
       {/* TODO: kur initialRouteName turetu but pradinis programos route name */}
-      <Stack.Navigator initialRouteName="baloons">
+      <Stack.Navigator initialRouteName="laukoIejimas">
         {/* <Stack.Screen
           name="lenteles"
           component={Lenteles}
@@ -39,7 +41,11 @@ export default function App() {
           name="second"
           component={Second}
           options={{ title: 'Antras' , headerShown: false, cardStyleInterpolator: forFade}} />
-
+        
+        <Stack.Screen
+          name="laukoIejimas"
+          component={LaukoIejimas}
+          options={{ title: 'Lauko iejimas' , headerShown: false, cardStyleInterpolator: forFade}} />
         <Stack.Screen
           name="proLanga"
           component={ProLanga}
