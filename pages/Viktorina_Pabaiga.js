@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, ImageBackground, FlatList, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, FlatList, TouchableOpacity, Alert, Platform } from 'react-native';
 
 
 export default function Pavyzdinis() {
@@ -98,33 +98,42 @@ export default function Pavyzdinis() {
     
   ]);
   const filterKlausimai=(id,answer)=>{
-    console.log(answer)
-    console.log(_klaus)
+    
     if(answer=="correct"){
-      
-      console.log(_klaus)
+      var tt=_klaus+1; 
+      console.log(tt)
       _setKlausimai_Prev(_Klausimai)
       _setKlausimai_Prev((Klaus)=>{
-        return Klaus.filter(_Klausimai=> _Klausimai.key ==id+1)
+        return Klaus.filter(_Klausimai=> _Klausimai.key ==tt)
       })
       _setQnA_Prev(_QnA)
       _setQnA_Prev((qna)=>{
-        return qna.filter(_QnA=> _QnA.question == id+1)
+        return qna.filter(_QnA=> _QnA.question == tt)
       })
-      _setklaus(id+1)
+      _setklaus(tt)
     }
     else{
       
-      _setKlausimai_Prev(_Klausimai)
-      _setKlausimai_Prev((Klaus)=>{
-        return Klaus.filter(_Klausimai=> _Klausimai.key ==1)
-      })
-      _setQnA_Prev(_QnA)
-      _setQnA_Prev((qna)=>{
-        return qna.filter(_QnA=> _QnA.question == 1)
-      })
-      _setklaus(1)
+      if (Platform.OS === 'web') {
+        alert("Upps – neatspėjote!",{cancelable: false})
+     } else {
+      Alert.alert(
+
+ 
+        "Upps – neatspėjote!",
+        
+         
+        "", [{ text: "Bandyti dar kartą"}],
+        
+         
+        { cancelable: false }
+        
+         
+        );
     }
+     }
+      
+    
     
     
   };
