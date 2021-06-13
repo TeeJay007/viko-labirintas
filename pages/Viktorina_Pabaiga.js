@@ -25,6 +25,8 @@ export default function Pavyzdinis() {
     {text:'Draudiko parengtos sutarties standartinės sąlygos?',key:'14'},
     {text:'Draudimo sutartyje nurodytas asmuo turintis teisę gauti draudimo išmoką vadinamas?',key:'15'},
     {text:'Kas yra VIKO DRAUDA?',key:'16'},
+    {text:' – Laimėjimas –\n Virtualus prizas ir kvietimas studijuoti VIKO EKF 😊',key:'17'},
+
 
   ]);
   const [_QnA,_setQnA] = useState ([
@@ -131,7 +133,10 @@ export default function Pavyzdinis() {
          
         );
     }
-     }
+
+    
+
+}
       
     
     

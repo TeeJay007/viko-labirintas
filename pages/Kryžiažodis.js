@@ -154,7 +154,7 @@ const PositionLayout = () => {
   //---------------12--------------------
   const _12_1ref = useRef("");
   const _12_2ref = useRef("");
-;
+
   //---------------13--------------------
   const _13_1ref = useRef("");
   const _13_2ref = useRef("");
@@ -298,9 +298,27 @@ const PositionLayout = () => {
       console.log(_complete)
     }
     if(_complete===16){
-      console.log("TESTTESTCOMPLETE")
+      setcomplete(20)
+      if (Platform.OS === 'web') {
+        alert("Užuomina: DEKANAS",{cancelable: false})
+     } else {
+      Alert.alert(
+
+ 
+        "Užuomina: DEKANAS",
+        
+         
+        "", [{ text: "Gerai"}],
+        
+         
+        { cancelable: false }
+        
+         
+        );
+  
+     
     }
-    
+  }
   });
   
   
@@ -1886,7 +1904,7 @@ const PositionLayout = () => {
 
           if (value != "") {
 
-            set_12(_12.charAt(0)+value+_12.charAt(1))
+            set_12(_12.charAt(0)+value+_12.charAt(2))
             if (_16_2ref.current.value == "")
               _16_2ref.current.focus();
           }
