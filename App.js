@@ -12,7 +12,7 @@ export default function App() {
     //   <Text>Open up App.js to start working oooonnnnn your app!</Text>
     //   <StatusBar style="auto" />
     // </View>
-    <Viktorina_aud/>
+    <Viktorina_pabaiga/>
   );
 }
 

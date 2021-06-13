@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, ImageBackground, FlatList, TouchableOpacity, Al
 
 
 export default function Pavyzdinis() {
-  const image = { uri: "https://images.unsplash.com/photo-1517181875630-f72350452109?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80"};
+  const image = { uri: "https://scontent.fplq1-1.fna.fbcdn.net/v/t1.6435-9/171013345_3932902256793104_4429939317269897519_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=973b4a&_nc_ohc=B6B7q8CuY78AX-stzxm&_nc_ht=scontent.fplq1-1.fna&oh=73fcc290783d96223fd537445ad40f33&oe=60CAA868"};
   const [_klaus,_setklaus]=useState(1);
   const [_Klausimai_Prev,_setKlausimai_Prev]= useState();
   const [_QnA_Prev,_setQnA_Prev]= useState();
@@ -153,7 +153,7 @@ export default function Pavyzdinis() {
   
   return (
     <View style={styles.container}>
-    <ImageBackground source={image} style={styles.image}>
+    <ImageBackground source={image} style={styles.image} >
       {/* Header */}
       <View>
       <FlatList
@@ -206,6 +206,7 @@ const styles = StyleSheet.create({
       backgroundColor: '#79ade2',
       alignItems: 'center',
       textAlign: 'center',
+      borderWidth: 3,
     },
     centertext:{
       alignItems: 'center', 
@@ -221,11 +222,16 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       textAlign: 'center',
       fontWeight: 'bold',
+      borderWidth: 3,
     },
     image: {
       flex: 1,
-      resizeMode: "cover",
-      justifyContent: "center"
+      resizeMode: "center",
+      justifyContent: "center",
+      width:"100%",
+      height:"100%"
+      
     },
+    
     
 });
