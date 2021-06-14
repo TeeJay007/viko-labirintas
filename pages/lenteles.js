@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableOpacity, Alert, Platform } from 'react-native';
 
 
 export default function Lenteles() {
@@ -119,7 +119,7 @@ export default function Lenteles() {
     console.log(ques)
     if (answer == "true") {
 
-      console.log(ques)
+      var temp=ques+1;
       setQuestionPrev(Question)
       setQuestionPrev((ques) => {
         return ques.filter(Question => Question.key == id + 1)
@@ -128,19 +128,52 @@ export default function Lenteles() {
       setQnAPrev((qna) => {
         return qna.filter(QnA => QnA.question == id + 1)
       })
-      setques(id + 1)
+      setques(temp)
     }
     else {
 
-      setQuestionPrev(Question)
-      setQuestionPrev((Ques) => {
-        return Ques.filter(Question => Question.key == 1)
-      })
-      setQnAPrev(QnA)
-      setQnAPrev((qna) => {
-        return qna.filter(QnA => QnA.question == 1)
-      })
-      setques(1)
+      if (Platform.OS === 'web') {
+        alert("Atsakymas neteisingas!",{cancelable: false})
+     } else {
+      Alert.alert(
+
+ 
+        "Atsakymas neteisingas!",
+        
+         
+        "", [{ text: "Bandyti dar kartą"}],
+        
+         
+        { cancelable: false }
+        
+         
+        );
+    }
+     }
+      
+    
+     if(temp==21){
+      setques(prev=>prev + 2)
+      let vara =0
+      
+      if (Platform.OS === 'web') {
+        alert("Užuomina: 522",{cancelable: false})
+     } else {
+      Alert.alert(
+
+ 
+        "Užuomina: 522",
+        
+         
+        "", [{ text: "Gerai"}],
+        
+         
+        { cancelable: false }
+        
+         
+        );
+  
+  }
     }
 
 

@@ -1,21 +1,60 @@
 import React, {useState} from 'react';
-import { StyleSheet, Text, View, TextInput, Image} from 'react-native';
+import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity, BackHandler, useWindowDimensions} from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
 
-export default function ProLanga() {
 
+export default function ProLanga({ navigation: { navigate }}) {
+    const {width: screenW, height: screenH} = useWindowDimensions()
     const atsakymas = "SEIMAS";
     const [ats, setAts] = useState({raides: atsakymas.split('').map(v => '')});
 
+    const correctAts = () => atsakymas == ats.raides.join('').toUpperCase()
+
+    const [big, setBig] = useState(false);
+
+    useFocusEffect(
+      React.useCallback(() => {
+        const onBackPress = () => {
+          if (big) {
+            setBig(!big)
+            return true;
+          } else
+            return false;
+        };
+        BackHandler.addEventListener('hardwareBackPress', onBackPress);
+  
+        return () =>
+          BackHandler.removeEventListener('hardwareBackPress', onBackPress);
+      }, [big, setBig])
+    );
+
     return (
-        <View style={styles.container}>
+        big ? 
+          <TouchableOpacity onPress={() => {
+            setBig(!big);
+          }} style={
+            {
+              justifyContent: 'center'
+            }
+          }>
+            <Image resizeMode="cover" style={{
+            width: screenW,
+            height: screenH
+          }} source={require('../NavigationCovers/seimascover.jpg')} />
+          </TouchableOpacity>
+        : <View style={styles.container}>
             <View style={{
                 flex: 0.4,
                 justifyContent: 'center',
                 alignItems: 'center',
             }}>
+              <TouchableOpacity onPress={() => {
+                setBig(!big);
+              }}>
                 <Image resizeMode="contain" style={styles.image}
-                    source={{uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Vilnius_Seimas.jpg/1920px-Vilnius_Seimas.jpg"}}
+                    source={require('../NavigationCovers/seimascover.jpg')}
                 />
+              </TouchableOpacity>
             </View>
             <View style={{
                 flex: 0.6,
@@ -34,7 +73,6 @@ export default function ProLanga() {
                             style={[
                                 styles.input, 
                                 (i == 0 || i == 4) && styles.inputMarked,
-                                (atsakymas[i] == ats.raides[i] && (i == 0 || i == 4)) && styles.inputCorrect,
                             ]}
                             onChangeText={(r) => {
                                 let raides = ats.raides
@@ -47,6 +85,23 @@ export default function ProLanga() {
                     )}
                 </View>
             </View>
+            {correctAts() && <TouchableOpacity onPress={() => {
+                navigate('saiejimas')
+            }}  style={{
+                backgroundColor: 'green',
+                padding: 10,
+                justifyContent: 'center',
+                alignItems: 'center'
+            }}>
+                <Text style={{
+                    paddingVertical: 20,
+                    color: 'white',
+                    fontWeight: 'bold',
+                    textAlign: 'center',
+                }}>
+                  SPAUSK ČIA JEI NORI KELIAUTI TOLIAU
+                </Text>
+            </TouchableOpacity>}
         </View>
     );
 }
@@ -77,9 +132,6 @@ const styles = StyleSheet.create({
   },
   inputMarked:{
     backgroundColor: '#E3E3E3'
-  },
-  inputCorrect:{
-    backgroundColor: 'green'
   },
   input: {
     borderColor: 'black',
