@@ -1,26 +1,68 @@
-// import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-// import { StyleSheet, Text, View } from 'react-native';
-import Pavyzdinis from './pages/pavyzdinis';
-import Kryziazodis from './pages/Kryžiažodis';
-import Viktorina_pabaiga from './pages/Viktorina_Pabaiga';
-import Viktorina_aud from './pages/Auditorija_viktorina';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+// import Lenteles from './pages/lenteles';
+import ProLanga from './pages/prolanga';
+import ScrambleFinansai from './pages/ScrambleFinansai';
+import Finansai from './pages/finansai';
+import Balloons from './pages/Balloons';
+import Vikobankasdrauda from './pages/vikobankasdrauda';
+
+//Navigacija po pastata
+import First from './pages/navigation_pages/first'
+import Second from './pages/navigation_pages/second'
+
+const Stack = createStackNavigator();
 
 export default function App() {
-  return (
-    // <View style={styles.container}>
-    //   <Text>Open up App.js to start working oooonnnnn your app!</Text>
-    //   <StatusBar style="auto" />
-    // </View>
-    <Kryziazodis/>
+  return (    
+    
+    <NavigationContainer>
+      {/* TODO: kur initialRouteName turetu but pradinis programos route name */}
+      <Stack.Navigator initialRouteName="baloons">
+        {/* <Stack.Screen
+          name="lenteles"
+          component={Lenteles}
+          options={{ title: 'Lentelės' }} /> */}
+
+        {/* Navigacija po pastata */}
+        <Stack.Screen
+          name="baloons"
+          component={Balloons}
+          options={{title: 'Balionai'}} />
+        <Stack.Screen
+          name="first"
+          component={First}
+          options={{ title: 'Pirmas' , headerShown: false, cardStyleInterpolator: forFade}} />
+        <Stack.Screen
+          name="second"
+          component={Second}
+          options={{ title: 'Antras' , headerShown: false, cardStyleInterpolator: forFade}} />
+
+        <Stack.Screen
+          name="proLanga"
+          component={ProLanga}
+          options={{ title: 'Pro langą' }} />
+        <Stack.Screen
+          name="scrambleFinansai"
+          component={ScrambleFinansai}
+          options={{ title: 'Finansai' }} />
+        <Stack.Screen
+          name="finansai"
+          component={Finansai}
+          options={{ title: 'Finansai' }} />
+        <Stack.Screen
+          name="vikoBankasDrauda"
+          component={Vikobankasdrauda}
+          options={{ title: 'Viko bankas drauda' }} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });
+const forFade = ({ current }) => ({
+  cardStyle: {
+    opacity: current.progress,
+  },
+});
