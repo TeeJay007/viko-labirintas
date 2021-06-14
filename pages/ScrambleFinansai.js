@@ -13,6 +13,7 @@ import {
   Alert,
 } from "react-native";
 import "react-native-gesture-handler";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const LETTERSBOX_RADIUS = 25;
 const Window = Dimensions.get('window');
@@ -212,6 +213,7 @@ class ScrambleFinansai extends Component {
 
     if(this.state.Word == "FINANSAI"){
       console.log("Correct - " + this.state.Word);
+      AsyncStorage.setItem('finansai', 'true');
       this.FinancaiAlertWin();
     }
     else {

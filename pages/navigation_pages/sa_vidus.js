@@ -1,6 +1,7 @@
 import React from 'react';
+import {useState , useEffect} from 'react'
 import { StatusBar } from 'expo-status-bar';
-import { Text, useWindowDimensions, TouchableOpacity, Image } from 'react-native';
+import { Text, useWindowDimensions, TouchableOpacity, Image} from 'react-native';
 import NavBase from './nav_base'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 const IMAGE = require('../../NavigationCovers/savidus.jpg');
@@ -9,17 +10,12 @@ const IMAGE_HEIGHT = 4032;
 
 export default function SAVidus({ navigation: { navigate }}) {
     
-    let washere = 'false';
+    const [washere, setwashere] = useState("-")
     
-    const getData = async () => {
-        try {
-          washere = await AsyncStorage.getItem("balioneliai");
-          //console.log(washere + " --------------------------- is data");  
-        } catch (err) {
-          console.log(err);
-        }
-    };
-      
+    AsyncStorage.getItem("balioneliai", (err, result) => {
+        setwashere(result);
+    });
+    
     const {width: screenW, height: screenH} = useWindowDimensions()
 
     const getScreenWidth = () => IMAGE_WIDTH / IMAGE_HEIGHT * screenH;
@@ -32,7 +28,6 @@ export default function SAVidus({ navigation: { navigate }}) {
     imageHeight = 192;
     imageWidth = 130;
 
-    getData();
     console.log(washere + " --------------------------- is dddddata");
     if(washere == 'false'){
         return (
