@@ -117,7 +117,7 @@ export default function App() {
         <Stack.Screen
           name="baloons"
           component={Balloons}
-          options={{title: 'Balionai'}} />
+          options={{title: 'Balionai', headerShown: false}} />
         <Stack.Screen
           name="proLanga"
           component={ProLanga}
@@ -129,7 +129,7 @@ export default function App() {
         <Stack.Screen
           name="scrambleFinansai"
           component={ScrambleFinansai}
-          options={{ title: 'Finansai' }} />
+          options={{ title: 'Finansai', headerShown: false }} />
         <Stack.Screen
           name="finansai"
           component={Finansai}

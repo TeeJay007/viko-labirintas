@@ -7,7 +7,7 @@ import {
   TextInput,
   LogBox,
   SafeAreaView,
-  Dimensions,
+  Alert,
   ImageBackground,
   TouchableOpacity,
 } from "react-native";
@@ -30,55 +30,70 @@ class Balloons extends Component{
             numberOne: "",
             numberTwo: "",
             numberThree: "",
+            ballonBlueWasPoped: false,
+            ballonGreenWasPoped: false,
+            ballonRedWasPoped: false,
         }
     }
 
     onPressBlue = () => {
-        setTimeout(() => {
-            this.setState({mainBlue: require('../Images/blue2.png')})
-        }, 100);
-        setTimeout(() => {
-            this.setState({mainBlue: require('../Images/blue3.png')})
-        }, 200);
-        setTimeout(() => {
-            this.setState({mainBlue: require('../Images/blue4.png')})
-        }, 300);
-        setTimeout(() => {
-            this.setState({mainBlue: require('../Images/ketboard.png')})
-            this.setState({imageHeight: paperHeight, imageWidth: paperWidht})
-        }, 500);
+        if(this.state.ballonBlueWasPoped == false)
+        {
+            setTimeout(() => {
+                this.setState({mainBlue: require('../Images/blue2.png')})
+            }, 100);
+            setTimeout(() => {
+                this.setState({mainBlue: require('../Images/blue3.png')})
+            }, 200);
+            setTimeout(() => {
+                this.setState({mainBlue: require('../Images/blue4.png')})
+            }, 300);
+            setTimeout(() => {
+                this.setState({mainBlue: require('../Images/ketboard.png')})
+                this.setState({imageHeight: paperHeight, imageWidth: paperWidht})
+            }, 500);
+        }
+        this.setState({ballonBlueWasPoped: true});
     };
 
     onPressGreen = () => {
-        setTimeout(() => {
-            this.setState({mainGreen: require('../Images/green2.png')})
-        }, 100);
-        setTimeout(() => {
-            this.setState({mainGreen: require('../Images/green3.png')})
-        }, 200);
-        setTimeout(() => {
-            this.setState({mainGreen: require('../Images/green4.png')})
-        }, 300);
-        setTimeout(() => {
-            this.setState({mainGreen: require('../Images/twospeekers.jpg')})
-            this.setState({imageHeight: paperHeight, imageWidth: paperWidht})
-        }, 500);
+        if(this.state.ballonGreenWasPoped == false)
+        {
+            setTimeout(() => {
+                this.setState({mainGreen: require('../Images/green2.png')})
+            }, 100);
+            setTimeout(() => {
+                this.setState({mainGreen: require('../Images/green3.png')})
+            }, 200);
+            setTimeout(() => {
+                this.setState({mainGreen: require('../Images/green4.png')})
+            }, 300);
+            setTimeout(() => {
+                this.setState({mainGreen: require('../Images/twospeekers.jpg')})
+                this.setState({imageHeight: paperHeight, imageWidth: paperWidht})
+            }, 500);
+        }
+        this.setState({ballonGreenWasPoped: true});
     };
 
     onPressRed = () => {
-        setTimeout(() => {
-            this.setState({mainRed: require('../Images/red2.png')})
-        }, 100);
-        setTimeout(() => {
-            this.setState({mainRed: require('../Images/red3.png')})
-        }, 200);
-        setTimeout(() => {
-            this.setState({mainRed: require('../Images/red4.png')})
-        }, 300);
-        setTimeout(() => {
-            this.setState({mainRed: require('../Images/mouse.jpg')})
-            this.setState({imageHeight: paperHeight, imageWidth: paperWidht})
-        }, 500);
+        if(this.state.ballonRedWasPoped == false)
+        {
+            setTimeout(() => {
+                this.setState({mainRed: require('../Images/red2.png')})
+            }, 100);
+            setTimeout(() => {
+                this.setState({mainRed: require('../Images/red3.png')})
+            }, 200);
+            setTimeout(() => {
+                this.setState({mainRed: require('../Images/red4.png')})
+            }, 300);
+            setTimeout(() => {
+                this.setState({mainRed: require('../Images/mouse.jpg')})
+                this.setState({imageHeight: paperHeight, imageWidth: paperWidht})
+            }, 500);
+        }
+        this.setState({ballonRedWasPoped: true});
     };
 
     numberOneChange(numberOne) {
@@ -104,18 +119,41 @@ class Balloons extends Component{
 
     handleSubmitCheckNumbers = () => {
         
-        if(this.state.numberOne == "4" && this.state.numberTwo == "2" && this.state.numberThree == "1")
-        console.log("421");
+        if(this.state.numberOne == "4" && this.state.numberTwo == "2" && this.state.numberThree == "1"){
+            this.BalloonsAlertWin();
+        }
+        else {
+            this.BalloonsAlertLost();
+        }
+        
     }
+
+    navigateToComputers = () => {
+        this.props.navigation.navigate("penktasVestibiulis");
+    }
+
+    BalloonsAlertWin = () =>
+    Alert.alert(
+      "Teisingai!",
+      "Bandykime surasti 421-ą kabinetą?", [{ text: "Taip", onPress: () => this.navigateToComputers()}],
+      {cancelable: false}
+    );
+
+    BalloonsAlertLost = () =>
+    Alert.alert(
+      "Neteisingai!",
+      "Spėliokite toliau!", [{ text: "OK"}],
+      {cancelable: false}
+    );
 
     render(){
         //LogBox.ignoreAllLogs(true);
         return (
-            <ImageBackground source={require('../Images/sa.jpg')} style={styles.image}>
+            <ImageBackground source={require('../NavigationCovers/sauzdotiesbackgroundas.jpg')} style={styles.image}>
                 <View style={styles.container}>
                     
                     <View style={styles.textarea}>
-                    <Text style={{fontSize: 24, fontWeight: "bold"}}>Koks tai galėtų būti kabinetas?</Text>
+                    <Text style={{fontSize: 24, fontWeight: "bold"}}>Koks tai galėtų būti skaičius?</Text>
                     </View>
                     
                     <View style={styles.ballonsarea}>

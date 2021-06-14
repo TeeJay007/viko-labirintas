@@ -10,6 +10,7 @@ import {
   Dimensions,
   ImageBackground,
   TouchableOpacity,
+  Alert,
 } from "react-native";
 import "react-native-gesture-handler";
 
@@ -209,16 +210,39 @@ class ScrambleFinansai extends Component {
       this.state.Word = this.state.Word + Letter;
     }
 
-    if(this.state.Word == "FINANSAI")
-    console.log("Correct - " + this.state.Word);
-    else
-    console.log("Incorrect - " + this.state.Word)
+    if(this.state.Word == "FINANSAI"){
+      console.log("Correct - " + this.state.Word);
+      this.FinancaiAlertWin();
+    }
+    else {
+      console.log("Incorrect - " + this.state.Word)
+      this.FinancaiAlertLost();
+    }
+    
   };
+
+  navigateToFinancai = () => {
+    this.props.navigation.navigate("penktasVestibiulis");
+  }
+
+  FinancaiAlertWin = () =>
+    Alert.alert(
+    "Teisingai!",
+    "Bandykime surasti Finansų katedrą?", [{ text: "Taip", onPress: () => this.navigateToFinancai()}],
+    {cancelable: false}
+  );
+
+  FinancaiAlertLost = () =>
+    Alert.alert(
+    "Neteisingai!",
+    "Dėliokite toliau!", [{ text: "OK"}],
+    {cancelable: false}
+  );
 
   render() {
     //LogBox.ignoreAllLogs(true);
     return (
-      <ImageBackground source={require('../Images/finb.jpg')} style={styles.image}>
+      <ImageBackground source={require('../NavigationCovers/finansubackgroundas.jpg')} style={styles.image}>
       <SafeAreaView style={styles.safeAreaView}>
          <View style= {styles.container}>
               <View style={styles.zeroZone}>

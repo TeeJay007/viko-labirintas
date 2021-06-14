@@ -1,7 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text, useWindowDimensions, TouchableOpacity } from 'react-native';
-
+import { Text, useWindowDimensions, TouchableOpacity, Image } from 'react-native';
 import NavBase from './nav_base'
 
 const IMAGE = require('../../NavigationCovers/savidus.jpg');
@@ -9,17 +8,47 @@ const IMAGE_WIDTH = 3024;
 const IMAGE_HEIGHT = 4032;
 
 export default function SAVidus({ navigation: { navigate }}) {
+    
     const {width: screenW, height: screenH} = useWindowDimensions()
 
     const getScreenWidth = () => IMAGE_WIDTH / IMAGE_HEIGHT * screenH;
     const getScreenHeight = () => screenH;
     
-    const resizeWidth = (w) => w * getScreenWidth() / IMAGE_WIDTH
-    const resizeHeight = (h) => h * getScreenHeight() / IMAGE_HEIGHT
+    const resizeWidth = (w) => w * getScreenWidth() / IMAGE_WIDTH;
+    const resizeHeight = (h) => h * getScreenHeight() / IMAGE_HEIGHT;
+    
+    mainBlue = require('../../Images/blue1.png');
+    imageHeight = 192;
+    imageWidth = 130;
+    let washere = false;
 
-    return (
-        <NavBase image={IMAGE} width={IMAGE_WIDTH} height={IMAGE_HEIGHT}>
-            
-        </NavBase>
-    );
+    if(washere == false){
+        washere = true;
+        return (
+            <NavBase image={IMAGE} width={IMAGE_WIDTH} height={IMAGE_HEIGHT}>
+               <TouchableOpacity onPress={() => {
+                    navigate('balloons')
+                }}  style={{
+                    opacity: 0.5,
+                    padding: 10,
+                    position: 'absolute',
+                    top: resizeHeight(1200),
+                    left: resizeWidth(400),
+                    width: resizeWidth(450),
+                    height: resizeHeight(1000),
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}>
+                    <Image source={mainBlue} style={{width: imageWidth, height: imageHeight, borderRadius: 10}}></Image>
+                </TouchableOpacity>
+            </NavBase>
+        );
+    }
+    else {
+        return (
+            <NavBase image={IMAGE} width={IMAGE_WIDTH} height={IMAGE_HEIGHT}>
+            </NavBase>
+        );
+    }
+    
 }

@@ -4,11 +4,11 @@ import { Text, useWindowDimensions, TouchableOpacity } from 'react-native';
 
 import NavBase from './nav_base'
 
-const IMAGE = require('../../NavigationCovers/finansai_f.jpg');
-const IMAGE_WIDTH = 4608;
-const IMAGE_HEIGHT = 1972;
+const IMAGE = require('../../NavigationCovers/penkipenkiolika.jpg');
+const IMAGE_WIDTH = 3024;
+const IMAGE_HEIGHT = 4032;
 
-export default function FinansaiKab({ navigation: { navigate }}) {
+export default function PenkiPenkiolikaIejimas({ navigation: { navigate }}) {
     const {width: screenW, height: screenH} = useWindowDimensions()
 
     const getScreenWidth = () => IMAGE_WIDTH / IMAGE_HEIGHT * screenH;
@@ -20,16 +20,16 @@ export default function FinansaiKab({ navigation: { navigate }}) {
     return (
         <NavBase image={IMAGE} width={IMAGE_WIDTH} height={IMAGE_HEIGHT}>
             <TouchableOpacity onPress={() => {
-                navigate('scrambleFinansai')
+                navigate('savidus')
             }}  style={{
                 backgroundColor: 'white',
                 opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
-                top: resizeHeight(786),
-                left: resizeWidth(3636),
-                width: resizeWidth(372),
-                height: resizeHeight(333),
+                top: resizeHeight(1276),
+                left: resizeWidth(1232),
+                width: resizeWidth(742),
+                height: resizeHeight(2382),
                 justifyContent: 'center',
                 alignItems: 'center'
             }}>
@@ -37,8 +37,9 @@ export default function FinansaiKab({ navigation: { navigate }}) {
                     color: 'black',
                     fontWeight: 'bold',
                     textAlign: 'center',
+                    paddingTop: 46
                 }}>
-                    FINANSŲ UŽDUOTIS
+                    SPAUSK ČIA
                 </Text>
             </TouchableOpacity>
         </NavBase>
