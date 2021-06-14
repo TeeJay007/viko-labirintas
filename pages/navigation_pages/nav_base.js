@@ -79,7 +79,7 @@ export default function NavBase({image, width, height, children}) {
                     }
                 ]}
                 onLoad={()=>setImageLoaded(true)}
-                resizeMethod='resize'
+                resizeMethod='scale'
                     source={image}
                 />
             </Animated.View>
