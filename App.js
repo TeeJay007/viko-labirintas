@@ -2,8 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-
-// import Lenteles from './pages/lenteles';
+import Lenteles from './pages/lenteles';
 import ProLanga from './pages/prolanga';
 import ScrambleFinansai from './pages/ScrambleFinansai';
 import Finansai from './pages/finansai';
@@ -143,6 +142,10 @@ export default function App() {
           name="vikoBankasDrauda"
           component={Vikobankasdrauda}
           options={{ title: 'Viko bankas drauda' }} />
+        <Stack.Screen
+          name="lenteles"
+          component={Lenteles}
+          options={{ title: 'Lentelės' }} />
           <Stack.Screen
           name="viktorinaPabaiga"
           component={ViktorinaPabaiga}
