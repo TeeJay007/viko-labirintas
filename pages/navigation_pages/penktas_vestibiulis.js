@@ -37,7 +37,6 @@ export default function PenktasVestibiulis({ navigation: { navigate }}) {
                     color: 'black',
                     fontWeight: 'bold',
                     textAlign: 'center',
-                    paddingTop: 46
                 }}>
                     SPAUSK ČIA
                 </Text>
@@ -60,13 +59,12 @@ export default function PenktasVestibiulis({ navigation: { navigate }}) {
                     color: 'black',
                     fontWeight: 'bold',
                     textAlign: 'center',
-                    paddingTop: 46
                 }}>
                     SPAUSK ČIA
                 </Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => {
-                navigate('penkiDuDu')
+                navigate('penkipenkiolika')
             }}  style={{
                 backgroundColor: 'white',
                 opacity: 0.7,
@@ -83,7 +81,6 @@ export default function PenktasVestibiulis({ navigation: { navigate }}) {
                     color: 'black',
                     fontWeight: 'bold',
                     textAlign: 'center',
-                    paddingTop: 46
                 }}>
                     SPAUSK ČIA
                 </Text>

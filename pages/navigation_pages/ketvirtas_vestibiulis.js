@@ -20,6 +20,28 @@ export default function KetvirtasVestibiulis({ navigation: { navigate }}) {
     return (
         <NavBase image={IMAGE} width={IMAGE_WIDTH} height={IMAGE_HEIGHT}>
             <TouchableOpacity onPress={() => {
+                navigate('vikobankasiejimas')
+            }}  style={{
+                backgroundColor: 'white',
+                opacity: 0.5,
+                padding: 10,
+                position: 'absolute',
+                top: resizeHeight(975),
+                left: resizeWidth(1337),
+                width: resizeWidth(292),
+                height: resizeHeight(347),
+                justifyContent: 'center',
+                alignItems: 'center'
+            }}>
+                <Text style={{
+                    color: 'black',
+                    fontWeight: 'bold',
+                    textAlign: 'center',
+                }}>
+                    SPAUSK ČIA
+                </Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => {
                 navigate('penktasVestibiulis')
             }}  style={{
                 backgroundColor: 'white',
@@ -60,7 +82,6 @@ export default function KetvirtasVestibiulis({ navigation: { navigate }}) {
                     color: 'black',
                     fontWeight: 'bold',
                     textAlign: 'center',
-                    paddingTop: 46
                 }}>
                     SPAUSK ČIA
                 </Text>

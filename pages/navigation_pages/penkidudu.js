@@ -37,13 +37,12 @@ export default function PenkiDuDu({ navigation: { navigate }}) {
                     color: 'black',
                     fontWeight: 'bold',
                     textAlign: 'center',
-                    paddingTop: 46
                 }}>
                     SPAUSK ČIA
                 </Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => {
-                navigate('penktasVestibiulis')
+                navigate('penkiduketuri')
             }}  style={{
                 backgroundColor: 'white',
                 opacity: 0.5,
@@ -60,7 +59,6 @@ export default function PenkiDuDu({ navigation: { navigate }}) {
                     color: 'black',
                     fontWeight: 'bold',
                     textAlign: 'center',
-                    paddingTop: 46
                 }}>
                     SPAUSK ČIA
                 </Text>

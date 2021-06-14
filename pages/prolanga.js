@@ -86,7 +86,7 @@ export default function ProLanga({ navigation: { navigate }}) {
                 </View>
             </View>
             {correctAts() && <TouchableOpacity onPress={() => {
-                navigate('saiejimas')
+                navigate('ketvirtasVestibiulis')
             }}  style={{
                 backgroundColor: 'green',
                 padding: 10,
