@@ -189,7 +189,7 @@ const PositionLayout = () => {
       setcomplete(prev=>prev=prev+1)
       setres1(false);
       setres1_2(false);
-      console.log(_complete)
+      
     }
     if(_2.toLowerCase()==="pertrauka" && res2==true){
       setcomplete(prev=>prev=prev+1)
@@ -198,19 +198,19 @@ const PositionLayout = () => {
       setres2_4(false);
       setres2_6(false);
       setres2_8(false);
-      console.log(_complete)
+      
     }
     if(_3.toLowerCase()==="sodra" && res3==true){
       setcomplete(prev=>prev=prev+1)
       setres3(false);
       setres3_6(false);
-      console.log(_complete)
+      
     }
     if(_4.toLowerCase()==="skurdas" && res4==true){
       setcomplete(prev=>prev=prev+1)
       setres4(false);
       setres2_4(false);
-      console.log(_complete)
+      
     }
     if(_5.toLowerCase()==="direktorius" && res5==true){
       setcomplete(prev=>prev=prev+1)
@@ -220,7 +220,7 @@ const PositionLayout = () => {
       setres5_2(false);
       setres5_8(false);
       setres5_16(false);
-      console.log(_complete)
+      
     }
     if(_6.toLowerCase()==="pardavimas" && res6==true){
       setcomplete(prev=>prev=prev+1)
@@ -228,58 +228,58 @@ const PositionLayout = () => {
       setres3_6(false);
       setres2_6(false);
       setres5_2(false);
-      console.log(_complete)
+      
     }
     if(_7.toLowerCase()==="kyšis" && res7==true){
       setcomplete(prev=>prev=prev+1)
       setres7(false);
       setres7_10(false);
-      console.log(_complete)
+      
     }
     if(_8.toLowerCase()==="reklama" && res8==true){
       setcomplete(prev=>prev=prev+1)
       setres8(false);
       setres2_8(false);
       setres5_8(false);
-      console.log(_complete)
+      
     }
     if(_9.toLowerCase()==="birža" && res9==true){
       setcomplete(prev=>prev=prev+1)
       setres9(false);
       setres15_9(false);
-      console.log(_complete)
+      
     }
     if(_10.toLowerCase()==="santaupos" && res10==true){
       setcomplete(prev=>prev=prev+1)
       setres10(false);
           setres5_10(false);
           setres7_10(false);
-      console.log(_complete)
+     
     }
     if(_11.toLowerCase()==="vmi" && res11==true){
       setcomplete(prev=>prev=prev+1)
       setres11(false);
           setres15_11(false);
-      console.log(_complete)
+      
     }
     if(_12.toLowerCase()==="gpm" && res12==true){
       setcomplete(prev=>prev=prev+1)
       setres12(false);
           setres16_12(false);
-      console.log(_complete)
+    
     }
     if(_13.toLowerCase()==="pvm" && res13==true){
       setcomplete(prev=>prev=prev+1)
       setres13(false);
           setres14_13(false);
-      console.log(_complete)
+      
     }
     if(_14.toLowerCase()==="vertė" && res14==true){
       setcomplete(prev=>prev=prev+1)
       setres14(false);
           setres14_13(false);
           setres16_14(false);
-      console.log(_complete)
+     
     }
     if(_15.toLowerCase()==="infliacija" && res15==true){
       setcomplete(prev=>prev=prev+1)
@@ -287,7 +287,7 @@ const PositionLayout = () => {
       setres15_11(false);
       setres15_9(false);
       setres5_15(false);
-      console.log(_complete)
+      
     }
     if(_16.toLowerCase()==="importas" && res16==true){
       setcomplete(prev=>prev=prev+1)
@@ -295,7 +295,7 @@ const PositionLayout = () => {
       setres16_12(false);
       setres16_14(false);
       setres5_16(false);
-      console.log(_complete)
+     
     }
     if(_complete===16){
       setcomplete(20)
@@ -2058,13 +2058,13 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_15(_15.charAt(0)+value+_15.charAt(2)+_15.charAt(3)+_15.charAt(4)+_15.charAt(5)+_15.charAt(6)+_15.charAt(7)+_15.charAt(8)+_15.charAt(9))
-            console.log(_15_2ref.current.value);
+           
             if (_15_2ref.current.value == "") {
-              console.log("test2");
+            
               _15_2ref.current.focus();
             }
 
-            console.log("test3");
+            
           }
           else {
 
@@ -2441,7 +2441,7 @@ const PositionLayout = () => {
       >
         <Text style={[styles.Crossnum]}>1 </Text>
 
-        <TextInput editable={res1} ref={_1_1ref}  onChangeText={ (e)=> {
+        <TextInput style={styles.TextInput} editable={res1} ref={_1_1ref}  onChangeText={ (e)=> {
         CheckText("_1_1",e)
         
         }} maxLength={1}
@@ -2460,7 +2460,7 @@ const PositionLayout = () => {
        
       >
 
-        <TextInput ref={_1_2ref} editable={res1} onChangeText={ (e)=> {
+        <TextInput ref={_1_2ref} style={styles.TextInput} editable={res1} onChangeText={ (e)=> {
         CheckText("_1_2",e)
         
         }} maxLength={1}
@@ -2479,7 +2479,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_1_3ref} editable={res1} onChangeText={ (e)=> {
+        <TextInput ref={_1_3ref} style={styles.TextInput} editable={res1} onChangeText={ (e)=> {
         CheckText("_1_3",e)
         
         }} maxLength={1}
@@ -2496,7 +2496,7 @@ const PositionLayout = () => {
         ]}
       >
 
-        <TextInput ref={_1_4ref} editable={res1} onChangeText={ (e)=> {
+        <TextInput ref={_1_4ref} style={styles.TextInput} editable={res1} onChangeText={ (e)=> {
         CheckText("_1_4",e)
         
         }} maxLength={1}
@@ -2514,7 +2514,7 @@ const PositionLayout = () => {
         ]}
       >
         <Text style={[styles.Crossnum]}>2</Text>
-        <TextInput ref={_1_5ref} editable={res1_2} onChangeText={ (e)=> {
+        <TextInput ref={_1_5ref} style={styles.TextInput} editable={res1_2} onChangeText={ (e)=> {
         CheckText("_1_5",e)
         
         }} maxLength={1}
@@ -2529,7 +2529,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_1_6ref} editable={res1} onChangeText={ (e)=> {
+        <TextInput ref={_1_6ref} style={styles.TextInput} editable={res1} onChangeText={ (e)=> {
         CheckText("_1_6",e)
         
         }} maxLength={1}
@@ -2545,7 +2545,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_1_7ref} editable={res1} onChangeText={ (e)=> {
+        <TextInput ref={_1_7ref} style={styles.TextInput} editable={res1} onChangeText={ (e)=> {
         CheckText("_1_7",e)
         
         }} maxLength={1}
@@ -2560,7 +2560,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_1_8ref} editable={res1} onChangeText={ (e)=> {
+        <TextInput ref={_1_8ref} style={styles.TextInput} editable={res1} onChangeText={ (e)=> {
         CheckText("_1_8",e)
         
         }} maxLength={1}
@@ -2576,7 +2576,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_1_9ref} editable={res1} onChangeText={ (e)=> {
+        <TextInput ref={_1_9ref} style={styles.TextInput} editable={res1} onChangeText={ (e)=> {
         CheckText("_1_9",e)
         
         }} maxLength={1}
@@ -2595,7 +2595,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_2_1ref} editable={res2} onChangeText={ (e)=> {
+        <TextInput ref={_2_1ref} style={styles.TextInput} editable={res2} onChangeText={ (e)=> {
         CheckText("_2_1",e)
         
         }} maxLength={1}
@@ -2610,7 +2610,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-         <TextInput ref={_2_2ref} editable={res2_4} onChangeText={ (e)=> {
+         <TextInput ref={_2_2ref} style={styles.TextInput} editable={res2_4} onChangeText={ (e)=> {
         CheckText("_2_2",e)
         
         }} maxLength={1}
@@ -2627,7 +2627,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-         <TextInput ref={_2_3ref} editable={res2} onChangeText={ (e)=> {
+         <TextInput ref={_2_3ref} style={styles.TextInput} editable={res2} onChangeText={ (e)=> {
         CheckText("_2_3",e)
         
         }} maxLength={1}
@@ -2643,7 +2643,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-         <TextInput ref={_2_4ref} editable={res2} onChangeText={ (e)=> {
+         <TextInput ref={_2_4ref} style={styles.TextInput} editable={res2} onChangeText={ (e)=> {
         CheckText("_2_4",e)
         
         }} maxLength={1}
@@ -2659,7 +2659,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_2_5ref} editable={res2_6} onChangeText={ (e)=> {
+        <TextInput ref={_2_5ref} style={styles.TextInput} editable={res2_6} onChangeText={ (e)=> {
         CheckText("_2_5",e)
         
         }} maxLength={1}
@@ -2675,7 +2675,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_2_6ref} editable={res2} onChangeText={ (e)=> {
+        <TextInput ref={_2_6ref} style={styles.TextInput} editable={res2} onChangeText={ (e)=> {
         CheckText("_2_6",e)
         
         }} maxLength={1}
@@ -2691,7 +2691,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_2_7ref} editable={res2} onChangeText={ (e)=> {
+        <TextInput ref={_2_7ref} style={styles.TextInput} editable={res2} onChangeText={ (e)=> {
         CheckText("_2_7",e)
         
         }} maxLength={1}
@@ -2706,7 +2706,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_2_8ref} editable={res2_8} onChangeText={ (e)=> {
+        <TextInput ref={_2_8ref} style={styles.TextInput} editable={res2_8} onChangeText={ (e)=> {
         CheckText("_2_8",e)
         
         }} maxLength={1}
@@ -2725,7 +2725,7 @@ const PositionLayout = () => {
         ]}
       >
         <Text style={[styles.Crossnum]}>3</Text>
-        <TextInput ref={_3_1ref} editable={res3}  onChangeText={ (e)=> {
+        <TextInput ref={_3_1ref} style={styles.TextInput} editable={res3}  onChangeText={ (e)=> {
         CheckText("_3_1",e)
         
         }} maxLength={1}
@@ -2740,7 +2740,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_3_2ref} editable={res3} onChangeText={ (e)=> {
+        <TextInput ref={_3_2ref} style={styles.TextInput} editable={res3} onChangeText={ (e)=> {
         CheckText("_3_2",e)
         
         }} maxLength={1}
@@ -2755,7 +2755,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_3_3ref} editable={res3} onChangeText={ (e)=> {
+        <TextInput ref={_3_3ref} style={styles.TextInput} editable={res3} onChangeText={ (e)=> {
         CheckText("_3_3",e)
         
         }} maxLength={1}
@@ -2772,7 +2772,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_3_5ref} editable={res3} onChangeText={ (e)=> {
+        <TextInput ref={_3_5ref} style={styles.TextInput} editable={res3} onChangeText={ (e)=> {
         CheckText("_3_5",e)
         
         }} maxLength={1}
@@ -2792,7 +2792,7 @@ const PositionLayout = () => {
         ]}
       >
       <Text style={[styles.Crossnum]}>4</Text>
-      <TextInput ref={_4_1ref} editable={res4} onChangeText={ (e)=> {
+      <TextInput ref={_4_1ref} style={styles.TextInput} editable={res4} onChangeText={ (e)=> {
         CheckText("_4_1",e)
         
         }} maxLength={1}/>
@@ -2807,7 +2807,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-         <TextInput ref={_4_2ref} editable={res4} onChangeText={ (e)=> {
+         <TextInput ref={_4_2ref} style={styles.TextInput} editable={res4} onChangeText={ (e)=> {
         CheckText("_4_2",e)
         
         }} maxLength={1}/>
@@ -2822,7 +2822,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-         <TextInput ref={_4_3ref} editable={res4} onChangeText={ (e)=> {
+         <TextInput ref={_4_3ref} style={styles.TextInput} editable={res4} onChangeText={ (e)=> {
         CheckText("_4_3",e)
         
         }} maxLength={1}/>
@@ -2838,7 +2838,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-         <TextInput ref={_4_4ref} editable={res4} onChangeText={ (e)=> {
+         <TextInput ref={_4_4ref} style={styles.TextInput} editable={res4} onChangeText={ (e)=> {
         CheckText("_4_4",e)
         
         }} maxLength={1}/>
@@ -2852,7 +2852,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-         <TextInput ref={_4_5ref} editable={res4} onChangeText={ (e)=> {
+         <TextInput ref={_4_5ref} style={styles.TextInput} editable={res4} onChangeText={ (e)=> {
         CheckText("_4_5",e)
         
         }} maxLength={1}/>
@@ -2866,7 +2866,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-         <TextInput ref={_4_6ref} editable={res4} onChangeText={ (e)=> {
+         <TextInput ref={_4_6ref} style={styles.TextInput} editable={res4} onChangeText={ (e)=> {
         CheckText("_4_6",e)
         
         }} maxLength={1}/>
@@ -2885,7 +2885,7 @@ const PositionLayout = () => {
         ]}
       >
         <Text style={[styles.Crossnum]}>5</Text>
-        <TextInput ref={_5_1ref} editable={res5} onChangeText={ (e)=> {
+        <TextInput ref={_5_1ref} style={styles.TextInput} editable={res5} onChangeText={ (e)=> {
         CheckText("_5_1",e)
         
         }} maxLength={1}
@@ -2900,7 +2900,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_5_2ref} editable={res5_2} onChangeText={ (e)=> {
+        <TextInput ref={_5_2ref} style={styles.TextInput} editable={res5_2} onChangeText={ (e)=> {
         CheckText("_5_2",e)
         
         }} maxLength={1}
@@ -2915,7 +2915,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_5_3ref} editable={res5}  onChangeText={ (e)=> {
+        <TextInput ref={_5_3ref} style={styles.TextInput} editable={res5}  onChangeText={ (e)=> {
         CheckText("_5_3",e)
         
         }} maxLength={1}
@@ -2930,7 +2930,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_5_4ref} editable={res5}  onChangeText={ (e)=> {
+        <TextInput ref={_5_4ref} style={styles.TextInput} editable={res5}  onChangeText={ (e)=> {
         CheckText("_5_4",e)
         
         }} maxLength={1}
@@ -2945,7 +2945,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_5_5ref} editable={res5_8}  onChangeText={ (e)=> {
+        <TextInput ref={_5_5ref} style={styles.TextInput} editable={res5_8}  onChangeText={ (e)=> {
         CheckText("_5_5",e)
         
         }} maxLength={1}
@@ -2960,7 +2960,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_5_6ref} editable={res5} onChangeText={ (e)=> {
+        <TextInput ref={_5_6ref} style={styles.TextInput} editable={res5} onChangeText={ (e)=> {
         CheckText("_5_6",e)
         
         }} maxLength={1}
@@ -2975,7 +2975,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_5_7ref} editable={res5_10} onChangeText={ (e)=> {
+        <TextInput ref={_5_7ref} style={styles.TextInput} editable={res5_10} onChangeText={ (e)=> {
         CheckText("_5_7",e)
         
         }} maxLength={1}
@@ -2990,7 +2990,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_5_8ref} editable={res5} onChangeText={ (e)=> {
+        <TextInput ref={_5_8ref} style={styles.TextInput} editable={res5} onChangeText={ (e)=> {
         CheckText("_5_8",e)
         
         }} maxLength={1}
@@ -3006,7 +3006,7 @@ const PositionLayout = () => {
         ]}
       >
         <Text style={[styles.Crossnum]}>15</Text>
-        <TextInput ref={_5_9ref} editable={res5_15}  onChangeText={ (e)=> {
+        <TextInput ref={_5_9ref} style={styles.TextInput} editable={res5_15}  onChangeText={ (e)=> {
         CheckText("_5_9",e)
         
         }} maxLength={1}
@@ -3021,7 +3021,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_5_10ref} editable={res5} onChangeText={ (e)=> {
+        <TextInput ref={_5_10ref} style={styles.TextInput} editable={res5} onChangeText={ (e)=> {
         CheckText("_5_10",e)
         
         }} maxLength={1}
@@ -3036,7 +3036,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_5_11ref} editable={res5_16} onChangeText={ (e)=> {
+        <TextInput ref={_5_11ref} style={styles.TextInput} editable={res5_16} onChangeText={ (e)=> {
         CheckText("_5_11",e)
         
         }} maxLength={1}
@@ -3056,7 +3056,7 @@ const PositionLayout = () => {
         ]}
       >
         <Text style={[styles.Crossnum]}>6</Text>
-        <TextInput ref={_6_1ref} editable={res6} onChangeText={ (e)=> {
+        <TextInput ref={_6_1ref} style={styles.TextInput} editable={res6} onChangeText={ (e)=> {
         CheckText("_6_1",e)
         
         }} maxLength={1}
@@ -3072,7 +3072,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_6_2ref} editable={res6} onChangeText={ (e)=> {
+        <TextInput ref={_6_2ref} style={styles.TextInput} editable={res6} onChangeText={ (e)=> {
         CheckText("_6_2",e)
         
         }} maxLength={1}
@@ -3089,7 +3089,7 @@ const PositionLayout = () => {
         ]}
       >
         
-        <TextInput ref={_3_4ref} editable={res3_6} onChangeText={ (e)=> {
+        <TextInput ref={_3_4ref} style={styles.TextInput} editable={res3_6} onChangeText={ (e)=> {
         CheckText("_3_4",e)
         
         }} maxLength={1}
@@ -3105,7 +3105,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_6_3ref} editable={res6} onChangeText={ (e)=> {
+        <TextInput ref={_6_3ref} style={styles.TextInput} editable={res6} onChangeText={ (e)=> {
         CheckText("_6_3",e)
         
         }} maxLength={1}
@@ -3121,7 +3121,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_6_4ref} editable={res6} onChangeText={ (e)=> {
+        <TextInput ref={_6_4ref} style={styles.TextInput} editable={res6} onChangeText={ (e)=> {
         CheckText("_6_4",e)
         
         }} maxLength={1}
@@ -3136,7 +3136,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_6_5ref} editable={res6} onChangeText={ (e)=> {
+        <TextInput ref={_6_5ref} style={styles.TextInput} editable={res6} onChangeText={ (e)=> {
         CheckText("_6_5",e)
         
         }} maxLength={1}
@@ -3153,7 +3153,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_6_6ref} editable={res6} onChangeText={ (e)=> {
+        <TextInput ref={_6_6ref} style={styles.TextInput} editable={res6} onChangeText={ (e)=> {
         CheckText("_6_6",e)
         
         }} maxLength={1}
@@ -3170,7 +3170,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_6_7ref} editable={res6} onChangeText={ (e)=> {
+        <TextInput ref={_6_7ref} style={styles.TextInput} editable={res6} onChangeText={ (e)=> {
         CheckText("_6_7",e)
         
         }} maxLength={1}
@@ -3189,7 +3189,7 @@ const PositionLayout = () => {
         ]}
       >
         <Text style={[styles.Crossnum]}>7</Text>
-        <TextInput ref={_7_1ref} editable={res7} onChangeText={ (e)=> {
+        <TextInput ref={_7_1ref} style={styles.TextInput} editable={res7} onChangeText={ (e)=> {
         CheckText("_7_1",e)
         
         }} maxLength={1}
@@ -3204,7 +3204,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_7_2ref} editable={res7} onChangeText={ (e)=> {
+        <TextInput ref={_7_2ref} style={styles.TextInput} editable={res7} onChangeText={ (e)=> {
         CheckText("_7_2",e)
         
         }} maxLength={1}
@@ -3220,7 +3220,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_7_3ref} editable={res7} onChangeText={ (e)=> {
+        <TextInput ref={_7_3ref} style={styles.TextInput} editable={res7} onChangeText={ (e)=> {
         CheckText("_7_3",e)
         
         }} maxLength={1}
@@ -3236,7 +3236,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_7_4ref} editable={res7} onChangeText={ (e)=> {
+        <TextInput ref={_7_4ref} style={styles.TextInput} editable={res7} onChangeText={ (e)=> {
         CheckText("_7_4",e)
         
         }} maxLength={1}
@@ -3252,7 +3252,7 @@ const PositionLayout = () => {
         ]}
       >
         <Text style={styles.Crossnum}>10</Text>
-        <TextInput ref={_7_5ref} editable={res7_10} onChangeText={ (e)=> {
+        <TextInput ref={_7_5ref} style={styles.TextInput} editable={res7_10} onChangeText={ (e)=> {
         CheckText("_7_5",e)
         
         }} maxLength={1}
@@ -3271,7 +3271,7 @@ const PositionLayout = () => {
         ]}
       >
         <Text style={[styles.Crossnum]}>8</Text>
-        <TextInput ref={_8_1ref} editable={res8} onChangeText={ (e)=> {
+        <TextInput ref={_8_1ref} style={styles.TextInput} editable={res8} onChangeText={ (e)=> {
         CheckText("_8_1",e)
         
         }} maxLength={1}
@@ -3286,7 +3286,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_8_2ref} editable={res8} onChangeText={ (e)=> {
+        <TextInput ref={_8_2ref} style={styles.TextInput} editable={res8} onChangeText={ (e)=> {
         CheckText("_8_2",e)
         
         }} maxLength={1}
@@ -3304,7 +3304,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_8_3ref} editable={res8} onChangeText={ (e)=> {
+        <TextInput ref={_8_3ref} style={styles.TextInput} editable={res8} onChangeText={ (e)=> {
         CheckText("_8_3",e)
         
         }} maxLength={1}
@@ -3321,7 +3321,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_8_4ref} editable={res8} onChangeText={ (e)=> {
+        <TextInput ref={_8_4ref} style={styles.TextInput} editable={res8} onChangeText={ (e)=> {
         CheckText("_8_4",e)
         
         }} maxLength={1}
@@ -3336,7 +3336,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_8_5ref} editable={res8} onChangeText={ (e)=> {
+        <TextInput ref={_8_5ref} style={styles.TextInput} editable={res8} onChangeText={ (e)=> {
         CheckText("_8_5",e)
         
         }} maxLength={1}
@@ -3355,7 +3355,7 @@ const PositionLayout = () => {
         ]}
       >
         <Text style={[styles.Crossnum]}>9</Text>
-        <TextInput ref={_9_1ref} editable={res9} onChangeText={ (e)=> {
+        <TextInput ref={_9_1ref} style={styles.TextInput} editable={res9} onChangeText={ (e)=> {
         CheckText("_9_1",e)
         
         }} maxLength={1}
@@ -3370,7 +3370,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_9_2ref} editable={res9} onChangeText={ (e)=> {
+        <TextInput ref={_9_2ref} style={styles.TextInput} editable={res9} onChangeText={ (e)=> {
         CheckText("_9_2",e)
         
         }} maxLength={1}
@@ -3385,7 +3385,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_9_3ref} editable={res9} onChangeText={ (e)=> {
+        <TextInput ref={_9_3ref} style={styles.TextInput} editable={res9} onChangeText={ (e)=> {
         CheckText("_9_3",e)
         
         }} maxLength={1}
@@ -3400,7 +3400,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_9_4ref} editable={res9} onChangeText={ (e)=> {
+        <TextInput ref={_9_4ref} style={styles.TextInput} editable={res9} onChangeText={ (e)=> {
         CheckText("_9_4",e)
         
         }} maxLength={1}
@@ -3419,7 +3419,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-      <TextInput ref={_10_1ref} editable={res10} onChangeText={ (e)=> {
+      <TextInput ref={_10_1ref} style={styles.TextInput} editable={res10} onChangeText={ (e)=> {
         CheckText("_10_1",e)
         
         }} maxLength={1}
@@ -3435,7 +3435,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_10_2ref} editable={res10} onChangeText={ (e)=> {
+        <TextInput ref={_10_2ref} style={styles.TextInput} editable={res10} onChangeText={ (e)=> {
         CheckText("_10_2",e)
         
         }} maxLength={1}
@@ -3451,7 +3451,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_10_3ref} editable={res10} onChangeText={ (e)=> {
+        <TextInput ref={_10_3ref} style={styles.TextInput} editable={res10} onChangeText={ (e)=> {
         CheckText("_10_3",e)
         
         }} maxLength={1}
@@ -3467,7 +3467,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_10_4ref} editable={res10} onChangeText={ (e)=> {
+        <TextInput ref={_10_4ref} style={styles.TextInput} editable={res10} onChangeText={ (e)=> {
         CheckText("_10_4",e)
         
         }} maxLength={1}
@@ -3483,7 +3483,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_10_5ref} editable={res10} onChangeText={ (e)=> {
+        <TextInput ref={_10_5ref} style={styles.TextInput} editable={res10} onChangeText={ (e)=> {
         CheckText("_10_5",e)
         
         }} maxLength={1}
@@ -3499,7 +3499,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_10_6ref} editable={res10} onChangeText={ (e)=> {
+        <TextInput ref={_10_6ref} style={styles.TextInput} editable={res10} onChangeText={ (e)=> {
         CheckText("_10_6",e)
         
         }} maxLength={1}
@@ -3517,7 +3517,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_10_7ref} editable={res10} onChangeText={ (e)=> {
+        <TextInput ref={_10_7ref} style={styles.TextInput} editable={res10} onChangeText={ (e)=> {
         CheckText("_10_7",e)
         
         }} maxLength={1}
@@ -3537,7 +3537,7 @@ const PositionLayout = () => {
         ]}
       >
         <Text style={styles.Crossnum}>11</Text>
-        <TextInput ref={_11_1ref} editable={res11} onChangeText={ (e)=> {
+        <TextInput ref={_11_1ref} style={styles.TextInput} editable={res11} onChangeText={ (e)=> {
         CheckText("_11_1",e)
         
         }} maxLength={1}
@@ -3554,7 +3554,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_11_2ref} editable={res11} onChangeText={ (e)=> {
+        <TextInput ref={_11_2ref} style={styles.TextInput} editable={res11} onChangeText={ (e)=> {
         CheckText("_11_2",e)
         
         }} maxLength={1}
@@ -3574,7 +3574,7 @@ const PositionLayout = () => {
         ]}
       >
         <Text style={styles.Crossnum}>12</Text>
-        <TextInput ref={_12_1ref} editable={res12} onChangeText={ (e)=> {
+        <TextInput ref={_12_1ref} style={styles.TextInput} editable={res12} onChangeText={ (e)=> {
         CheckText("_12_1",e)
         
         }} maxLength={1}
@@ -3589,7 +3589,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_12_2ref} editable={res12} onChangeText={ (e)=> {
+        <TextInput ref={_12_2ref} style={styles.TextInput} editable={res12} onChangeText={ (e)=> {
         CheckText("_12_2",e)
         
         }} maxLength={1}
@@ -3609,7 +3609,7 @@ const PositionLayout = () => {
         ]}
       >
         <Text style={styles.Crossnum}>13</Text>
-        <TextInput ref={_13_1ref} editable={res13}  onChangeText={ (e)=> {
+        <TextInput ref={_13_1ref} style={styles.TextInput} editable={res13}  onChangeText={ (e)=> {
         CheckText("_13_1",e)
         
         }} maxLength={1}
@@ -3627,7 +3627,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_13_2ref} editable={res13} onChangeText={ (e)=> {
+        <TextInput ref={_13_2ref} style={styles.TextInput} editable={res13} onChangeText={ (e)=> {
         CheckText("_13_2",e)
         
         }} maxLength={1}
@@ -3647,7 +3647,7 @@ const PositionLayout = () => {
         ]}
       >
         <Text style={styles.Crossnum}>14</Text>
-        <TextInput ref={_14_1ref} editable={res14_13} onChangeText={ (e)=> {
+        <TextInput ref={_14_1ref} style={styles.TextInput} editable={res14_13} onChangeText={ (e)=> {
         CheckText("_14_1",e)
         
         }} maxLength={1}
@@ -3663,7 +3663,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_14_2ref} editable={res14} onChangeText={ (e)=> {
+        <TextInput ref={_14_2ref} style={styles.TextInput} editable={res14} onChangeText={ (e)=> {
         CheckText("_14_2",e)
         
         }} maxLength={1}
@@ -3681,7 +3681,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_14_3ref} editable={res14} onChangeText={ (e)=> {
+        <TextInput ref={_14_3ref} style={styles.TextInput} editable={res14} onChangeText={ (e)=> {
         CheckText("_14_3",e)
         
         }} maxLength={1}
@@ -3697,7 +3697,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_14_4ref} editable={res14} onChangeText={ (e)=> {
+        <TextInput ref={_14_4ref} style={styles.TextInput} editable={res14} onChangeText={ (e)=> {
         CheckText("_14_4",e)
         
         }} maxLength={1}
@@ -3715,7 +3715,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_15_1ref} editable={res15} onChangeText={ (e)=> {
+        <TextInput ref={_15_1ref} style={styles.TextInput} editable={res15} onChangeText={ (e)=> {
         CheckText("_15_1",e)
         
         }} maxLength={1}
@@ -3730,7 +3730,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_15_2ref} editable={res15} onChangeText={ (e)=> {
+        <TextInput ref={_15_2ref} style={styles.TextInput} editable={res15} onChangeText={ (e)=> {
         CheckText("_15_2",e)
         
         }} maxLength={1}
@@ -3745,7 +3745,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_15_3ref} editable={res15} onChangeText={ (e)=> {
+        <TextInput ref={_15_3ref} style={styles.TextInput} editable={res15} onChangeText={ (e)=> {
         CheckText("_15_3",e)
         
         }} maxLength={1}
@@ -3760,7 +3760,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_15_4ref} editable={res15} onChangeText={ (e)=> {
+        <TextInput ref={_15_4ref} style={styles.TextInput} editable={res15} onChangeText={ (e)=> {
         CheckText("_15_4",e)
         
         }} maxLength={1}
@@ -3775,7 +3775,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_15_5ref} editable={res15} onChangeText={ (e)=> {
+        <TextInput ref={_15_5ref} style={styles.TextInput} editable={res15} onChangeText={ (e)=> {
         CheckText("_15_5",e)
         
         }} maxLength={1}
@@ -3790,7 +3790,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_15_6ref} editable={res15} onChangeText={ (e)=> {
+        <TextInput ref={_15_6ref} style={styles.TextInput} editable={res15} onChangeText={ (e)=> {
         CheckText("_15_6",e)
         
         }} maxLength={1}
@@ -3805,7 +3805,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_15_7ref} editable={res15_11} onChangeText={ (e)=> {
+        <TextInput ref={_15_7ref} style={styles.TextInput} editable={res15_11} onChangeText={ (e)=> {
         CheckText("_15_7",e)
         
         }} maxLength={1}
@@ -3820,7 +3820,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_15_8ref} editable={res15} onChangeText={ (e)=> {
+        <TextInput ref={_15_8ref} style={styles.TextInput} editable={res15} onChangeText={ (e)=> {
         CheckText("_15_8",e)
         
         }} maxLength={1}
@@ -3835,7 +3835,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_15_9ref} editable={res15_9} onChangeText={ (e)=> {
+        <TextInput ref={_15_9ref} style={styles.TextInput} editable={res15_9} onChangeText={ (e)=> {
         CheckText("_15_9",e)
         
         }} maxLength={1}
@@ -3854,7 +3854,7 @@ const PositionLayout = () => {
         ]}
       >
         <Text style={styles.Crossnum}>16</Text>
-        <TextInput ref={_16_1ref} editable={res16} onChangeText={ (e)=> {
+        <TextInput ref={_16_1ref} style={styles.TextInput} editable={res16} onChangeText={ (e)=> {
         CheckText("_16_1",e)
         
         }} maxLength={1}
@@ -3869,7 +3869,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_16_2ref} editable={res16_12} onChangeText={ (e)=> {
+        <TextInput ref={_16_2ref} style={styles.TextInput} editable={res16_12} onChangeText={ (e)=> {
         CheckText("_16_2",e)
         
         }} maxLength={1}
@@ -3885,7 +3885,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_16_3ref} editable={res16} onChangeText={ (e)=> {
+        <TextInput ref={_16_3ref} style={styles.TextInput} editable={res16} onChangeText={ (e)=> {
         CheckText("_16_3",e)
         
         }} maxLength={1}
@@ -3901,7 +3901,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_16_4ref} editable={res16} onChangeText={ (e)=> {
+        <TextInput ref={_16_4ref} style={styles.TextInput} editable={res16} onChangeText={ (e)=> {
         CheckText("_16_4",e)
         
         }} maxLength={1}
@@ -3917,7 +3917,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_16_5ref} editable={res16_14} onChangeText={ (e)=> {
+        <TextInput ref={_16_5ref} style={styles.TextInput} editable={res16_14} onChangeText={ (e)=> {
         CheckText("_16_5",e)
         
         }} maxLength={1}
@@ -3933,7 +3933,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_16_6ref} editable={res16} onChangeText={ (e)=> {
+        <TextInput ref={_16_6ref} style={styles.TextInput} editable={res16} onChangeText={ (e)=> {
         CheckText("_16_6",e)
         
         }} maxLength={1}
@@ -3948,7 +3948,7 @@ const PositionLayout = () => {
           },
         ]}
       >
-        <TextInput ref={_16_7ref} editable={res16} onChangeText={ (e)=> {
+        <TextInput ref={_16_7ref} style={styles.TextInput} editable={res16} onChangeText={ (e)=> {
         CheckText("_16_7",e)
         
         }} maxLength={1}
@@ -4026,14 +4026,16 @@ const styles = StyleSheet.create({
   },
   TextInput: {
 
-    textAlign: "center",
-    textAlignVertical: "center",
+    fontSize: Platform.OS === 'web' ? 14: 12,
   },
   Text:{
 
     fontStyle: "italic",
     fontWeight: "900",
     textDecorationLine: "underline",
+  },
+  Crossnum:{
+    fontSize: Platform.OS === 'web' ? 14: 10,
   },
   
 });
