@@ -214,6 +214,7 @@ class ScrambleFinansai extends Component {
     if(this.state.Word == "FINANSAI"){
       console.log("Correct - " + this.state.Word);
       AsyncStorage.setItem('finansai', 'true');
+      AsyncStorage.setItem('kryziazodis', 'false');
       this.FinancaiAlertWin();
     }
     else {

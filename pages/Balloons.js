@@ -122,6 +122,7 @@ class Balloons extends Component{
         if(this.state.numberOne == "4" && this.state.numberTwo == "2" && this.state.numberThree == "1"){
             this.BalloonsAlertWin();
             AsyncStorage.setItem('balioneliai', 'true');
+            AsyncStorage.setItem('kompiuteriukahoot', 'false');
         }
         else {
             this.BalloonsAlertLost();
