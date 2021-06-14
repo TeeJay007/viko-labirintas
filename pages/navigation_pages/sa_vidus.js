@@ -2,13 +2,24 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text, useWindowDimensions, TouchableOpacity, Image } from 'react-native';
 import NavBase from './nav_base'
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const IMAGE = require('../../NavigationCovers/savidus.jpg');
 const IMAGE_WIDTH = 3024;
 const IMAGE_HEIGHT = 4032;
 
 export default function SAVidus({ navigation: { navigate }}) {
     
+    let washere = 'false';
+    
+    const getData = async () => {
+        try {
+          washere = await AsyncStorage.getItem("balioneliai");
+          //console.log(washere + " --------------------------- is data");  
+        } catch (err) {
+          console.log(err);
+        }
+    };
+      
     const {width: screenW, height: screenH} = useWindowDimensions()
 
     const getScreenWidth = () => IMAGE_WIDTH / IMAGE_HEIGHT * screenH;
@@ -16,18 +27,19 @@ export default function SAVidus({ navigation: { navigate }}) {
     
     const resizeWidth = (w) => w * getScreenWidth() / IMAGE_WIDTH;
     const resizeHeight = (h) => h * getScreenHeight() / IMAGE_HEIGHT;
-    
+
     mainBlue = require('../../Images/blue1.png');
     imageHeight = 192;
     imageWidth = 130;
-    let washere = false;
 
-    if(washere == false){
-        washere = true;
+    getData();
+    console.log(washere + " --------------------------- is dddddata");
+    if(washere == 'false'){
         return (
+            
             <NavBase image={IMAGE} width={IMAGE_WIDTH} height={IMAGE_HEIGHT}>
                <TouchableOpacity onPress={() => {
-                    navigate('balloons')
+                    navigate('baloons')
                 }}  style={{
                     opacity: 0.5,
                     padding: 10,

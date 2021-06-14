@@ -12,7 +12,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import "react-native-gesture-handler";
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const paperHeight = 192;
 const paperWidht = 130;
@@ -121,6 +121,7 @@ class Balloons extends Component{
         
         if(this.state.numberOne == "4" && this.state.numberTwo == "2" && this.state.numberThree == "1"){
             this.BalloonsAlertWin();
+            AsyncStorage.setItem('balioneliai', 'true');
         }
         else {
             this.BalloonsAlertLost();

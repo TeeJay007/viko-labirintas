@@ -2,6 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
+
 // import Lenteles from './pages/lenteles';
 import ProLanga from './pages/prolanga';
 import ScrambleFinansai from './pages/ScrambleFinansai';
