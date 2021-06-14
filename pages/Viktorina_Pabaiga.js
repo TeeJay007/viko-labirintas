@@ -158,7 +158,7 @@ export default function Pavyzdinis() {
   
   return (
     <View style={styles.container}>
-    <ImageBackground source={image} style={styles.image} >
+    <ImageBackground source={require('../Images/sa.jpg')} style={styles.bimage} >
       {/* Header */}
       <View>
       <FlatList
@@ -237,6 +237,11 @@ const styles = StyleSheet.create({
       height:"100%"
       
     },
+    bimage: {
+      height: "100%",
+      width: "100%",
+      resizeMode: "cover",
+    }
     
     
 });

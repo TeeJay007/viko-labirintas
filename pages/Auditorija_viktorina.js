@@ -4,8 +4,7 @@ import { StyleSheet, Text, View, FlatList, TouchableOpacity, Alert, Platform,Ima
 
 
 export default function Pavyzdinis() {
-  const image = { uri: "https://scontent.fplq1-1.fna.fbcdn.net/v/t1.6435-9/171013345_3932902256793104_4429939317269897519_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=973b4a&_nc_ohc=B6B7q8CuY78AX-stzxm&_nc_ht=scontent.fplq1-1.fna&oh=73fcc290783d96223fd537445ad40f33&oe=60CAA868"};
-  const [_klaus,_setklaus]=useState(1);
+ const [_klaus,_setklaus]=useState(1);
   const [_Klausimai_Prev,_setKlausimai_Prev]= useState();
   const [_QnA_Prev,_setQnA_Prev]= useState();
   const [_Klausimai,_setKlausimai] = useState ([
@@ -154,7 +153,7 @@ export default function Pavyzdinis() {
   
   return (
     <View style={styles.container}>
-    <ImageBackground source={image} style={styles.image}>
+    <ImageBackground source={require('../Images/sa.jpg')} style={styles.bimage}>
       {/* Header */}
       <View>
       <FlatList
@@ -233,5 +232,10 @@ const styles = StyleSheet.create({
       height:"100%"
       
     },
+    bimage: {
+      height: "100%",
+      width: "100%",
+      resizeMode: "cover",
+  },
     
 });

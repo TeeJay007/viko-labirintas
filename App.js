@@ -8,7 +8,9 @@ import ScrambleFinansai from './pages/ScrambleFinansai';
 import Finansai from './pages/finansai';
 import Balloons from './pages/Balloons';
 import Vikobankasdrauda from './pages/vikobankasdrauda';
-
+import Kryziazodis from './pages/Kryžiažodis'
+import ViktorinaPabaiga from './pages/Viktorina_Pabaiga'
+import ViktorinaAuditorija from './pages/Auditorija_viktorina'
 //Navigacija po pastata
 import First from './pages/navigation_pages/first'
 import Second from './pages/navigation_pages/second'
@@ -20,7 +22,7 @@ export default function App() {
     
     <NavigationContainer>
       {/* TODO: kur initialRouteName turetu but pradinis programos route name */}
-      <Stack.Navigator initialRouteName="baloons">
+      <Stack.Navigator initialRouteName="viktorinaPabaiga">
         {/* <Stack.Screen
           name="lenteles"
           component={Lenteles}
@@ -44,6 +46,10 @@ export default function App() {
           name="proLanga"
           component={ProLanga}
           options={{ title: 'Pro langą' }} />
+          <Stack.Screen
+          name="viktorinaAuditorija"
+          component={ViktorinaAuditorija}
+          options={{ title: 'Viktorina' }} />
         <Stack.Screen
           name="scrambleFinansai"
           component={ScrambleFinansai}
@@ -52,10 +58,18 @@ export default function App() {
           name="finansai"
           component={Finansai}
           options={{ title: 'Finansai' }} />
+           <Stack.Screen
+          name="kryziazodis"
+          component={Kryziazodis}
+          options={{ title: 'Kryziazodis' }} />
         <Stack.Screen
           name="vikoBankasDrauda"
           component={Vikobankasdrauda}
           options={{ title: 'Viko bankas drauda' }} />
+          <Stack.Screen
+          name="viktorinaPabaiga"
+          component={ViktorinaPabaiga}
+          options={{ title: 'Viktorina' }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
