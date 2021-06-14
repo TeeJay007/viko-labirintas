@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function Vikobankasdrauda() {
+export default function Vikobankasdrauda({ navigation: { navigate }}) {
 
   const atsakymas1 = "401";
   const [ats1, setAts1] = useState({ skaiciai1: atsakymas1.split('').map(v => '') });
+  const correctAts = () => atsakymas1 == ats1.skaiciai1.join('').toUpperCase()
 
   return (
     <View style={styles.container}>
@@ -38,6 +40,25 @@ export default function Vikobankasdrauda() {
           )}
         </View>
       </View>
+      {correctAts() && <TouchableOpacity onPress={() => {
+            AsyncStorage.setItem('vikoBankasDrauda', 'true');
+            AsyncStorage.setItem('kryziazodis', 'false');
+                navigate('ketvirtasVestibiulis')
+            }}  style={{
+                backgroundColor: 'green',
+                padding: 10,
+                justifyContent: 'center',
+                alignItems: 'center'
+            }}>
+                <Text style={{
+                    paddingVertical: 20,
+                    color: 'white',
+                    fontWeight: 'bold',
+                    textAlign: 'center',
+                }}>
+                  SPAUSK ČIA JEI NORI KELIAUTI TOLIAU
+                </Text>
+            </TouchableOpacity>}
     </View>
   );
 }
