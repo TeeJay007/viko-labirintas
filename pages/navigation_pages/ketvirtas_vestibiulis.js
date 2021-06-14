@@ -86,6 +86,28 @@ export default function KetvirtasVestibiulis({ navigation: { navigate }}) {
                     SPAUSK ČIA
                 </Text>
             </TouchableOpacity>
+            <TouchableOpacity onPress={() => {
+                navigate('lenteles')
+            }}  style={{
+                backgroundColor: 'white',
+                opacity: 0.5,
+                padding: 10,
+                position: 'absolute',
+                top: resizeHeight(1050),
+                left: resizeWidth(1790),
+                width: resizeWidth(200),
+                height: resizeHeight(200),
+                justifyContent: 'center',
+                alignItems: 'center'
+            }}>
+                <Text style={{
+                    color: 'black',
+                    fontWeight: 'bold',
+                    textAlign: 'center',
+                }}>
+                    SPAUSK ČIA
+                </Text>
+            </TouchableOpacity>
         </NavBase>
     );
 }
