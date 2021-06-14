@@ -43,7 +43,7 @@ export default function Vikobankasdrauda({ navigation: { navigate }}) {
       {correctAts() && <TouchableOpacity onPress={() => {
             AsyncStorage.setItem('vikoBankasDrauda', 'true');
             AsyncStorage.setItem('kryziazodis', 'false');
-                navigate('ketvirtasVestibiulis')
+                navigate('PenktasVestibiulis')
             }}  style={{
                 backgroundColor: 'green',
                 padding: 10,
