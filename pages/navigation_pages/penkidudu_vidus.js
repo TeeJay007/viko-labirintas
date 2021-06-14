@@ -20,7 +20,7 @@ export default function PenkiDuDuVidus({ navigation: { navigate }}) {
     return (
         <NavBase image={IMAGE} width={IMAGE_WIDTH} height={IMAGE_HEIGHT}>
             <TouchableOpacity onPress={() => {
-                
+                navigate('proLanga')
             }}  style={{
                 backgroundColor: 'white',
                 opacity: 0.5,
