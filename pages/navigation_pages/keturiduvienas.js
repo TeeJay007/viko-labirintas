@@ -37,7 +37,6 @@ export default function KeturiDuVienas({ navigation: { navigate }}) {
                     color: 'black',
                     fontWeight: 'bold',
                     textAlign: 'center',
-                    paddingTop: 46
                 }}>
                     SPAUSK ČIA
                 </Text>

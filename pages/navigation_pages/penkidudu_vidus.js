@@ -37,7 +37,6 @@ export default function PenkiDuDuVidus({ navigation: { navigate }}) {
                     color: 'black',
                     fontWeight: 'bold',
                     textAlign: 'center',
-                    paddingTop: 46
                 }}>
                     LANGO UŽDUOTIS
                 </Text>

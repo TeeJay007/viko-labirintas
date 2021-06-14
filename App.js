@@ -21,6 +21,15 @@ import KeturiDuVienas from './pages/navigation_pages/keturiduvienas';
 import Kompiuteriai from './pages/navigation_pages/kompiuteriai';
 import SAIejimas from './pages/navigation_pages/sa_iejimas';
 import SAVidus from './pages/navigation_pages/sa_vidus';
+import VikoBankasIejimas from './pages/navigation_pages/vikobankas_iejimas';
+import VikoBankas from './pages/navigation_pages/vikobankas';
+import PaskutinioKahootIejimasVB from './pages/navigation_pages/paskutiniokahootiejimasvb';
+import PenkiPenkiolika from './pages/navigation_pages/penkipenkiolika';
+import DekanoIejimas from './pages/navigation_pages/dekanoiejimas';
+import PenkiDuKeturi from './pages/navigation_pages/penkiduketuri';
+import FinansaiKab from './pages/navigation_pages/finansaikab';
+import Dekanas from './pages/navigation_pages/dekanas';
+import KryziazodisKab from './pages/navigation_pages/kryziazodiskab';
 
 const Stack = createStackNavigator();
 
@@ -67,6 +76,43 @@ export default function App() {
           name="savidus"
           component={SAVidus}
           options={{ title: 'Studentų atstovybė' , headerShown: false, cardStyleInterpolator: forFade}} />
+        <Stack.Screen
+          name="vikobankasiejimas"
+          component={VikoBankasIejimas}
+          options={{ title: 'Viko banko įėjimas' , headerShown: false, cardStyleInterpolator: forFade}} />
+        <Stack.Screen
+          name="vikobankas"
+          component={VikoBankas}
+          options={{ title: 'Viko bankas' , headerShown: false, cardStyleInterpolator: forFade}} />
+        <Stack.Screen
+          name="paskutiniokahootiejimasvb"
+          component={PaskutinioKahootIejimasVB}
+          options={{ title: 'Paskutinis kahoot' , headerShown: false, cardStyleInterpolator: forFade}} />
+        <Stack.Screen
+          name="penkipenkiolika"
+          component={PenkiPenkiolika}
+          options={{ title: '515 kabinetas' , headerShown: false, cardStyleInterpolator: forFade}} />
+        <Stack.Screen
+          name="dekanoiejimas"
+          component={DekanoIejimas}
+          options={{ title: '515, 517, 518 kabinetai' , headerShown: false, cardStyleInterpolator: forFade}} />
+        <Stack.Screen
+          name="penkiduketuri"
+          component={PenkiDuKeturi}
+          options={{ title: '524 kabinetas' , headerShown: false, cardStyleInterpolator: forFade}} />
+        <Stack.Screen
+          name="finansaikab"
+          component={FinansaiKab}
+          options={{ title: 'Finansų kabinetas' , headerShown: false, cardStyleInterpolator: forFade}} />
+        <Stack.Screen
+          name="dekanas"
+          component={Dekanas}
+          options={{ title: 'Dekano kabinetas' , headerShown: false, cardStyleInterpolator: forFade}} />
+        <Stack.Screen
+          name="kryziazodiskab"
+          component={KryziazodisKab}
+          options={{ title: '524 kabinetas' , headerShown: false, cardStyleInterpolator: forFade}} />
+        
 
         <Stack.Screen
           name="baloons"
