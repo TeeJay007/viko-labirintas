@@ -1,9 +1,9 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Component } from 'react';
 import { StyleSheet, Text, View, FlatList, TouchableOpacity, Alert, Platform,ImageBackground } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-
-export default function Pavyzdinis() {
+export default function Pavyzdinis({ navigation: { navigate }}) {
  const [_klaus,_setklaus]=useState(1);
   const [_Klausimai_Prev,_setKlausimai_Prev]= useState();
   const [_QnA_Prev,_setQnA_Prev]= useState();
@@ -94,6 +94,7 @@ export default function Pavyzdinis() {
       
       if (Platform.OS === 'web') {
         alert("Upps – neatspėjote!",{cancelable: false})
+        
      } else {
       Alert.alert(
 
@@ -110,22 +111,31 @@ export default function Pavyzdinis() {
         );
     }
      }
-      
+     const navigatetoras = () =>{
+       console.log("tttttt")
+       navigate("ketvirtasVestibiulis");
+    }
     
      if(tt==11){
       _setklaus(prev=>prev + 2)
       let vara =0
       
       if (Platform.OS === 'web') {
-        alert("Užuomina: 515",{cancelable: false})
+        AsyncStorage.setItem('kompiuteriukahoot', 'true');
+        AsyncStorage.setItem('finansai', 'false');
+        
+        alert("Užuomina: 515","Užuomina: 515", [{ text: "Gerai", onPress: () => navigatetoras()}],{cancelable: false})
+        
      } else {
+      AsyncStorage.setItem('kompiuteriukahoot', 'true');
+      AsyncStorage.setItem('finansai', 'false');
       Alert.alert(
 
  
         "Užuomina: 515",
         
          
-        "", [{ text: "Gerai"}],
+        "", [{ text: "Gerai", onPress: () => navigatetoras()}],
         
          
         { cancelable: false }
@@ -135,6 +145,9 @@ export default function Pavyzdinis() {
   
   }
     }
+
+    
+   
     
   };
   useEffect(() => {

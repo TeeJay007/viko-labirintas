@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, ImageBackground, FlatList, TouchableOpacity, Alert, Platform } from 'react-native';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Pavyzdinis() {
   const image = { uri: "https://scontent.fplq1-1.fna.fbcdn.net/v/t1.6435-9/171013345_3932902256793104_4429939317269897519_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=973b4a&_nc_ohc=B6B7q8CuY78AX-stzxm&_nc_ht=scontent.fplq1-1.fna&oh=73fcc290783d96223fd537445ad40f33&oe=60CAA868"};
@@ -117,8 +117,11 @@ export default function Pavyzdinis() {
     else{
       
       if (Platform.OS === 'web') {
+        AsyncStorage.setItem('vikobankokahoot', 'true');
         alert("Upps – neatspėjote!",{cancelable: false})
+       
      } else {
+      AsyncStorage.setItem('vikobankokahoot', 'true');
       Alert.alert(
 
  

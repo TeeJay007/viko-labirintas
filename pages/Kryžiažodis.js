@@ -9,10 +9,11 @@ import {
   Platform,
  
 } from "react-native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
+export default function PositionLayout ({ navigation: { navigate }}) {
 
-const PositionLayout = () => {
   
   const [_complete, setcomplete] = useState(0);
   //----------Uzrakinimo values-----------
@@ -300,28 +301,37 @@ const PositionLayout = () => {
     if(_complete===16){
       setcomplete(20)
       if (Platform.OS === 'web') {
-        alert("Užuomina: DEKANAS",{cancelable: false})
+        
+        AsyncStorage.setItem('kryziazodis', 'true');
+        AsyncStorage.setItem('keliosmatematines', 'false');
+        alert("Užuomina: DEKANAS", [{ text: "Gerai", onPress: () => this.navigatetoras()}],{cancelable: false})
+        
      } else {
+      AsyncStorage.setItem('kryziazodis', 'true');
+      AsyncStorage.setItem('keliosmatematines', 'false');
       Alert.alert(
 
  
         "Užuomina: DEKANAS",
         
          
-        "", [{ text: "Gerai"}],
+        "", [{ text: "Gerai", onPress: () => this.navigatetoras()}],
         
          
         { cancelable: false }
         
          
         );
+        
   
      
     }
   }
   });
   
-  
+ navigatetoras = () =>{
+    navigate("penktasVestibiulis");
+  }
  
   //--------------Check-----------------
  function CheckText(check, value) {
@@ -339,9 +349,9 @@ const PositionLayout = () => {
            set_1(value+_1.charAt(1)+_1.charAt(2)+_1.charAt(3)+_1.charAt(4)+_1.charAt(5)+_1.charAt(6)+_1.charAt(7)+_1.charAt(8))
           
             
-            if (_1_2ref.current.value == "") {
+            
               _1_2ref.current.focus();
-            }
+            
 
           }
           else {
@@ -359,14 +369,12 @@ const PositionLayout = () => {
           if (value != "") {
             set_1(_1.charAt(0)+value+_1.charAt(2)+_1.charAt(3)+_1.charAt(4)+_1.charAt(5)+_1.charAt(6)+_1.charAt(7)+_1.charAt(8))
             
-            if (_1_3ref.current.value == "")
+            
               _1_3ref.current.focus();
           }
           else {
  
-            if (_1_3ref.current.value == "") {
-              _1_1ref.current.focus();
-            }
+           
 
           }
         } catch (error) {
@@ -379,14 +387,12 @@ const PositionLayout = () => {
           if (value != "") {
             set_1(_1.charAt(0)+_1.charAt(1)+value+_1.charAt(3)+_1.charAt(4)+_1.charAt(5)+_1.charAt(6)+_1.charAt(7)+_1.charAt(8))
             
-            if (_1_4ref.current.value == "")
+            
               _1_4ref.current.focus();
           }
           else {
      
-            if (_1_4ref.current.value == "") {
-              _1_2ref.current.focus();
-            }
+           
 
           }
         } catch (error) {
@@ -399,24 +405,18 @@ const PositionLayout = () => {
           if (value != "") {
             set_1(_1.charAt(0)+_1.charAt(1)+_1.charAt(2)+value+_1.charAt(4)+_1.charAt(5)+_1.charAt(6)+_1.charAt(7)+_1.charAt(8))
             
-            if (_1_5ref.current.value == "") {
-              _1_5ref.current.focus();
-            }
-            else if (res1_2 == false) {
+           
+            if (res1_2 == false) {
               _1_6ref.current.focus();
+            }
+            else{
+              _1_5ref.current.focus();
             }
 
           }
           else {
           
-            if (_1_5ref.current.value == "") {
-              _1_3ref.current.focus();
-
-
-
-            } else if (res1_2 == false) {
-              _1_3ref.current.focus();
-            }
+            
 
           }
         } catch (error) {
@@ -431,24 +431,16 @@ const PositionLayout = () => {
             set_2(value+_2.charAt(1)+_2.charAt(2)+_2.charAt(3)+_2.charAt(4)+_2.charAt(5)+_2.charAt(6)+_2.charAt(7)+_2.charAt(8))
             
 
-            if (_1_6ref.current.value == "" && _1_4ref.current.value != "") {
-              if (_1_6ref.current.value == "")
+           
                 _1_6ref.current.focus();
-            }
-            else if (_2_1ref.current.value == "") {
-              if (_2_1ref.current.value == "")
-                _2_1ref.current.focus();
-            }
+          
 
           }
           else {
 
 
 
-            if (_1_6ref.current.value == "" && _1_4ref.current.value != "") {
-              if (_1_6ref.current.value == "")
-                _1_4ref.current.focus();
-            }
+           
 
           }
         } catch (error) {
@@ -461,19 +453,12 @@ const PositionLayout = () => {
           if (value != "") {
             set_1(_1.charAt(0)+_1.charAt(1)+_1.charAt(2)+_1.charAt(3)+_1.charAt(4)+value+_1.charAt(6)+_1.charAt(7)+_1.charAt(8))
             
-            if (_1_7ref.current.value == "")
+           
               _1_7ref.current.focus();
           }
           else {
 
-            if (_1_7ref.current.value == "") {
-              if (res1_2 == false) {
-                _1_4ref.current.focus();
-              } else {
-                _1_5ref.current.focus();
-              }
-
-            }
+         
 
           }
         } catch (error) {
@@ -487,13 +472,12 @@ const PositionLayout = () => {
             set_1(_1.charAt(0)+_1.charAt(1)+_1.charAt(2)+_1.charAt(3)+_1.charAt(4)+_1.charAt(5)+value+_1.charAt(7)+_1.charAt(8))
           
 
-            if (_1_8ref.current.value == "")
+          
               _1_8ref.current.focus();
           }
           else {
 
-            if (_1_8ref.current.value == "")
-              _1_6ref.current.focus();
+           
           }
         } catch (error) {
           console.log(error);
@@ -506,13 +490,11 @@ const PositionLayout = () => {
             set_1(_1.charAt(0)+_1.charAt(1)+_1.charAt(2)+_1.charAt(3)+_1.charAt(4)+_1.charAt(5)+_1.charAt(6)+value+_1.charAt(8))
          
 
-            if (_1_9ref.current.value == "")
+           
               _1_9ref.current.focus();
           }
           else {
 
-            if (_1_9ref.current.value == "")
-              _1_7ref.current.focus();
           }
         } catch (error) {
           console.log(error);
@@ -530,7 +512,7 @@ const PositionLayout = () => {
           else {
 
 
-            _1_8ref.current.focus();
+           
           }
         } catch (error) {
           console.log(error);
@@ -545,19 +527,21 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_2(_2.charAt(0)+value+_2.charAt(2)+_2.charAt(3)+_2.charAt(4)+_2.charAt(5)+_2.charAt(6)+_2.charAt(7)+_2.charAt(8))
-            if (_2_2ref.current.value == "") {
-              _2_2ref.current.focus();
+           
+             
 
-            } else if (res2_4 == false) {
+             if (res2_4 == false) {
               _2_3ref.current.focus();
+            }
+            else{
+              _2_2ref.current.focus();
             }
 
 
           }
           else {
 
-            if (_2_2ref.current.value == "" || res2_4 == false)
-              _1_5ref.current.focus();
+           
           }
         } catch (error) {
           console.log(error);
@@ -570,23 +554,14 @@ const PositionLayout = () => {
 
             set_2(_2.charAt(0)+_2.charAt(1)+value+_2.charAt(3)+_2.charAt(4)+_2.charAt(5)+_2.charAt(6)+_2.charAt(7)+_2.charAt(8))
             set_4(_4.charAt(0)+_4.charAt(1)+_4.charAt(2)+value+_4.charAt(4)+_4.charAt(5)+_4.charAt(6))
-            if (_4_4ref.current.value == "" && _4_3ref.current.value != "") {
-              if (_4_4ref.current.value == "")
-                _4_4ref.current.focus();
-            }
-            else if (_2_3ref.current.value == "") {
-              if (_2_3ref.current.value == "")
+            
+           
                 _2_3ref.current.focus();
-            }
+            
 
           }
           else {
-            if (_4_4ref.current.value == "" && _4_3ref.current.value != "") {
-              _4_3ref.current.focus();
-            } else {
-              if (_2_3ref.current.value == "")
-                _2_1ref.current.focus();
-            }
+            
           }
         } catch (error) {
           console.log(error);
@@ -598,19 +573,12 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_2(_2.charAt(0)+_2.charAt(1)+_2.charAt(2)+value+_2.charAt(4)+_2.charAt(5)+_2.charAt(6)+_2.charAt(7)+_2.charAt(8))
-            if (_2_4ref.current.value == "")
+           
               _2_4ref.current.focus();
           }
           else {
 
-            if (_2_4ref.current.value == "") {
-              if (res2_4 == false) {
-                _2_1ref.current.focus();
-              } else {
-                _2_2ref.current.focus();
-              }
-
-            }
+          
 
           }
         } catch (error) {
@@ -623,17 +591,19 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_2(_2.charAt(0)+_2.charAt(1)+_2.charAt(2)+_2.charAt(3)+value+_2.charAt(5)+_2.charAt(6)+_2.charAt(7)+_2.charAt(8))
-            if (_2_5ref.current.value == "") {
-              _2_5ref.current.focus();
-            } else if (res2_6 == false) {
+            
+              
+           if (res2_6 == false) {
               _2_6ref.current.focus();
+            }
+            else{
+              _2_5ref.current.focus();
             }
 
           }
           else {
 
-            if (_2_5ref.current.value == "" || res2_6 == false)
-              _2_3ref.current.focus();
+           
           }
         } catch (error) {
           console.log(error);
@@ -646,22 +616,12 @@ const PositionLayout = () => {
 
             set_2(_2.charAt(0)+_2.charAt(1)+_2.charAt(2)+_2.charAt(3)+_2.charAt(4)+value+_2.charAt(6)+_2.charAt(7)+_2.charAt(8))
             set_6(_6.charAt(0)+_6.charAt(1)+_6.charAt(2)+_6.charAt(3)+_6.charAt(4)+_6.charAt(5)+_6.charAt(6)+_6.charAt(7)+value+_6.charAt(9))
-            if (_6_6ref.current.value != "" && _6_7ref.current.value == "") {
-              if (_6_7ref.current.value == "")
-                _6_7ref.current.focus();
-            } else {
-              if (_2_6ref.current.value == "")
+            
                 _2_6ref.current.focus();
-            }
+            
           }
           else {
-            if (_6_6ref.current.value != "" && _6_7ref.current.value == "") {
-              if (_6_7ref.current.value == "")
-                _6_6ref.current.focus();
-            } else {
-              if (_2_6ref.current.value == "")
-                _2_4ref.current.focus();
-            }
+            
 
           }
         } catch (error) {
@@ -682,14 +642,7 @@ const PositionLayout = () => {
           }
           else {
 
-            if (_2_7ref.current.value == "") {
-              if (res2_6 == false) {
-                _2_4ref.current.focus();
-
-              } else {
-                _2_5ref.current.focus();
-              }
-            }
+         
 
 
 
@@ -704,14 +657,13 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_2(_2.charAt(0)+_2.charAt(1)+_2.charAt(2)+_2.charAt(3)+_2.charAt(4)+_2.charAt(5)+_2.charAt(6)+value+_2.charAt(8))
-            if (_2_8ref.current.value == "")
+           
               _2_8ref.current.focus();
 
           }
           else {
 
-            if (_2_8ref.current.value == "" || res2_8 == false)
-              _2_6ref.current.focus();
+            
           }
         } catch (error) {
           console.log(error);
@@ -724,16 +676,14 @@ const PositionLayout = () => {
 
             set_2(_2.charAt(0)+_2.charAt(1)+_2.charAt(2)+_2.charAt(3)+_2.charAt(4)+_2.charAt(5)+_2.charAt(6)+_2.charAt(7)+value)
             set_8(_8.charAt(0)+_8.charAt(1)+_8.charAt(2)+_8.charAt(3)+value+_8.charAt(5)+_8.charAt(6))
-            if (_8_3ref.current.value != "" && _8_4ref.current.value == "") {
-              if (_8_4ref.current.value == "")
+            
                 _8_4ref.current.focus();
-            }
+            
 
           }
           else {
 
-            CheckAnswer("ats2");
-            _2_7ref.current.focus();
+            
           }
         } catch (error) {
           console.log(error);
@@ -747,7 +697,7 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_3(value+_3.charAt(1)+_3.charAt(2)+_3.charAt(3)+_3.charAt(4))
-            if (_3_2ref.current.value == "")
+        
               _3_2ref.current.focus();
           }
           else {
@@ -762,13 +712,12 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_3(_3.charAt(0)+value+_3.charAt(2)+_3.charAt(3)+_3.charAt(4))
-            if (_3_3ref.current.value == "")
+           
               _3_3ref.current.focus();
           }
           else {
 
-            if (_3_3ref.current.value == "")
-              _3_1ref.current.focus();
+            
           }
         } catch (error) {
           console.log(error);
@@ -780,17 +729,19 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_3(_3.charAt(0)+_3.charAt(1)+value+_3.charAt(3)+_3.charAt(4))
-            if (_3_4ref.current.value == "") {
+           
 
-              _3_4ref.current.focus();
-            } else if (res3_6 == false) {
+              
+           if (res3_6 == false) {
               _3_5ref.current.focus();
+            }else{
+              _3_4ref.current.focus();
             }
 
           }
           else {
 
-            if (_3_4ref.current.value == "" || res3_6 == false)
+            
               _3_2ref.current.focus();
           }
         } catch (error) {
@@ -805,25 +756,14 @@ const PositionLayout = () => {
             set_3(_3.charAt(0)+_3.charAt(1)+_3.charAt(2)+value+_3.charAt(4))
             set_6(_6.charAt(0)+_6.charAt(1)+value+_6.charAt(3)+_6.charAt(4)+_6.charAt(5)+_6.charAt(6)+_6.charAt(7)+_6.charAt(8)+_6.charAt(9))
            
-            if (_6_2ref.current.value != "" && _6_3ref.current.value == "") {
-              if (_6_3ref.current.value == "")
+            
                 _6_3ref.current.focus();
-            }
-            else {
-              if (_3_5ref.current.value == "")
-                _3_5ref.current.focus();
-            }
+            
+           
 
           }
           else {
-            if (_6_2ref.current.value != "" && _6_3ref.current.value == "") {
-              if (_6_3ref.current.value == "")
-                _6_2ref.current.focus();
-            }
-            else {
-              if (_3_5ref.current.value == "")
-                _3_3ref.current.focus();
-            }
+            
 
           }
         } catch (error) {
@@ -840,11 +780,7 @@ const PositionLayout = () => {
           }
           else {
 
-            if (res3_6) {
-              _3_4ref.current.focus();
-            } else {
-              _3_3ref.current.focus();
-            }
+           
 
           }
         } catch (error) {
@@ -858,7 +794,7 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_4(value+_4.charAt(1)+_4.charAt(2)+_4.charAt(3)+_4.charAt(4)+_4.charAt(5)+_4.charAt(6))
-            if (_4_2ref.current.value == "")
+            
               _4_2ref.current.focus();
           }
           else {
@@ -873,13 +809,12 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_4(_4.charAt(0)+value+_4.charAt(2)+_4.charAt(3)+_4.charAt(4)+_4.charAt(5)+_4.charAt(6))
-            if (_4_3ref.current.value == "")
+           
               _4_3ref.current.focus();
           }
           else {
 
-            if (_4_3ref.current.value == "")
-              _4_1ref.current.focus();
+           
           }
         } catch (error) {
           console.log(error);
@@ -891,18 +826,17 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_4(_4.charAt(0)+_4.charAt(1)+value+_4.charAt(3)+_4.charAt(4)+_4.charAt(5)+_4.charAt(6))
-            if (_2_2ref.current.value == "") {
+            
 
-              _2_2ref.current.focus();
-            } else if (res2_6 == false) {
+              
+             if (res2_6 == false) {
               _4_4ref.current.focus();
-            }
+            }else {_2_2ref.current.focus();}
 
           }
           else {
 
-            if (_2_2ref.current.value == "" || res2_6 == false)
-              _4_2ref.current.focus();
+           
           }
         } catch (error) {
           console.log(error);
@@ -914,19 +848,12 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_4(_4.charAt(0)+_4.charAt(1)+_4.charAt(2)+_4.charAt(3)+value+_4.charAt(5)+_4.charAt(6))
-            if (_4_5ref.current.value == "")
+            
               _4_5ref.current.focus();
           }
           else {
 
-            if (_4_5ref.current.value == "") {
-              if (res2_6 == false) {
-                _4_3ref.current.focus();
-              } else {
-                _2_2ref.current.focus();
-              }
-
-            }
+           
 
           }
         } catch (error) {
@@ -939,13 +866,12 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_4(_4.charAt(0)+_4.charAt(1)+_4.charAt(2)+_4.charAt(3)+_4.charAt(4)+value+_4.charAt(6))
-            if (_4_6ref.current.value == "")
+          
               _4_6ref.current.focus();
           }
           else {
 
-            if (_4_6ref.current.value == "")
-              _4_4ref.current.focus();
+           
           }
         } catch (error) {
           console.log(error);
@@ -962,7 +888,7 @@ const PositionLayout = () => {
           else {
 
 
-            _4_5ref.current.focus();
+     
           }
         } catch (error) {
           console.log(error);
@@ -975,11 +901,11 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_5(value+_5.charAt(1)+_5.charAt(2)+_5.charAt(3)+_5.charAt(4)+_5.charAt(5)+_5.charAt(6)+_5.charAt(7)+_5.charAt(8)+_5.charAt(9)+_5.charAt(10))
-            if (_5_2ref.current.value == "") {
-              _5_2ref.current.focus();
-            } else if (res5_2 == false) {
+           
+              
+            if (res5_2 == false) {
               _5_3ref.current.focus();
-            }
+            }else {_5_2ref.current.focus();}
 
           }
           else {
@@ -996,23 +922,13 @@ const PositionLayout = () => {
             set_5(_5.charAt(0)+value+_5.charAt(2)+_5.charAt(3)+_5.charAt(4)+_5.charAt(5)+_5.charAt(6)+_5.charAt(7)+_5.charAt(8)+_5.charAt(9)+_5.charAt(10))
             set_6(_6.charAt(0)+_6.charAt(1)+_6.charAt(2)+_6.charAt(3)+_6.charAt(4)+_6.charAt(5)+value+_6.charAt(7)+_6.charAt(8)+_6.charAt(9))
            
-            if (_6_5ref.current.value != "" && _6_6ref.current.value == "") {
-              if (_6_6ref.current.value == "")
-                _6_6ref.current.focus();
-            } else {
-              if (_5_3ref.current.value == "")
+           
                 _5_3ref.current.focus();
-            }
+            
 
           }
           else {
-            if (_6_5ref.current.value != "" && _6_6ref.current.value == "") {
-              if (_6_6ref.current.value == "")
-                _6_5ref.current.focus();
-            } else {
-              if (_5_3ref.current.value == "")
-                _5_1ref.current.focus();
-            }
+            
 
           }
         } catch (error) {
@@ -1025,19 +941,12 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_5(_5.charAt(0)+_5.charAt(1)+value+_5.charAt(3)+_5.charAt(4)+_5.charAt(5)+_5.charAt(6)+_5.charAt(7)+_5.charAt(8)+_5.charAt(9)+_5.charAt(10))
-            if (_5_4ref.current.value == "")
+          
               _5_4ref.current.focus();
           }
           else {
 
-            if (_5_4ref.current.value == "") {
-              if (res5_2 == false) {
-                _5_1ref.current.focus();
-              } else {
-                _5_2ref.current.focus();
-              }
-
-            }
+            
 
           }
         } catch (error) {
@@ -1052,15 +961,14 @@ const PositionLayout = () => {
            
             set_5(_5.charAt(0)+_5.charAt(1)+_5.charAt(2)+value+_5.charAt(4)+_5.charAt(5)+_5.charAt(6)+_5.charAt(7)+_5.charAt(8)+_5.charAt(9)+_5.charAt(10))
 
-            if (_5_5ref.current.value == "") {
-              _5_5ref.current.focus();
-            } else if (res5_8 == false)
-              _5_6ref.current.focus();
+             if (res5_8 == false){
+              _5_6ref.current.focus();}else{
+                _5_5ref.current.focus();
+              }
           }
           else {
 
-            if (_5_5ref.current.value == "" || res5_8 == false)
-              _5_3ref.current.focus();
+            
           }
         } catch (error) {
           console.log(error);
@@ -1073,19 +981,14 @@ const PositionLayout = () => {
 
             set_5(_5.charAt(0)+_5.charAt(1)+_5.charAt(2)+_5.charAt(3)+value+_5.charAt(5)+_5.charAt(6)+_5.charAt(7)+_5.charAt(8)+_5.charAt(9)+_5.charAt(10))
             set_8(_8.charAt(0)+_8.charAt(1)+value+_8.charAt(3)+_8.charAt(4)+_8.charAt(5)+_8.charAt(6))
-            if (_8_2ref.current.value != "" && _8_3ref.current.value == "") {
-              if (_8_3ref.current.value == "")
-                _8_3ref.current.focus();
-            } else {
-              if (_5_6ref.current.value == "")
+            
                 _5_6ref.current.focus();
-            }
+            
 
           }
           else {
 
-            if (_5_6ref.current.value == "")
-              _5_4ref.current.focus();
+           
           }
         } catch (error) {
           console.log(error);
@@ -1097,23 +1000,16 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_5(_5.charAt(0)+_5.charAt(1)+_5.charAt(2)+_5.charAt(3)+_5.charAt(4)+value+_5.charAt(6)+_5.charAt(7)+_5.charAt(8)+_5.charAt(9)+_5.charAt(10))
-            if (_5_7ref.current.value == "") {
-              _5_7ref.current.focus();
-            } else if (res5_10 == false) {
+             if (res5_10 == false) {
               _5_8ref.current.focus();
+            }else{
+              _5_7ref.current.focus();
             }
 
           }
           else {
 
-            if (_5_7ref.current.value == "" || res5_10 == false) {
-              if (res5_8) {
-                _5_5ref.current.focus();
-              } else {
-                _5_4ref.current.focus();
-              }
-
-            }
+          
 
           }
         } catch (error) {
@@ -1128,23 +1024,13 @@ const PositionLayout = () => {
             set_5(_5.charAt(0)+_5.charAt(1)+_5.charAt(2)+_5.charAt(3)+_5.charAt(4)+_5.charAt(5)+value+_5.charAt(7)+_5.charAt(8)+_5.charAt(9)+_5.charAt(10))
             set_10(_10.charAt(0)+_10.charAt(1)+_10.charAt(2)+_10.charAt(3)+_10.charAt(4)+_10.charAt(5)+_10.charAt(6)+value+_10.charAt(8))
            
-            if (_10_6ref.current.value != "" && _10_7ref.current.value == "") {
-              if (_10_7ref.current.value == "")
-                _10_7ref.current.focus();
-            } else {
-              if (_5_8ref.current.value == "")
+            
                 _5_8ref.current.focus();
-            }
+            
 
           }
           else {
-            if (_10_6ref.current.value != "" && _10_7ref.current.value == "") {
-              if (_10_7ref.current.value == "")
-                _10_6ref.current.focus();
-            } else {
-              if (_5_8ref.current.value == "")
-                _5_6ref.current.focus();
-            }
+         
 
           }
         } catch (error) {
@@ -1157,23 +1043,14 @@ const PositionLayout = () => {
            
           if (value != "") {
 
-            if (_5_9ref.current.value == "") {
-              _5_9ref.current.focus();
-            } else if (res5_15 == false) {
+            if (res5_15 == false) {
               _5_10ref.current.focus();
-            }
+            }else{_5_9ref.current.focus();}
 
           }
           else {
 
-            if (_5_9ref.current.value == "" || res5_15 == false) {
-              if (res5_10 == false) {
-                _5_6ref.current.focus();
-              } else {
-                _5_7ref.current.focus();
-              }
-
-            }
+          
 
           }
         } catch (error) {
@@ -1189,20 +1066,15 @@ const PositionLayout = () => {
            
             set_15(value+_15.charAt(1)+_15.charAt(2)+_15.charAt(3)+_15.charAt(4)+_15.charAt(5)+_15.charAt(6)+_15.charAt(7)+_15.charAt(8)+_15.charAt(9))
            
-            if (_5_8ref.current.value != "" && _5_10ref.current.value == "") {
-              if (_5_10ref.current.value == "")
+          
                 _5_10ref.current.focus();
-            }
-            else {
-              if (_15_1ref.current.value == "")
-                _15_1ref.current.focus();
-            }
+            
+            
 
           }
           else {
 
-            if (_5_10ref.current.value == "")
-              _5_8ref.current.focus();
+           
           }
         } catch (error) {
           console.log(error);
@@ -1215,16 +1087,12 @@ const PositionLayout = () => {
 
             set_5(_5.charAt(0)+_5.charAt(1)+_5.charAt(2)+_5.charAt(3)+_5.charAt(4)+_5.charAt(5)+_5.charAt(6)+_5.charAt(7)+_5.charAt(8)+value+_5.charAt(10))
            
-            if (_5_11ref.current.value == "")
+          
               _5_11ref.current.focus();
           }
           else {
 
-            if (_5_11ref.current.value == "" || res5_16 == false) {
-              if (res5_15 == false) {
-                _5_8ref.current.focus();
-              } else { _5_9ref.current.focus(); }
-            }
+          
 
           }
         } catch (error) {
@@ -1243,7 +1111,7 @@ const PositionLayout = () => {
           else {
 
 
-            _5_10ref.current.focus();
+          
           }
         } catch (error) {
           console.log(error);
@@ -1257,7 +1125,7 @@ const PositionLayout = () => {
 
             set_6(value+_6.charAt(1)+_6.charAt(2)+_6.charAt(3)+_6.charAt(4)+_6.charAt(5)+_6.charAt(6)+_6.charAt(7)+_6.charAt(8)+_6.charAt(9))
            
-            if (_6_2ref.current.value == "")
+          
               _6_2ref.current.focus();
           }
           else {
@@ -1273,17 +1141,14 @@ const PositionLayout = () => {
 
             set_6(_6.charAt(0)+value+_6.charAt(2)+_6.charAt(3)+_6.charAt(4)+_6.charAt(5)+_6.charAt(6)+_6.charAt(7)+_6.charAt(8)+_6.charAt(9))
            
-            if (_3_4ref.current.value == "") {
-              _3_4ref.current.focus();
-            } else if (res3_6 == false) {
+             if (res3_6 == false) {
               _6_3ref.current.focus();
-            }
+            }else{_3_4ref.current.focus();}
 
           }
           else {
 
-            if (_3_4ref.current.value == "" || res3_6 == false)
-              _6_1ref.current.focus();
+          
           }
         } catch (error) {
           console.log(error);
@@ -1296,19 +1161,12 @@ const PositionLayout = () => {
 
             set_6(_6.charAt(0)+_6.charAt(1)+_6.charAt(2)+value+_6.charAt(4)+_6.charAt(5)+_6.charAt(6)+_6.charAt(7)+_6.charAt(8)+_6.charAt(9))
            
-            if (_6_4ref.current.value == "")
+           
               _6_4ref.current.focus();
           }
           else {
 
-            if (_6_4ref.current.value == "") {
-              if (res3_6 == false) {
-                _6_2ref.current.focus();
-              } else {
-                _3_4ref.current.focus();
-              }
-
-            }
+         
 
           }
         } catch (error) {
@@ -1322,13 +1180,12 @@ const PositionLayout = () => {
 
             set_6(_6.charAt(0)+_6.charAt(1)+_6.charAt(2)+_6.charAt(3)+value+_6.charAt(5)+_6.charAt(6)+_6.charAt(7)+_6.charAt(8)+_6.charAt(9))
            
-            if (_6_5ref.current.value == "")
+            
               _6_5ref.current.focus();
           }
           else {
 
-            if (_6_5ref.current.value == "")
-              _6_3ref.current.focus();
+           
           }
         } catch (error) {
           console.log(error);
@@ -1341,17 +1198,14 @@ const PositionLayout = () => {
 
             set_6(_6.charAt(0)+_6.charAt(1)+_6.charAt(2)+_6.charAt(3)+_6.charAt(4)+value+_6.charAt(6)+_6.charAt(7)+_6.charAt(8)+_6.charAt(9))
            
-            if (_5_2ref.current.value == "") {
-              _5_2ref.current.focus();
-            } else if (res5_2 == false) {
+              if (res5_2 == false) {
               _6_6ref.current.focus();
-            }
+            }else{_5_2ref.current.focus();}
 
           }
           else {
 
-            if (_5_2ref.current.value == "" || res5_2 == false)
-              _6_4ref.current.focus();
+            
           }
         } catch (error) {
           console.log(error);
@@ -1364,23 +1218,14 @@ const PositionLayout = () => {
 
             set_6(_6.charAt(0)+_6.charAt(1)+_6.charAt(2)+_6.charAt(3)+_6.charAt(4)+_6.charAt(5)+_6.charAt(6)+value+_6.charAt(8)+_6.charAt(9))
            
-            if (_2_5ref.current.value == "") {
-              _2_5ref.current.focus();
-            } else if (res2_6 == false) {
+              if (res2_6 == false) {
               _6_7ref.current.focus();
-            }
+            }else{_2_5ref.current.focus();}
 
           }
           else {
 
-            if (_2_5ref.current.value == "" || res2_6 == false) {
-              if (res5_2 == false) {
-                _6_5ref.current.focus();
-              } else {
-                _5_2ref.current.focus();
-              }
-
-            }
+          
 
           }
         } catch (error) {
@@ -1397,11 +1242,7 @@ const PositionLayout = () => {
           }
           else {
 
-            if (res2_6 == false) {
-              _6_6ref.current.focus();
-            } else {
-              _2_5ref.current.focus();
-            }
+       
 
           }
         } catch (error) {
@@ -1416,7 +1257,7 @@ const PositionLayout = () => {
 
             set_7(value+_7.charAt(1)+_7.charAt(2)+_7.charAt(3)+_7.charAt(4))
    
-            if (_7_2ref.current.value == "")
+        
               _7_2ref.current.focus();
           }
           else {
@@ -1431,13 +1272,12 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_7(_7.charAt(0)+value+_7.charAt(2)+_7.charAt(3)+_7.charAt(4))
-            if (_7_3ref.current.value == "")
+        
               _7_3ref.current.focus();
           }
           else {
 
-            if (_7_3ref.current.value == "")
-              _7_1ref.current.focus();
+         
 
           }
         } catch (error) {
@@ -1450,13 +1290,12 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_7(_7.charAt(0)+_7.charAt(1)+value+_7.charAt(3)+_7.charAt(4))
-            if (_7_4ref.current.value == "")
+       
               _7_4ref.current.focus();
           }
           else {
 
-            if (_7_4ref.current.value == "")
-              _7_2ref.current.focus();
+       
 
           }
         } catch (error) {
@@ -1469,14 +1308,12 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_7(_7.charAt(0)+_7.charAt(1)+_7.charAt(2)+value+_7.charAt(4))
-            if (_7_5ref.current.value == "")
+      
               _7_5ref.current.focus();
           }
           else {
 
-            if (_7_5ref.current.value == "" || res7_10 == false)
-              _7_3ref.current.focus();
-
+        
           }
         } catch (error) {
           console.log(error);
@@ -1489,17 +1326,13 @@ const PositionLayout = () => {
 
             set_7(_7.charAt(0)+_7.charAt(1)+_7.charAt(2)+_7.charAt(3)+value)
             set_10(value+_10.charAt(1)+_10.charAt(2)+_10.charAt(3)+_10.charAt(4)+_10.charAt(5)+_10.charAt(6)+_10.charAt(7)+_10.charAt(8))
-            if (_7_4ref.current.value == "") {
-              if (_10_1ref.current.value == "")
-                _10_1ref.current.focus();
-            }
+         
           }
           else {
 
 
 
 
-            _7_4ref.current.focus();
 
           }
         } catch (error) {
@@ -1514,7 +1347,7 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_8(value+_8.charAt(1)+_8.charAt(2)+_8.charAt(3)+_8.charAt(4)+_8.charAt(5)+_8.charAt(6))
-            if (_8_2ref.current.value == "")
+       
               _8_2ref.current.focus();
           }
           else {
@@ -1529,18 +1362,14 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_8(_8.charAt(0)+value+_8.charAt(2)+_8.charAt(3)+_8.charAt(4)+_8.charAt(5)+_8.charAt(6))
-            if (_5_5ref.current.value == "") {
-              _5_5ref.current.focus();
-            } else if (res5_8 == false) {
+             if (res5_8 == false) {
               _8_3ref.current.focus();
-            }
+            }else{_5_5ref.current.focus();}
 
           }
           else {
 
-            if (_5_5ref.current.value == "" || res5_8 == false)
-              _8_1ref.current.focus();
-
+          
           }
         } catch (error) {
           console.log(error);
@@ -1552,22 +1381,16 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_8(_8.charAt(0)+_8.charAt(1)+_8.charAt(2)+value+_8.charAt(4)+_8.charAt(5)+_8.charAt(6))
-            if (_2_8ref.current.value == "") {
-              _2_8ref.current.focus();
-            } else if (res2_8 == false) {
+        
+              
+              if (res2_8 == false) {
               _8_4ref.current.focus();
-            }
+            }else{_2_8ref.current.focus();}
 
           }
           else {
 
-            if (_2_8ref.current.value == "" || res2_8 == false) {
-              if (res5_8 == false) {
-                _8_2ref.current.focus();
-              } else {
-                _5_5ref.current.focus();
-              }
-            }
+        
 
 
           }
@@ -1581,18 +1404,13 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_8(_8.charAt(0)+_8.charAt(1)+_8.charAt(2)+_8.charAt(3)+_8.charAt(4)+value+_8.charAt(6))
-            if (_8_5ref.current.value == "")
+     
               _8_5ref.current.focus();
           }
           else {
 
-            if (_8_5ref.current.value == "") {
-              if (res2_8 == false) {
-                _8_3ref.current.focus();
-              } else {
-                _2_8ref.current.focus();
-              }
-            }
+     
+         
 
 
           }
@@ -1611,7 +1429,7 @@ const PositionLayout = () => {
           else {
 
 
-            _8_4ref.current.focus();
+     
 
           }
         } catch (error) {
@@ -1625,7 +1443,7 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_9(value+_9.charAt(1)+_9.charAt(2)+_9.charAt(3)+_9.charAt(4))
-            if (_9_2ref.current.value == "")
+         
               _9_2ref.current.focus();
           }
           else {
@@ -1640,14 +1458,12 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_9(_9.charAt(0)+value+_9.charAt(2)+_9.charAt(3)+_9.charAt(4))
-            if (_9_3ref.current.value == "")
+          
               _9_3ref.current.focus();
           }
           else {
 
-            if (_9_3ref.current.value == "")
-              _9_1ref.current.focus();
-
+    
           }
         } catch (error) {
           console.log(error);
@@ -1659,14 +1475,12 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_9(_9.charAt(0)+_9.charAt(1)+value+_9.charAt(3)+_9.charAt(4))
-            if (_9_4ref.current.value == "")
+    
               _9_4ref.current.focus();
           }
           else {
 
-            if (_9_4ref.current.value == "")
-              _9_2ref.current.focus();
-
+       
           }
         } catch (error) {
           console.log(error);
@@ -1678,13 +1492,12 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_9(_9.charAt(0)+_9.charAt(1)+_9.charAt(2)+value+_9.charAt(4))
-            if (_15_9ref.current.value == "")
+       
               _15_9ref.current.focus();
           }
           else {
 
-            if (_15_9ref.current.value == "" || res15_9 == false)
-              _9_3ref.current.focus();
+          
 
           }
         } catch (error) {
@@ -1700,7 +1513,7 @@ const PositionLayout = () => {
           else {
 
 
-            _9_4ref.current.focus();
+         
           }
         } catch (error) {
           console.log(error);
@@ -1715,12 +1528,12 @@ const PositionLayout = () => {
 
             set_10(_10.charAt(0)+value+_10.charAt(2)+_10.charAt(3)+_10.charAt(4)+_10.charAt(5)+_10.charAt(6)+_10.charAt(7)+_10.charAt(8))
            
-            if (_10_2ref.current.value == "")
+        
               _10_2ref.current.focus();
           }
           else {
 
-            _7_5ref.current.focus();
+         
 
           }
         } catch (error) {
@@ -1734,13 +1547,12 @@ const PositionLayout = () => {
 
             set_10(_10.charAt(0)+_10.charAt(1)+value+_10.charAt(3)+_10.charAt(4)+_10.charAt(5)+_10.charAt(6)+_10.charAt(7)+_10.charAt(8))
            
-            if (_10_3ref.current.value == "")
+       
               _10_3ref.current.focus();
           }
           else {
 
-            if (_10_3ref.current.value == "")
-              _10_1ref.current.focus();
+         
           }
         } catch (error) {
           console.log(error);
@@ -1753,13 +1565,12 @@ const PositionLayout = () => {
 
             set_10(_10.charAt(0)+_10.charAt(1)+_10.charAt(2)+value+_10.charAt(4)+_10.charAt(5)+_10.charAt(6)+_10.charAt(7)+_10.charAt(8))
            
-            if (_10_4ref.current.value == "")
+     
               _10_4ref.current.focus();
           }
           else {
 
-            if (_10_4ref.current.value == "")
-              _10_2ref.current.focus();
+         
           }
         } catch (error) {
           console.log(error);
@@ -1772,13 +1583,12 @@ const PositionLayout = () => {
 
             set_10(_10.charAt(0)+_10.charAt(1)+_10.charAt(2)+_10.charAt(3)+value+_10.charAt(5)+_10.charAt(6)+_10.charAt(7)+_10.charAt(8))
            
-            if (_10_5ref.current.value == "")
+           
               _10_5ref.current.focus();
           }
           else {
 
-            if (_10_5ref.current.value == "")
-              _10_3ref.current.focus();
+           
           }
         } catch (error) {
           console.log(error);
@@ -1790,14 +1600,12 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_10(_10.charAt(0)+_10.charAt(1)+_10.charAt(2)+_10.charAt(3)+_10.charAt(4)+value+_10.charAt(6)+_10.charAt(7)+_10.charAt(8))
-           
-            if (_10_6ref.current.value == "")
+          
               _10_6ref.current.focus();
           }
           else {
 
-            if (_10_6ref.current.value == "")
-              _10_4ref.current.focus();
+           
           }
         } catch (error) {
           console.log(error);
@@ -1810,17 +1618,14 @@ const PositionLayout = () => {
 
             set_10(_10.charAt(0)+_10.charAt(1)+_10.charAt(2)+_10.charAt(3)+_10.charAt(4)+_10.charAt(5)+value+_10.charAt(7)+_10.charAt(8))
            
-            if (_5_7ref.current.value == "") {
-              _5_7ref.current.focus();
-            } else if (res5_10 == false) {
+              if (res5_10 == false) {
               _10_7ref.current.focus();
-            }
+            }else{ _5_7ref.current.focus();}
 
           }
           else {
 
-            if (_5_7ref.current.value == "" || res5_10 == false)
-              _10_5ref.current.focus();
+           
           }
         } catch (error) {
           console.log(error);
@@ -1836,11 +1641,7 @@ const PositionLayout = () => {
           }
           else {
 
-            if (res5_10 == false) {
-              _10_6ref.current.focus();
-            } else {
-              _5_7ref.current.focus();
-            }
+          
 
           }
         } catch (error) {
@@ -1855,7 +1656,7 @@ const PositionLayout = () => {
 
             set_11(value+_11.charAt(1)+_11.charAt(2))
            
-            if (_11_2ref.current.value == "")
+          
               _11_2ref.current.focus();
           }
           else {
@@ -1870,14 +1671,13 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_11(_11.charAt(0)+value+_11.charAt(2))
-            if (_15_7ref.current.value == "")
+          
               _15_7ref.current.focus();
 
           }
           else {
 
-            if (_15_7ref.current.value == "" || res15_11 == false)
-              _11_1ref.current.focus();
+          
           }
         } catch (error) {
           console.log(error);
@@ -1890,7 +1690,7 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_12(value+_12.charAt(1)+_12.charAt(2))
-            if (_12_2ref.current.value == "")
+          
               _12_2ref.current.focus();
           }
           else {
@@ -1905,13 +1705,12 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_12(_12.charAt(0)+value+_12.charAt(2))
-            if (_16_2ref.current.value == "")
+           
               _16_2ref.current.focus();
           }
           else {
 
-            if (_16_2ref.current.value == "" || res16_12 == false)
-              _12_1ref.current.focus();
+         
 
           }
         } catch (error) {
@@ -1925,11 +1724,9 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_13(value+_13.charAt(1)+_13.charAt(2))
-            if (_14_1ref.current.value == "") {
-              _14_1ref.current.focus();
-            } else if (res14_13 == false) {
+             if (res14_13 == false) {
               _13_2ref.current.focus();
-            }
+            }else{ _14_1ref.current.focus();}
 
           }
           else {
@@ -1948,11 +1745,7 @@ const PositionLayout = () => {
           }
           else {
 
-            if (res14_13 == false) {
-              _13_1ref.current.focus();
-            } else {
-              _14_1ref.current.focus();
-            }
+           
 
 
           }
@@ -1967,20 +1760,14 @@ const PositionLayout = () => {
           if (value != "") {
             set_14(value+_14.charAt(1)+_14.charAt(2)+_14.charAt(3)+_14.charAt(4))
             set_13(_13.charAt(0)+value+_13.charAt(2))
-            if (_13_1ref.current.value != "" && _13_2ref.current.value == "") {
-              if (_13_2ref.current.value == "")
-                _13_2ref.current.focus();
-            }
-            else {
-              if (_14_2ref.current.value == "")
+           
+            
                 _14_2ref.current.focus();
-            }
+            
 
           }
           else {
-            if (_13_2ref.current.value == "" && _13_1ref.current.value != "") {
-              _13_1ref.current.focus();
-            }
+         
 
 
           }
@@ -1994,17 +1781,14 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_14(_14.charAt(0)+value+_14.charAt(2)+_14.charAt(3)+_14.charAt(4))
-            if (_16_5ref.current.value == "") {
-              _16_5ref.current.focus();
-            } else if (res16_14 == false) {
+            if (res16_14 == false) {
               _14_3ref.current.focus();
-            }
+            }else{_16_5ref.current.focus();}
 
           }
           else {
 
-            if (_16_5ref.current.value == "" || res16_14 == false)
-              _14_1ref.current.focus();
+           
           }
         } catch (error) {
           console.log(error);
@@ -2016,18 +1800,12 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_14(_14.charAt(0)+_14.charAt(1)+_14.charAt(2)+value+_14.charAt(4))
-            if (_14_4ref.current.value == "")
+            
               _14_4ref.current.focus();
           }
           else {
 
-            if (_14_4ref.current.value == "") {
-              if (res16_14 == false) {
-                _14_2ref.current.focus();
-              } else {
-                _16_5ref.current.focus();
-              }
-            }
+          
 
           }
         } catch (error) {
@@ -2045,7 +1823,7 @@ const PositionLayout = () => {
           else {
 
 
-            _14_3ref.current.focus();
+         
           }
         } catch (error) {
           console.log(error);
@@ -2059,16 +1837,16 @@ const PositionLayout = () => {
 
             set_15(_15.charAt(0)+value+_15.charAt(2)+_15.charAt(3)+_15.charAt(4)+_15.charAt(5)+_15.charAt(6)+_15.charAt(7)+_15.charAt(8)+_15.charAt(9))
            
-            if (_15_2ref.current.value == "") {
+       
             
               _15_2ref.current.focus();
-            }
+            
 
             
           }
           else {
 
-            _5_9ref.current.focus();
+         
 
           }
         } catch (error) {
@@ -2082,13 +1860,12 @@ const PositionLayout = () => {
 
             set_15(_15.charAt(0)+_15.charAt(1)+value+_15.charAt(3)+_15.charAt(4)+_15.charAt(5)+_15.charAt(6)+_15.charAt(7)+_15.charAt(8)+_15.charAt(9))
        
-            if (_15_3ref.current.value == "")
+           
               _15_3ref.current.focus();
           }
           else {
 
-            if (_15_3ref.current.value == "")
-              _15_1ref.current.focus();
+          
           }
         } catch (error) {
           console.log(error);
@@ -2100,14 +1877,11 @@ const PositionLayout = () => {
           if (value != "") {
 
             set_15(_15.charAt(0)+_15.charAt(1)+_15.charAt(2)+value+_15.charAt(4)+_15.charAt(5)+_15.charAt(6)+_15.charAt(7)+_15.charAt(8)+_15.charAt(9))
-       
-            if (_15_4ref.current.value == "")
+      
               _15_4ref.current.focus();
           }
           else {
 
-            if (_15_4ref.current.value == "")
-              _15_2ref.current.focus();
           }
         } catch (error) {
           console.log(error);
@@ -2120,13 +1894,12 @@ const PositionLayout = () => {
 
             set_15(_15.charAt(0)+_15.charAt(1)+_15.charAt(2)+_15.charAt(3)+value+_15.charAt(5)+_15.charAt(6)+_15.charAt(7)+_15.charAt(8)+_15.charAt(9))
        
-            if (_15_5ref.current.value == "")
+           
               _15_5ref.current.focus();
           }
           else {
 
-            if (_15_5ref.current.value == "")
-              _15_3ref.current.focus();
+           
           }
         } catch (error) {
           console.log(error);
@@ -2139,13 +1912,12 @@ const PositionLayout = () => {
 
             set_15(_15.charAt(0)+_15.charAt(1)+_15.charAt(2)+_15.charAt(3)+_15.charAt(4)+value+_15.charAt(6)+_15.charAt(7)+_15.charAt(8)+_15.charAt(9))
        
-            if (_15_6ref.current.value == "")
+          
               _15_6ref.current.focus();
           }
           else {
 
-            if (_15_6ref.current.value == "")
-              _15_4ref.current.focus();
+           
           }
         } catch (error) {
           console.log(error);
@@ -2157,19 +1929,16 @@ const PositionLayout = () => {
           if (value != "") {
             set_15(_15.charAt(0)+_15.charAt(1)+_15.charAt(2)+_15.charAt(3)+_15.charAt(4)+_15.charAt(5)+value+_15.charAt(7)+_15.charAt(8)+_15.charAt(9))
        
-            if (_15_7ref.current.value == "") {
-              _15_7ref.current.focus();
-            } else if (res15_11 == false) {
+             if (res15_11 == false) {
               _15_8ref.current.focus();
-            }
+            }else{ _15_7ref.current.focus();}
 
 
 
           }
           else {
 
-            if (_15_7ref.current.value == "" || res15_11 == false)
-              _15_5ref.current.focus();
+       
           }
         } catch (error) {
           console.log(error);
@@ -2182,18 +1951,14 @@ const PositionLayout = () => {
             set_15(_15.charAt(0)+_15.charAt(1)+_15.charAt(2)+_15.charAt(3)+_15.charAt(4)+_15.charAt(5)+_15.charAt(6)+value+_15.charAt(8)+_15.charAt(9))
        
             set_11(_11.charAt(0)+_11.charAt(1)+value)
-            if (_15_6ref.current.value != "" && _15_8ref.current.value == "") {
-              if (_15_8ref.current.value == "")
+            
                 _15_8ref.current.focus();
-            }
-            else {
-            }
+           
 
           }
           else {
 
-            if (_15_8ref.current.value == "")
-              _15_6ref.current.focus();
+           
           }
         } catch (error) {
           console.log(error);
@@ -2206,18 +1971,12 @@ const PositionLayout = () => {
 
             set_15(_15.charAt(0)+_15.charAt(1)+_15.charAt(2)+_15.charAt(3)+_15.charAt(4)+_15.charAt(5)+_15.charAt(6)+_15.charAt(7)+value+_15.charAt(9))
        
-            if (_15_9ref.current.value == "")
+      
               _15_9ref.current.focus();
           }
           else {
 
-            if (_15_9ref.current.value == "" || res15_9 == false) {
-              if (res15_11 == false) {
-                _15_6ref.current.focus();
-              } else {
-                _15_7ref.current.focus();
-              }
-            }
+           
 
           }
         } catch (error) {
@@ -2236,7 +1995,7 @@ const PositionLayout = () => {
           else {
 
 
-            _15_8ref.current.focus();
+           
           }
         } catch (error) {
           console.log(error);
@@ -2250,11 +2009,9 @@ const PositionLayout = () => {
 
             set_16(value+_16.charAt(1)+_16.charAt(2)+_16.charAt(3)+_16.charAt(4)+_16.charAt(5)+_16.charAt(6)+_16.charAt(7))
        
-            if (_16_2ref.current.value == "") {
-              _16_2ref.current.focus();
-            } else if (res16_12 == false) {
+              if (res16_12 == false) {
               _16_3ref.current.focus();
-            }
+            }else{_16_2ref.current.focus();}
 
           }
           else {
@@ -2270,18 +2027,13 @@ const PositionLayout = () => {
             set_16(_16.charAt(0)+value+_16.charAt(2)+_16.charAt(3)+_16.charAt(4)+_16.charAt(5)+_16.charAt(6)+_16.charAt(7))
        
             set_12(_12.charAt(0)+_12.charAt(1)+value)
-            if (_16_1ref.current.value != "" && _16_3ref.current.value == "") {
-              if (_16_3ref.current.value == "")
+           
                 _16_3ref.current.focus();
-            }
-            else {
-            }
+          
 
           }
           else {
 
-            if (_16_3ref.current.value == "")
-              _16_1ref.current.focus();
 
           }
         } catch (error) {
@@ -2295,18 +2047,12 @@ const PositionLayout = () => {
 
             set_16(_16.charAt(0)+_16.charAt(1)+value+_16.charAt(3)+_16.charAt(4)+_16.charAt(5)+_16.charAt(6)+_16.charAt(7))
        
-            if (_16_4ref.current.value == "")
+            
               _16_4ref.current.focus();
           }
           else {
 
-            if (_16_4ref.current.value == "") {
-              if (res16_12 == false) {
-                _16_1ref.current.focus();
-              } else {
-                _16_2ref.current.focus();
-              }
-            }
+        
 
 
           }
@@ -2321,17 +2067,13 @@ const PositionLayout = () => {
 
             set_16(_16.charAt(0)+_16.charAt(1)+_16.charAt(2)+value+_16.charAt(4)+_16.charAt(5)+_16.charAt(6)+_16.charAt(7))
        
-            if (_16_5ref.current.value == "") {
-              _16_5ref.current.focus();
-            } else if (res16_14 == false) {
+            if (res16_14 == false) {
               _16_6ref.current.focus();
-            }
+            }else{ _16_5ref.current.focus();}
 
           }
           else {
 
-            if (_16_5ref.current.value == "" || res16_14 == false)
-              _16_3ref.current.focus();
 
           }
         } catch (error) {
@@ -2345,18 +2087,13 @@ const PositionLayout = () => {
             set_16(_16.charAt(0)+_16.charAt(1)+_16.charAt(2)+_16.charAt(3)+value+_16.charAt(5)+_16.charAt(6)+_16.charAt(7))
        
             set_14(_14.charAt(0)+_14.charAt(1)+value+_14.charAt(3)+_14.charAt(4))
-            if (_16_4ref.current.value != "" && _16_6ref.current.value == "") {
-              if (_16_6ref.current.value == "")
+           
                 _16_6ref.current.focus();
-            }
-            else {
-              if (_16_3ref.current.value == "")
-                _14_3ref.current.focus();
-            }
+           
           }
           else {
 
-            if (_16_6ref.current.value == "")
+        
               _16_4ref.current.focus();
 
           }
@@ -2371,19 +2108,12 @@ const PositionLayout = () => {
 
             set_16(_16.charAt(0)+_16.charAt(1)+_16.charAt(2)+_16.charAt(3)+_16.charAt(4)+value+_16.charAt(6)+_16.charAt(7))
        
-            if (_16_7ref.current.value == "")
+          
               _16_7ref.current.focus();
           }
           else {
 
-            if (_16_7ref.current.value == "") {
-              if (res16_14 == false) {
-                _16_4ref.current.focus();
-              } else {
-                _16_5ref.current.focus();
-              }
-
-            }
+         
 
 
           }
@@ -2398,15 +2128,13 @@ const PositionLayout = () => {
 
             set_16(_16.charAt(0)+_16.charAt(1)+_16.charAt(2)+_16.charAt(3)+_16.charAt(4)+_16.charAt(5)+value+_16.charAt(7))
        
-            if (_5_11ref.current.value == "")
+          
               _5_11ref.current.focus();
 
           }
           else {
 
-            if (_5_11ref.current.value == "")
-              _16_6ref.current.focus();
-
+          
           }
         } catch (error) {
           console.log(error);
@@ -4040,4 +3768,3 @@ const styles = StyleSheet.create({
   
 });
 
-export default PositionLayout;
