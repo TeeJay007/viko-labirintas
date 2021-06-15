@@ -38,13 +38,13 @@ export default function PenkiDuKeturi({ navigation: { navigate }}) {
                     fontWeight: 'bold',
                     textAlign: 'center',
                 }}>
-                    ATGAL
+                    {'\u003C'}{'\u003C'}
                 </Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => {
                 navigate('kryziazodiskab')
             }}  style={{
-                backgroundColor: 'white',
+                backgroundColor: 'rgba(255,255,255,0.5)',
                 opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
@@ -60,7 +60,7 @@ export default function PenkiDuKeturi({ navigation: { navigate }}) {
                     fontWeight: 'bold',
                     textAlign: 'center',
                 }}>
-                    SPAUSK ČIA
+                    Finansų katedra, UžEIK!
                 </Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => {
@@ -82,7 +82,7 @@ export default function PenkiDuKeturi({ navigation: { navigate }}) {
                     fontWeight: 'bold',
                     textAlign: 'center',
                 }}>
-                    TOLIAU
+                    {'\u003E'}{'\u003E'}
                 </Text>
             </TouchableOpacity>
         </NavBase>

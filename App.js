@@ -13,6 +13,7 @@ import ViktorinaPabaiga from './pages/Viktorina_Pabaiga'
 import ViktorinaAuditorija from './pages/Auditorija_viktorina'
 //Navigacija po pastata
 import Laukas from './pages/navigation_pages/laukas'
+import TreciasVestibiulis from './pages/navigation_pages/treciasvestibiulis'
 import KetvirtasVestibiulis from './pages/navigation_pages/ketvirtas_vestibiulis';
 import PenktasVestibiulis from './pages/navigation_pages/penktas_vestibiulis';
 import PenkiDuDu from './pages/navigation_pages/penkidudu';
@@ -44,6 +45,10 @@ export default function App() {
           name="laukas"
           component={Laukas}
           options={{ title: 'Lauko įėjimas' , headerShown: false, cardStyleInterpolator: forFade}} />
+        <Stack.Screen
+          name="treciasVestibiulis"
+          component={TreciasVestibiulis}
+          options={{ title: 'Ketvirtas aukštas' , headerShown: false, cardStyleInterpolator: forFade}} />
         <Stack.Screen
           name="ketvirtasVestibiulis"
           component={KetvirtasVestibiulis}
@@ -125,7 +130,7 @@ export default function App() {
           <Stack.Screen
           name="viktorinaAuditorija"
           component={ViktorinaAuditorija}
-          options={{ title: 'Viktorina' }} />
+          options={{ title: 'Viktorina', headerShown: false }} />
         <Stack.Screen
           name="scrambleFinansai"
           component={ScrambleFinansai}
@@ -145,7 +150,7 @@ export default function App() {
         <Stack.Screen
           name="lenteles"
           component={Lenteles}
-          options={{ title: 'Lentelės' }} />
+          options={{ title: 'Lentelės',headerShown: false }} />
           <Stack.Screen
           name="viktorinaPabaiga"
           component={ViktorinaPabaiga}

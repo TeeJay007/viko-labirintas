@@ -4,7 +4,7 @@ import { Text, useWindowDimensions, TouchableOpacity } from 'react-native';
 
 import NavBase from './nav_base'
 
-const IMAGE = require('../../NavigationCovers/ketvirtasaukstasvestibiulis_f.jpg');
+const IMAGE = require('../../NavigationCovers/ketvaukstasnaujas.jpg');
 const IMAGE_WIDTH = 6144;
 const IMAGE_HEIGHT = 1608;
 
@@ -22,14 +22,14 @@ export default function KetvirtasVestibiulis({ navigation: { navigate }}) {
             <TouchableOpacity onPress={() => {
                 navigate('vikobankasiejimas')
             }}  style={{
-                backgroundColor: 'white',
+                backgroundColor: 'rgba(255,255,255,0.5)',
                 opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
-                top: resizeHeight(975),
-                left: resizeWidth(1337),
-                width: resizeWidth(292),
-                height: resizeHeight(347),
+                top: resizeHeight(700),
+                left: resizeWidth(260),
+                width: resizeWidth(500),
+                height: resizeHeight(450),
                 justifyContent: 'center',
                 alignItems: 'center'
             }}>
@@ -38,20 +38,20 @@ export default function KetvirtasVestibiulis({ navigation: { navigate }}) {
                     fontWeight: 'bold',
                     textAlign: 'center',
                 }}>
-                    SPAUSK ČIA
+                    UŽEIK!
                 </Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => {
                 navigate('penktasVestibiulis')
             }}  style={{
-                backgroundColor: 'white',
+                backgroundColor: 'rgba(255,255,255,0.4)',
                 opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
-                top: resizeHeight(856),
-                left: resizeWidth(2805),
-                width: resizeWidth(502),
-                height: resizeHeight(249),
+                top: resizeHeight(400),
+                left: resizeWidth(2610),
+                width: resizeWidth(800),
+                height: resizeHeight(400),
                 justifyContent: 'center',
                 alignItems: 'center'
             }}>
@@ -61,20 +61,20 @@ export default function KetvirtasVestibiulis({ navigation: { navigate }}) {
                     textAlign: 'center',
                     paddingTop: 46
                 }}>
-                    SPAUSK ČIA
+                    Pakilti į penktajį aukstą
                 </Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => {
                 navigate('keturiDuVienas')
             }}  style={{
-                backgroundColor: 'white',
+                backgroundColor: 'rgba(255,255,255,0.5)',
                 opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
-                top: resizeHeight(976),
-                left: resizeWidth(4460),
-                width: resizeWidth(295),
-                height: resizeHeight(343),
+                top: resizeHeight(680),
+                left: resizeWidth(5390),
+                width: resizeWidth(530),
+                height: resizeHeight(450),
                 justifyContent: 'center',
                 alignItems: 'center'
             }}>
@@ -83,20 +83,20 @@ export default function KetvirtasVestibiulis({ navigation: { navigate }}) {
                     fontWeight: 'bold',
                     textAlign: 'center',
                 }}>
-                    SPAUSK ČIA
+                    UŽEIK!
                 </Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => {
                 navigate('lenteles')
             }}  style={{
-                backgroundColor: 'white',
+                backgroundColor: 'rgba(255,255,255,0.3)',
                 opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
-                top: resizeHeight(1050),
-                left: resizeWidth(1790),
-                width: resizeWidth(200),
-                height: resizeHeight(200),
+                top: resizeHeight(685),
+                left: resizeWidth(1005),
+                width: resizeWidth(350),
+                height: resizeHeight(205),
                 justifyContent: 'center',
                 alignItems: 'center'
             }}>
@@ -105,7 +105,7 @@ export default function KetvirtasVestibiulis({ navigation: { navigate }}) {
                     fontWeight: 'bold',
                     textAlign: 'center',
                 }}>
-                    SPAUSK ČIA
+                    PIRMOJI UŽDUOTIS
                 </Text>
             </TouchableOpacity>
         </NavBase>

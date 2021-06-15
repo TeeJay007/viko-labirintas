@@ -22,7 +22,7 @@ export default function SAIejimas({ navigation: { navigate }}) {
             <TouchableOpacity onPress={() => {
                 navigate('savidus')
             }}  style={{
-                backgroundColor: 'white',
+                backgroundColor: 'rgba(255,255,255,0.5)',
                 opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
@@ -38,7 +38,7 @@ export default function SAIejimas({ navigation: { navigate }}) {
                     fontWeight: 'bold',
                     textAlign: 'center',
                 }}>
-                    SPAUSK ČIA
+                    UžEIK!
                 </Text>
             </TouchableOpacity>
         </NavBase>
