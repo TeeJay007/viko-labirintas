@@ -22,7 +22,7 @@ export default function PenkiDuDu({ navigation: { navigate }}) {
             <TouchableOpacity onPress={() => {
                 navigate('penkiDuDuVidus')
             }}  style={{
-                backgroundColor: 'white',
+                backgroundColor: 'rgba(255,255,255,0.5)',
                 opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
@@ -38,13 +38,13 @@ export default function PenkiDuDu({ navigation: { navigate }}) {
                     fontWeight: 'bold',
                     textAlign: 'center',
                 }}>
-                    SPAUSK ČIA
+                    UŽEIK!
                 </Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => {
                 navigate('penkiduketuri')
             }}  style={{
-                backgroundColor: 'white',
+                backgroundColor: 'rgba(255,255,255,0.5)',
                 opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
@@ -60,7 +60,7 @@ export default function PenkiDuDu({ navigation: { navigate }}) {
                     fontWeight: 'bold',
                     textAlign: 'center',
                 }}>
-                    SPAUSK ČIA
+                    Grįžti atgal
                 </Text>
             </TouchableOpacity>
         </NavBase>

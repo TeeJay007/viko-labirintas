@@ -165,7 +165,7 @@ export default function Pavyzdinis({ navigation: { navigate }}) {
   
   return (
     <View style={styles.container}>
-    <ImageBackground source={require('../Images/sa.jpg')} style={styles.bimage}>
+    <ImageBackground source={require('../Images/finb.jpg')} style={styles.bimage}>
       {/* Header */}
       <View>
       <FlatList

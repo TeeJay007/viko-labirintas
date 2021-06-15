@@ -86,7 +86,7 @@ export default function ProLanga({ navigation: { navigate }}) {
                 </View>
             </View>
             {correctAts() && <TouchableOpacity onPress={() => {
-                navigate('ketvirtasVestibiulis')
+                navigate('penktasVestibiulis')
             }}  style={{
                 backgroundColor: 'green',
                 padding: 10,
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   inputMarked:{
-    backgroundColor: '#E3E3E3'
+    backgroundColor: 'green'
   },
   input: {
     borderColor: 'black',

@@ -22,7 +22,7 @@ export default function PenktasVestibiulis({ navigation: { navigate }}) {
             <TouchableOpacity onPress={() => {
                 navigate('ketvirtasVestibiulis')
             }}  style={{
-                backgroundColor: 'white',
+                backgroundColor: 'rgba(255,255,255,0.4)',
                 opacity: 0.7,
                 padding: 10,
                 position: 'absolute',
@@ -38,13 +38,13 @@ export default function PenktasVestibiulis({ navigation: { navigate }}) {
                     fontWeight: 'bold',
                     textAlign: 'center',
                 }}>
-                    SPAUSK ČIA
+                    Leistis į 4 aukstą
                 </Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => {
                 navigate('saiejimas')
             }}  style={{
-                backgroundColor: 'white',
+                backgroundColor: 'rgba(255,255,255,0.4)',
                 opacity: 0.7,
                 padding: 10,
                 position: 'absolute',
@@ -60,13 +60,13 @@ export default function PenktasVestibiulis({ navigation: { navigate }}) {
                     fontWeight: 'bold',
                     textAlign: 'center',
                 }}>
-                    SPAUSK ČIA
+                    Studentų atstovybė
                 </Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => {
                 navigate('penkipenkiolika')
             }}  style={{
-                backgroundColor: 'white',
+                backgroundColor: 'rgba(255,255,255,0.5)',
                 opacity: 0.7,
                 padding: 10,
                 position: 'absolute',
@@ -82,7 +82,7 @@ export default function PenktasVestibiulis({ navigation: { navigate }}) {
                     fontWeight: 'bold',
                     textAlign: 'center',
                 }}>
-                    SPAUSK ČIA
+                    UŽEIK!
                 </Text>
             </TouchableOpacity>
         </NavBase>

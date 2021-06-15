@@ -123,11 +123,11 @@ export default function Lenteles({ navigation: { navigate }}) {
       var temp=ques+1;
       setQuestionPrev(Question)
       setQuestionPrev((ques) => {
-        return ques.filter(Question => Question.key == id + 1)
+        return ques.filter(Question => Question.key == temp)
       })
       setQnAPrev(QnA)
       setQnAPrev((qna) => {
-        return qna.filter(QnA => QnA.question == id + 1)
+        return qna.filter(QnA => QnA.question == temp)
       })
       setques(temp)
     }
@@ -151,36 +151,38 @@ export default function Lenteles({ navigation: { navigate }}) {
         );
     }
      }
-     const navigatetoras = () =>{
-      navigate("ketvirtasVestibiulis");
-     }
+
     
      if(temp==21){
       setques(prev=>prev + 2)
-      let vara =0
       
       if (Platform.OS === 'web') {
-        alert("Užuomina: 522","Užuomina: 522", [{ text: "Gerai", onPress: () => navigatetoras()}],{cancelable: false})
+        AsyncStorage.setItem('lenteles', 'true');
+        AsyncStorage.setItem('proLanga', 'false');
+        alert("Ieškokite 522 kabineto", [{ text: "Gerai", onPress: () => navigate('ketvirtasVestibiulis')}],{cancelable: false})
      } else {
+      AsyncStorage.setItem('lenteles', 'true');
+      AsyncStorage.setItem('proLanga', 'false');
       Alert.alert(
 
  
-        "Užuomina: 522",
-        
-         
-        "", [{ text: "Gerai", onPress: () => navigatetoras()}],
+        "Ieškokite 522 kabineto",
+
+
+        "", [{ text: "Gerai", onPress:() => navigate('ketvirtasVestibiulis')}],
         
          
         { cancelable: false }
         
          
         );
-  
-  }
+      }
     }
-
-
   };
+
+
+
+
   useEffect(() => {
     setQuestionPrev(Question)
     setQnAPrev(QnA)

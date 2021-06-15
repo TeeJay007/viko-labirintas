@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Vikobankasdrauda({ navigation: { navigate }}) {
 
-  const atsakymas1 = "401";
+  const atsakymas1 = "402";
   const [ats1, setAts1] = useState({ skaiciai1: atsakymas1.split('').map(v => '') });
   const correctAts = () => atsakymas1 == ats1.skaiciai1.join('').toUpperCase()
 
@@ -18,7 +18,7 @@ export default function Vikobankasdrauda({ navigation: { navigate }}) {
           2. Mažiausias neneigiamas skaičius?
       </Text>
         <Text style={styles.questions}>
-          3. „... kregždė, dar ne pavasaris“?
+          3. Mobiliajame telefone su mygtukais yra kartu su raidėm a, b, c ?
       </Text>
         <View style={styles.holder}>
           {atsakymas1.split('').map((_, i) =>
@@ -42,8 +42,8 @@ export default function Vikobankasdrauda({ navigation: { navigate }}) {
       </View>
       {correctAts() && <TouchableOpacity onPress={() => {
             AsyncStorage.setItem('vikoBankasDrauda', 'true');
-            AsyncStorage.setItem('kryziazodis', 'false');
-                navigate('PenktasVestibiulis')
+            AsyncStorage.setItem('vikobankokahoot', 'false');
+                navigate('penktasVestibiulis')
             }}  style={{
                 backgroundColor: 'green',
                 padding: 10,

@@ -251,7 +251,7 @@ class ScrambleFinansai extends Component {
               <View style={styles.zeroZone}>
                 <Text style={styles.titleText}>Tai yra terminas, apibrėžiantis metodus, kuriais asmenys ar organizacijos įgyja, sukaupia, kontroliuoja ir naudoja piniginius išteklius per laikotarpį, įvertinant patiriamą riziką.</Text>
                 <Text></Text>
-                <Text style={styles.titleText}> Koks tai terminas? </Text>
+                <Text style={styles.titleText}> Kokia tai sąvoka? </Text>
               </View>
               
               <View
@@ -371,7 +371,7 @@ const styles = StyleSheet.create({
   refreshButton: {
     width: 120,
     height: 50,
-    backgroundColor: "dodgerblue",
+    backgroundColor: "darkgray",
     marginLeft: 10,
     justifyContent: "center",
     alignItems: "center",
@@ -384,7 +384,7 @@ const styles = StyleSheet.create({
   },
   HintPlace: {
     display: 'flex',
-    backgroundColor: 'dodgerblue',
+    backgroundColor: 'bisque',
     width: 51,
     height: 51,
     borderRadius: 5,
@@ -392,7 +392,7 @@ const styles = StyleSheet.create({
   },
   ButtonsHintPlace: {
     display: 'flex',
-    backgroundColor: 'dodgerblue',
+    backgroundColor: 'beige',
     width: 61,
     height: 61,
     borderRadius: 5,

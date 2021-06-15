@@ -5,7 +5,7 @@ import { Text, useWindowDimensions, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import NavBase from './nav_base'
 
-const IMAGE = require('../../NavigationCovers/finansai_f.jpg');
+const IMAGE = require('../../NavigationCovers/finansainaujas.jpg');
 const IMAGE_WIDTH = 4608;
 const IMAGE_HEIGHT = 1972;
 
@@ -31,7 +31,7 @@ export default function FinansaiKab({ navigation: { navigate }}) {
                 <TouchableOpacity onPress={() => {
                     navigate('scrambleFinansai')
                 }}  style={{
-                    backgroundColor: 'white',
+                    backgroundColor: 'rgba(255,255,255,0.5)',
                     opacity: 0.5,
                     padding: 10,
                     position: 'absolute',

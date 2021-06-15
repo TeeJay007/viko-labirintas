@@ -22,7 +22,7 @@ export default function PenkiDuDuVidus({ navigation: { navigate }}) {
             <TouchableOpacity onPress={() => {
                 navigate('proLanga')
             }}  style={{
-                backgroundColor: 'white',
+                backgroundColor: 'rgba(255,255,255,0.5)',
                 opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
@@ -38,7 +38,8 @@ export default function PenkiDuDuVidus({ navigation: { navigate }}) {
                     fontWeight: 'bold',
                     textAlign: 'center',
                 }}>
-                    LANGO UŽDUOTIS
+                    Pažvelk pro langą!
+                    UŽDUOTIS
                 </Text>
             </TouchableOpacity>
         </NavBase>

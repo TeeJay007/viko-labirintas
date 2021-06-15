@@ -28,20 +28,20 @@ export default function Laukas({ navigation: { navigate }}) {
         AsyncStorage.setItem('kryziazodis', 'false');
         AsyncStorage.setItem('keliosmatematines', 'false');
         AsyncStorage.setItem('vikobankokahoot', 'false');
-        navigate('ketvirtasVestibiulis');
+        navigate('treciasVestibiulis');
     }
     return (
         <NavBase image={IMAGE} width={IMAGE_WIDTH} height={IMAGE_HEIGHT}>
             <TouchableOpacity onPress={() => {
                 addDataToAsync();
             }}  style={{
-                backgroundColor: 'white',
+                backgroundColor: 'rgba(255,255,255,0.3)',
                 padding: 10,
                 position: 'absolute',
-                top: resizeHeight(866),
-                left: resizeWidth(2975),
-                width: resizeWidth(245),
-                height: resizeHeight(293),
+                top: resizeHeight(766),
+                left: resizeWidth(2950),
+                width: resizeWidth(310),
+                height: resizeHeight(400),
                 justifyContent: 'center',
                 alignItems: 'center'
             }}>
@@ -50,7 +50,7 @@ export default function Laukas({ navigation: { navigate }}) {
                     fontWeight: 'bold',
                     textAlign: 'center'
                 }}>
-                    SPAUSK ČIA
+                    UŽEIK!
                 </Text>
             </TouchableOpacity>
         </NavBase>
