@@ -31,6 +31,8 @@ import PenkiDuKeturi from './pages/navigation_pages/penkiduketuri';
 import FinansaiKab from './pages/navigation_pages/finansaikab';
 import Dekanas from './pages/navigation_pages/dekanas';
 import KryziazodisKab from './pages/navigation_pages/kryziazodiskab';
+import VikoDrauda from './pages/navigation_pages/vikodrauda';
+import VikoDraudaIejimas from './pages/navigation_pages/vikodraudaiejimas';
 
 const Stack = createStackNavigator();
 
@@ -117,7 +119,14 @@ export default function App() {
           name="kryziazodiskab"
           component={KryziazodisKab}
           options={{ title: '524 kabinetas' , headerShown: false, cardStyleInterpolator: forFade}} />
-        
+        <Stack.Screen
+          name="vikodrauda"
+          component={VikoDrauda}
+          options={{ title: '524 kabinetas' , headerShown: false, cardStyleInterpolator: forFade}} />
+        <Stack.Screen
+          name="vikodraudaiejimas"
+          component={VikoDraudaIejimas}
+          options={{ title: '524 kabinetas' , headerShown: false, cardStyleInterpolator: forFade}} />
 
         <Stack.Screen
           name="baloons"

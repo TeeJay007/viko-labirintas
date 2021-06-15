@@ -5,7 +5,7 @@ import { Text, useWindowDimensions, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import NavBase from './nav_base'
 
-const IMAGE = require('../../NavigationCovers/finansai_f.jpg');
+const IMAGE = require('../../NavigationCovers/finansainaujas.jpg');
 const IMAGE_WIDTH = 4608;
 const IMAGE_HEIGHT = 1972;
 
