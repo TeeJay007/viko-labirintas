@@ -38,7 +38,7 @@ export default function App() {
     
     <NavigationContainer>
       {/* TODO: kur initialRouteName turetu but pradinis programos route name */}
-      <Stack.Navigator initialRouteName="kryziazodiskab">
+      <Stack.Navigator initialRouteName="laukas">
         {/* Navigacija po pastata */}
         <Stack.Screen
           name="laukas"

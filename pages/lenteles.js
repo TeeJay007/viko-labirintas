@@ -221,7 +221,7 @@ export default function Lenteles() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'center',
+    flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: "#2d7fd2",
@@ -255,7 +255,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     fontSize: 30,
     alignItems: 'center',
-    textAlign: 'justified',
+    textAlign: 'center',
     fontWeight: 'bold'
   }
 });
