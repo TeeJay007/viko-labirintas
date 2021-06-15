@@ -31,7 +31,7 @@ export default function PaskutinioKahootIejimasVB({ navigation: { navigate }}) {
     return (
         <NavBase image={IMAGE} width={IMAGE_WIDTH} height={IMAGE_HEIGHT}>
             <TouchableOpacity onPress={() => {
-                 navigate('viktorinaPabaiga')
+                 navigate('viktorinaBankas')
             }}  style={{
                 backgroundColor: 'white',
                 opacity: 0.5,

@@ -20,16 +20,16 @@ export default function VikoDraudaIejimas({ navigation: { navigate }}) {
     return (
         <NavBase image={IMAGE} width={IMAGE_WIDTH} height={IMAGE_HEIGHT}>
             <TouchableOpacity onPress={() => {
-                navigate('vikodraudaiejimas')
+                navigate('vikodrauda')
             }}  style={{
                 backgroundColor: 'white',
                 opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
-                top: resizeHeight(1353),
-                left: resizeWidth(319),
-                width: resizeWidth(1656),
-                height: resizeHeight(2673),
+                top: resizeHeight(953),
+                left: resizeWidth(829),
+                width: resizeWidth(1376),
+                height: resizeHeight(2773),
                 justifyContent: 'center',
                 alignItems: 'center'
             }}>

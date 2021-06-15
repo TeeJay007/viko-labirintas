@@ -34,7 +34,7 @@ import Dekanas from './pages/navigation_pages/dekanas';
 import KryziazodisKab from './pages/navigation_pages/kryziazodiskab';
 import VikoDrauda from './pages/navigation_pages/vikodrauda';
 import VikoDraudaIejimas from './pages/navigation_pages/vikodraudaiejimas';
-
+import Pabaiga from './pages/navigation_pages/pabaiga'
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -42,7 +42,7 @@ export default function App() {
     
     <NavigationContainer>
       {/* TODO: kur initialRouteName turetu but pradinis programos route name */}
-      <Stack.Navigator initialRouteName="viktorinaBankas">
+      <Stack.Navigator initialRouteName="laukas">
         {/* Navigacija po pastata */}
         <Stack.Screen
           name="laukas"
@@ -128,6 +128,10 @@ export default function App() {
           name="vikodraudaiejimas"
           component={VikoDraudaIejimas}
           options={{ title: '524 kabinetas' , headerShown: false, cardStyleInterpolator: forFade}} />
+          <Stack.Screen
+          name="pabaiga"
+          component={Pabaiga}
+          options={{ title: 'Laimėjimas' , headerShown: false, cardStyleInterpolator: forFade}} />
 
         <Stack.Screen
           name="baloons"

@@ -27,6 +27,7 @@ export default function Laukas({ navigation: { navigate }}) {
         AsyncStorage.setItem('finansai', 'false');
         AsyncStorage.setItem('kryziazodis', 'false');
         AsyncStorage.setItem('keliosmatematines', 'false');
+        AsyncStorage.setItem('vikodraudos', 'false');
         AsyncStorage.setItem('vikobankokahoot', 'false');
         navigate('treciasVestibiulis');
     }

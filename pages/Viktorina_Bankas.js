@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, ImageBackground, FlatList, TouchableOpacity, Alert, Platform } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Raktas from "./Viktorinos_GoogleSheet_Raktas.json"
-export default function Pavyzdinis() {
+export default function Pavyzdinis({ navigation: { navigate }}) {
   const image = { uri: "https://scontent.fplq1-1.fna.fbcdn.net/v/t1.6435-9/171013345_3932902256793104_4429939317269897519_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=973b4a&_nc_ohc=B6B7q8CuY78AX-stzxm&_nc_ht=scontent.fplq1-1.fna&oh=73fcc290783d96223fd537445ad40f33&oe=60CAA868"};
   const [_klaus,_setklaus]=useState(1);
   const [_Klausimai_Prev,_setKlausimai_Prev]= useState();
@@ -46,7 +46,7 @@ export default function Pavyzdinis() {
     
     if(answer=="correct"){
       var tt=_klaus+1; 
-      console.log(tt)
+   
       _setKlausimai_Prev(_Klausimai)
       _setKlausimai_Prev((Klaus)=>{
         return Klaus.filter(_Klausimai=> _Klausimai.key ==tt)
@@ -93,7 +93,7 @@ export default function Pavyzdinis() {
         AsyncStorage.setItem('vikobankokahoot', 'true');
         
         
-        alert("Užuomina: 515","Užuomina: 515", [{ text: "Gerai", onPress: () => navigatetoras()}],{cancelable: false})
+        alert("Laimėjote!!","Laimėjote!!", [{ text: "Gerai", onPress: () => navigatetoras()}],{cancelable: false})
         
      } else {
       AsyncStorage.setItem('vikobankokahoot', 'true');
@@ -101,7 +101,7 @@ export default function Pavyzdinis() {
       Alert.alert(
 
  
-        "Užuomina: 515",
+        "Laimėjote!!",
         
          
         "", [{ text: "Gerai", onPress: () => navigatetoras()}],
@@ -118,11 +118,11 @@ export default function Pavyzdinis() {
   };
 
   const navigatetoras = () =>{
-    navigate("ketvirtasVestibiulis");
+    navigate("pabaiga");
  }
 
   useEffect(() => {
-    console.log(Raktas.key)
+   
     _setKlausimai_Prev(_Klausimai)
     _setQnA_Prev(_QnA)
     _setKlausimai_Prev((Klaus)=>{
