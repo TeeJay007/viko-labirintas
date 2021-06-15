@@ -105,7 +105,7 @@ export default function KetvirtasVestibiulis({ navigation: { navigate }}) {
                     fontWeight: 'bold',
                     textAlign: 'center',
                 }}>
-                    UŽDUOTIS
+                    PIRMOJI UŽDUOTIS
                 </Text>
             </TouchableOpacity>
         </NavBase>

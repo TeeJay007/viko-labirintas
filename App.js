@@ -130,7 +130,7 @@ export default function App() {
           <Stack.Screen
           name="viktorinaAuditorija"
           component={ViktorinaAuditorija}
-          options={{ title: 'Viktorina' }} />
+          options={{ title: 'Viktorina', headerShown: false }} />
         <Stack.Screen
           name="scrambleFinansai"
           component={ScrambleFinansai}
@@ -150,7 +150,7 @@ export default function App() {
         <Stack.Screen
           name="lenteles"
           component={Lenteles}
-          options={{ title: 'Lentelės' }} />
+          options={{ title: 'Lentelės',headerShown: false }} />
           <Stack.Screen
           name="viktorinaPabaiga"
           component={ViktorinaPabaiga}
