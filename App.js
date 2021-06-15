@@ -11,6 +11,7 @@ import Vikobankasdrauda from './pages/vikobankasdrauda';
 import Kryziazodis from './pages/Kryžiažodis'
 import ViktorinaPabaiga from './pages/Viktorina_Pabaiga'
 import ViktorinaAuditorija from './pages/Auditorija_viktorina'
+import ViktorinaBankas from './pages/Viktorina_Bankas'
 //Navigacija po pastata
 import Laukas from './pages/navigation_pages/laukas'
 import KetvirtasVestibiulis from './pages/navigation_pages/ketvirtas_vestibiulis';
@@ -38,7 +39,7 @@ export default function App() {
     
     <NavigationContainer>
       {/* TODO: kur initialRouteName turetu but pradinis programos route name */}
-      <Stack.Navigator initialRouteName="laukas">
+      <Stack.Navigator initialRouteName="viktorinaBankas">
         {/* Navigacija po pastata */}
         <Stack.Screen
           name="laukas"
@@ -149,6 +150,10 @@ export default function App() {
           <Stack.Screen
           name="viktorinaPabaiga"
           component={ViktorinaPabaiga}
+          options={{ title: 'Viktorina' }} />
+          <Stack.Screen
+          name="viktorinaBankas"
+          component={ViktorinaBankas}
           options={{ title: 'Viktorina' }} />
       </Stack.Navigator>
     </NavigationContainer>

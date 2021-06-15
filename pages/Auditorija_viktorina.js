@@ -112,13 +112,12 @@ export default function Pavyzdinis({ navigation: { navigate }}) {
     }
      }
      const navigatetoras = () =>{
-       console.log("tttttt")
        navigate("ketvirtasVestibiulis");
     }
     
      if(tt==11){
       _setklaus(prev=>prev + 2)
-      let vara =0
+    
       
       if (Platform.OS === 'web') {
         AsyncStorage.setItem('kompiuteriukahoot', 'true');
