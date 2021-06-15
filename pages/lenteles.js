@@ -154,10 +154,9 @@ export default function Lenteles({ navigation: { navigate }}) {
     
      if(temp==21){
       setques(prev=>prev + 2)
-      let vara =0
       
       if (Platform.OS === 'web') {
-        alert("Užuomina: 522", [{ text: "Gerai", onPress: () => {
+        alert("Ieškokite 522 kabineto", [{ text: "Gerai", onPress:() => {
           AsyncStorage.setItem('Lenteles', 'true');
           AsyncStorage.setItem('proLanga', 'false');
           navigate("ketvirtasVestibiulis")}}],{cancelable: false})
@@ -165,10 +164,8 @@ export default function Lenteles({ navigation: { navigate }}) {
       Alert.alert(
 
  
-        "Užuomina: 522",
-        
-         
-        "", [{ text: "Gerai", onPress: () => navigate("ketvirtasVestibiulis")}],
+        "Ieškokite 522 kabineto",
+         [{ text: "Gerai", onPress:() => navigate("ketvirtasVestibiulis")}],
         
          
         { cancelable: false }
