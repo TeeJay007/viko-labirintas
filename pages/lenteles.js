@@ -150,14 +150,16 @@ export default function Lenteles() {
         );
     }
      }
-      
+     const navigatetoras = () =>{
+      console.log("tttttt")
+      navigate("ketvirtasVestibiulis");
     
      if(temp==21){
       setques(prev=>prev + 2)
       let vara =0
       
       if (Platform.OS === 'web') {
-        alert("Užuomina: 522",{cancelable: false})
+        alert("Užuomina: 522","Užuomina: 522", [{ text: "Gerai", onPress: () => navigatetoras()}],{cancelable: false})
      } else {
       Alert.alert(
 
@@ -165,7 +167,7 @@ export default function Lenteles() {
         "Užuomina: 522",
         
          
-        "", [{ text: "Gerai"}],
+        "", [{ text: "Gerai", onPress: () => navigatetoras()}],
         
          
         { cancelable: false }
