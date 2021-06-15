@@ -193,7 +193,7 @@ export default function Lenteles() {
   return (
 
     <View style={styles.container}>
-      <View style={styles.questionBox}>
+      <View style={{flex: 1}}>
         <View>
           <FlatList
             keyExtractor={(item) => item.key}
@@ -203,7 +203,7 @@ export default function Lenteles() {
             )}
           />
         </View>
-        <View>
+        <View style={{flex: 1}}>
           <FlatList
             data={QnAPrev}
             renderItem={({ item }) => (
@@ -221,9 +221,9 @@ export default function Lenteles() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
+    //flexDirection: 'column',
+    //alignItems: 'center',
+    //justifyContent: 'center',
     backgroundColor: "#2d7fd2",
   },
   questionBox: {
@@ -235,21 +235,21 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   item: {
-    flex: 1,
+    //flex: 1,
     margin: 10,
     padding: 30,
-    marginTop: 10,
-    marginHorizontal: 10,
+    // marginTop: 10,
+    // marginHorizontal: 10,
     fontSize: 20,
-    width: 200,
-    height: 200,
+    // width: 200,
+    // height: 200,
     borderRadius: 15,
     backgroundColor: '#79ade2',
     alignItems: 'center',
     textAlign: 'center',
   },
   header: {
-    flex: 1,
+    //flex: 1,
     margin: 5,
     padding: 20,
     marginTop: 20,
