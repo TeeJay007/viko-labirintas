@@ -1,9 +1,10 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, FlatList, TouchableOpacity, Alert, Platform } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
-export default function Lenteles() {
+export default function Lenteles({ navigation: { navigate }}) {
 
   const [ques, setques] = useState(1);
   const [QuestionPrev, setQuestionPrev] = useState();
@@ -151,8 +152,8 @@ export default function Lenteles() {
     }
      }
      const navigatetoras = () =>{
-      console.log("tttttt")
       navigate("ketvirtasVestibiulis");
+     }
     
      if(temp==21){
       setques(prev=>prev + 2)
@@ -219,6 +220,7 @@ export default function Lenteles() {
     </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
