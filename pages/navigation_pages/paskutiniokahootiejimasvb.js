@@ -13,10 +13,12 @@ export default function PaskutinioKahootIejimasVB({ navigation: { navigate }}) {
     const {width: screenW, height: screenH} = useWindowDimensions()
 
     const [washere, setwashere] = useState("-")
-  
-        AsyncStorage.getItem("vikobankokahoot", (err, result) => {
-            setwashere(result);
-        });
+   useEffect(()=>{
+    AsyncStorage.getItem("vikobankokahoot", (err, result) => {
+        setwashere(result);
+    });
+   },[])
+        
     
     
 

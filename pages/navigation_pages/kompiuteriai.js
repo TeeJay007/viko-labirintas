@@ -10,10 +10,11 @@ const IMAGE_HEIGHT = 1246;
 
 export default function Kompiuteriai({ navigation: { navigate }}) {
     const [washere, setwashere] = useState("-")
-    
+    useEffect(()=>{ 
         AsyncStorage.getItem("kompiuteriukahoot", (err, result) => {
             setwashere(result);
         });
+    },[])
     
     const {width: screenW, height: screenH} = useWindowDimensions()
 

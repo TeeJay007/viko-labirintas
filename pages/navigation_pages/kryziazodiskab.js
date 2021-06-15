@@ -11,10 +11,11 @@ const IMAGE_HEIGHT = 2582;
 
 export default function KryziazodisKab({ navigation: { navigate }}) {
     const [washere, setwashere] = useState("-")
-    
-        AsyncStorage.getItem("kompiuteriukahoot", (err, result) => {
-            setwashere(result);
-        });
+    useEffect(()=>{ 
+        AsyncStorage.getItem("kryziazodis", (err, result) => {
+        setwashere(result);
+    });},[])
+       
   
 
     const {width: screenW, height: screenH} = useWindowDimensions()
