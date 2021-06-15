@@ -152,10 +152,6 @@ export default function Lenteles({ navigation: { navigate }}) {
     }
      }
 
-     const navigatetoras = () =>{
-      console.log("tttttt")
-      navigate("ketvirtasVestibiulis");
-   }
     
      if(temp==21){
       setques(prev=>prev + 2)
@@ -163,7 +159,7 @@ export default function Lenteles({ navigation: { navigate }}) {
       if (Platform.OS === 'web') {
         AsyncStorage.setItem('lenteles', 'true');
         AsyncStorage.setItem('proLanga', 'false');
-        alert("Ieškokite 522 kabineto","Ieškokite 522 kabineto", [{ text: "Gerai", onPress: () => navigatetoras()}],{cancelable: false})
+        alert("Ieškokite 522 kabineto", [{ text: "Gerai", onPress: () => navigate('ketvirtasVestibiulis')}],{cancelable: false})
      } else {
       AsyncStorage.setItem('lenteles', 'true');
       AsyncStorage.setItem('proLanga', 'false');
@@ -173,7 +169,7 @@ export default function Lenteles({ navigation: { navigate }}) {
         "Ieškokite 522 kabineto",
 
 
-        "", [{ text: "Gerai", onPress:() =>  navigatetoras()}],
+        "", [{ text: "Gerai", onPress:() => navigate('ketvirtasVestibiulis')}],
         
          
         { cancelable: false }
@@ -183,6 +179,10 @@ export default function Lenteles({ navigation: { navigate }}) {
       }
     }
   };
+
+
+
+
   useEffect(() => {
     setQuestionPrev(Question)
     setQnAPrev(QnA)
