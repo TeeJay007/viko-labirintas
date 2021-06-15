@@ -5,8 +5,8 @@ import { Text, useWindowDimensions, TouchableOpacity } from 'react-native';
 import NavBase from './nav_base'
 
 const IMAGE = require('../../NavigationCovers/ketvaukstasnaujas.jpg');
-const IMAGE_WIDTH = 6144;
-const IMAGE_HEIGHT = 1608;
+const IMAGE_WIDTH = 8192;
+const IMAGE_HEIGHT = 1269;
 
 export default function KetvirtasVestibiulis({ navigation: { navigate }}) {
     const {width: screenW, height: screenH} = useWindowDimensions()
@@ -26,10 +26,10 @@ export default function KetvirtasVestibiulis({ navigation: { navigate }}) {
                 opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
-                top: resizeHeight(700),
-                left: resizeWidth(260),
-                width: resizeWidth(500),
-                height: resizeHeight(450),
+                top: resizeHeight(560),
+                left: resizeWidth(1881),
+                width: resizeWidth(360),
+                height: resizeHeight(329),
                 justifyContent: 'center',
                 alignItems: 'center'
             }}>
@@ -48,10 +48,10 @@ export default function KetvirtasVestibiulis({ navigation: { navigate }}) {
                 opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
-                top: resizeHeight(400),
-                left: resizeWidth(2610),
-                width: resizeWidth(800),
-                height: resizeHeight(400),
+                top: resizeHeight(308),
+                left: resizeWidth(3717),
+                width: resizeWidth(656),
+                height: resizeHeight(303),
                 justifyContent: 'center',
                 alignItems: 'center'
             }}>
@@ -71,10 +71,10 @@ export default function KetvirtasVestibiulis({ navigation: { navigate }}) {
                 opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
-                top: resizeHeight(680),
-                left: resizeWidth(5390),
-                width: resizeWidth(530),
-                height: resizeHeight(450),
+                top: resizeHeight(558),
+                left: resizeWidth(5940),
+                width: resizeWidth(398),
+                height: resizeHeight(329),
                 justifyContent: 'center',
                 alignItems: 'center'
             }}>
@@ -93,10 +93,10 @@ export default function KetvirtasVestibiulis({ navigation: { navigate }}) {
                 opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
-                top: resizeHeight(685),
-                left: resizeWidth(1005),
-                width: resizeWidth(350),
-                height: resizeHeight(205),
+                top: resizeHeight(547),
+                left: resizeWidth(2473),
+                width: resizeWidth(257),
+                height: resizeHeight(144),
                 justifyContent: 'center',
                 alignItems: 'center'
             }}>
