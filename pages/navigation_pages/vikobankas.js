@@ -22,7 +22,7 @@ export default function VikoBankas({ navigation: { navigate }}) {
             <TouchableOpacity onPress={() => {
                 navigate('paskutiniokahootiejimasvb')
             }}  style={{
-                backgroundColor: 'white',
+                backgroundColor: 'rgba(255,255,255,0.4)',
                 opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
@@ -38,7 +38,7 @@ export default function VikoBankas({ navigation: { navigate }}) {
                     fontWeight: 'bold',
                     textAlign: 'center',
                 }}>
-                    SPAUSK ČIA
+                    UŽEIK!
                 </Text>
             </TouchableOpacity>
         </NavBase>

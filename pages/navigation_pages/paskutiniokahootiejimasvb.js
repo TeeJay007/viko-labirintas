@@ -33,7 +33,7 @@ export default function PaskutinioKahootIejimasVB({ navigation: { navigate }}) {
             <TouchableOpacity onPress={() => {
                  navigate('viktorinaBankas')
             }}  style={{
-                backgroundColor: 'white',
+                backgroundColor: 'rgba(255,255,255,0.4)',
                 opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
@@ -49,7 +49,7 @@ export default function PaskutinioKahootIejimasVB({ navigation: { navigate }}) {
                     fontWeight: 'bold',
                     textAlign: 'center',
                 }}>
-                    SPAUSK ČIA
+                    UŽDUOTIS
                 </Text>
             </TouchableOpacity>
         </NavBase>

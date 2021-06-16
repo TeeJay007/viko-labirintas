@@ -22,12 +22,12 @@ export default function VikoBankasIejimas({ navigation: { navigate }}) {
             <TouchableOpacity onPress={() => {
                 navigate('vikobankas')
             }}  style={{
-                backgroundColor: 'white',
+                backgroundColor: 'rgba(255,255,255,0.4)',
                 opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
                 top: resizeHeight(1353),
-                left: resizeWidth(319),
+                left: resizeWidth(340),
                 width: resizeWidth(1656),
                 height: resizeHeight(2673),
                 justifyContent: 'center',
@@ -57,7 +57,7 @@ export default function VikoBankasIejimas({ navigation: { navigate }}) {
                 padding: 10,
                 position: 'absolute',
                 top: resizeHeight(2053),
-                left: resizeWidth(2319),
+                left: resizeWidth(2100),
                 width: resizeWidth(600),
                 height: resizeHeight(600),
                 justifyContent: 'center',
@@ -69,7 +69,30 @@ export default function VikoBankasIejimas({ navigation: { navigate }}) {
                     textAlign: 'center',
                     paddingTop: 46
                 }}>
-                    Eiti toliau
+                    {'\u003E'}{'\u003E'}
+                </Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => {
+                navigate('ketvirtasVestibiulis')
+            }}  style={{
+                backgroundColor: 'rgba(255,255,255,0.4)',
+                opacity: 0.5,
+                padding: 10,
+                position: 'absolute',
+                top: resizeHeight(2053),
+                left: resizeWidth(10),
+                width: resizeWidth(300),
+                height: resizeHeight(600),
+                justifyContent: 'center',
+                alignItems: 'center'
+            }}>
+                <Text style={{
+                    color: 'black',
+                    fontWeight: 'bold',
+                    textAlign: 'center',
+                    paddingTop: 46
+                }}>
+                    {'\u003C'}{'\u003C'}
                 </Text>
             </TouchableOpacity>
         </NavBase>

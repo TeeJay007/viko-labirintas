@@ -22,7 +22,7 @@ export default function VikoDraudaIejimas({ navigation: { navigate }}) {
             <TouchableOpacity onPress={() => {
                 navigate('vikodrauda')
             }}  style={{
-                backgroundColor: 'white',
+                backgroundColor: 'rgba(255,255,255,0.4)',
                 opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
@@ -39,6 +39,29 @@ export default function VikoDraudaIejimas({ navigation: { navigate }}) {
                     textAlign: 'center',
                 }}>
                     UŽEIK!
+                </Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => {
+                navigate('vikobankasiejimas')
+            }}  style={{
+                backgroundColor: 'rgba(255,255,255,0.4)',
+                opacity: 0.5,
+                padding: 10,
+                position: 'absolute',
+                top: resizeHeight(2053),
+                left: resizeWidth(300),
+                width: resizeWidth(500),
+                height: resizeHeight(600),
+                justifyContent: 'center',
+                alignItems: 'center'
+            }}>
+                <Text style={{
+                    color: 'black',
+                    fontWeight: 'bold',
+                    textAlign: 'center',
+                    paddingTop: 46
+                }}>
+                    {'\u003C'}{'\u003C'}
                 </Text>
             </TouchableOpacity>
         </NavBase>
