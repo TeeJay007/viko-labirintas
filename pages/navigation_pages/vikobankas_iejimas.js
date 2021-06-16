@@ -38,7 +38,38 @@ export default function VikoBankasIejimas({ navigation: { navigate }}) {
                     fontWeight: 'bold',
                     textAlign: 'center',
                 }}>
-                    SPAUSK ČIA
+                   Viko Bankas 401
+                </Text>
+                <Text style={{
+                    color: 'black',
+                    fontWeight: 'bold',
+                    textAlign: 'center',
+                }}>
+                    UŽEIK!
+                </Text>
+
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => {
+                navigate('vikodraudaiejimas')
+            }}  style={{
+                backgroundColor: 'rgba(255,255,255,0.4)',
+                opacity: 0.5,
+                padding: 10,
+                position: 'absolute',
+                top: resizeHeight(2053),
+                left: resizeWidth(2319),
+                width: resizeWidth(600),
+                height: resizeHeight(600),
+                justifyContent: 'center',
+                alignItems: 'center'
+            }}>
+                <Text style={{
+                    color: 'black',
+                    fontWeight: 'bold',
+                    textAlign: 'center',
+                    paddingTop: 46
+                }}>
+                    Eiti toliau
                 </Text>
             </TouchableOpacity>
         </NavBase>

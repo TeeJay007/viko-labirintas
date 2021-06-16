@@ -1,6 +1,7 @@
-import React from 'react';
+import React , {useState, useEffect} from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text, useWindowDimensions, TouchableOpacity } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import NavBase from './nav_base'
 
@@ -11,25 +12,33 @@ const IMAGE_HEIGHT = 2350;
 export default function VikoDrauda({ navigation: { navigate }}) {
     const {width: screenW, height: screenH} = useWindowDimensions()
 
+    const [washere, setwashere] = useState("-")
+    useEffect(()=>{
+     AsyncStorage.getItem("vikodraudos", (err, result) => {
+         setwashere(result);
+     });
+    },[])
+
+
     const getScreenWidth = () => IMAGE_WIDTH / IMAGE_HEIGHT * screenH;
     const getScreenHeight = () => screenH;
     
     const resizeWidth = (w) => w * getScreenWidth() / IMAGE_WIDTH
     const resizeHeight = (h) => h * getScreenHeight() / IMAGE_HEIGHT
-
+    if(washere == 'false'){
     return (
         <NavBase image={IMAGE} width={IMAGE_WIDTH} height={IMAGE_HEIGHT}>
             <TouchableOpacity onPress={() => {
-                navigate('')
+                navigate('viktorinaPabaiga')
             }}  style={{
                 backgroundColor: 'white',
                 opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
-                top: resizeHeight(423),
-                left: resizeWidth(1137),
-                width: resizeWidth(546),
-                height: resizeHeight(1239),
+                top: resizeHeight(763),
+                left: resizeWidth(1177),
+                width: resizeWidth(346),
+                height: resizeHeight(339),
                 justifyContent: 'center',
                 alignItems: 'center'
             }}>
@@ -38,9 +47,16 @@ export default function VikoDrauda({ navigation: { navigate }}) {
                     fontWeight: 'bold',
                     textAlign: 'center',
                 }}>
-                    SPAUSK ČIA
+                    UŽDUOTIS
                 </Text>
             </TouchableOpacity>
         </NavBase>
     );
+}
+else {
+    return (
+        <NavBase image={IMAGE} width={IMAGE_WIDTH} height={IMAGE_HEIGHT}>
+        </NavBase>
+    );
+}
 }

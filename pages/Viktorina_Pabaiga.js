@@ -2,8 +2,8 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, ImageBackground, FlatList, TouchableOpacity, Alert, Platform } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
-export default function Pavyzdinis() {
+import Raktas from "./Viktorinos_GoogleSheet_Raktas.json"
+export default function Pavyzdinis({ navigation: { navigate }}) {
   const image = { uri: "https://scontent.fplq1-1.fna.fbcdn.net/v/t1.6435-9/171013345_3932902256793104_4429939317269897519_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=973b4a&_nc_ohc=B6B7q8CuY78AX-stzxm&_nc_ht=scontent.fplq1-1.fna&oh=73fcc290783d96223fd537445ad40f33&oe=60CAA868"};
   const [_klaus,_setklaus]=useState(1);
   const [_Klausimai_Prev,_setKlausimai_Prev]= useState();
@@ -25,7 +25,7 @@ export default function Pavyzdinis() {
     {text:'Draudiko parengtos sutarties standartinės sąlygos?',key:'14'},
     {text:'Draudimo sutartyje nurodytas asmuo turintis teisę gauti draudimo išmoką vadinamas?',key:'15'},
     {text:'Kas yra VIKO DRAUDA?',key:'16'},
-    {text:' – Laimėjimas –\n Virtualus prizas ir kvietimas studijuoti VIKO EKF 😊',key:'17'},
+    
 
 
   ]);
@@ -103,7 +103,7 @@ export default function Pavyzdinis() {
     
     if(answer=="correct"){
       var tt=_klaus+1; 
-      console.log(tt)
+    
       _setKlausimai_Prev(_Klausimai)
       _setKlausimai_Prev((Klaus)=>{
         return Klaus.filter(_Klausimai=> _Klausimai.key ==tt)
@@ -140,12 +140,43 @@ export default function Pavyzdinis() {
     
 
 }
+
+if(tt==17) {
+  _setklaus(prev=>prev + 2)
+  
+    
+    if (Platform.OS === 'web') {
+      AsyncStorage.setItem('vikodraudos', 'true');
+      AsyncStorage.setItem('vikobankokahoot', 'false');
       
-    
-    
-    
-  };
+      alert("Užuomina: Eiti į 401 kab.","Užuomina: Eiti į 401 kab.", [{ text: "Gerai", onPress: () => navigatetoras()}],{cancelable: false})
+      
+   } else {
+    AsyncStorage.setItem('vikodraudos', 'true');
+    AsyncStorage.setItem('vikobankokahoot', 'false');
+    Alert.alert(
+
+
+      "Užuomina: Eikite į 401kab",
+      
+       
+      "", [{ text: "Gerai", onPress: () => navigatetoras()}],
+      
+       
+      { cancelable: false }
+      
+       
+      );
+
+}
+}};
+
+const navigatetoras = () =>{
+  navigate("ketvirtasVestibiulis");
+}
+  
   useEffect(() => {
+    
     _setKlausimai_Prev(_Klausimai)
     _setQnA_Prev(_QnA)
     _setKlausimai_Prev((Klaus)=>{

@@ -304,7 +304,7 @@ export default function PositionLayout ({ navigation: { navigate }}) {
         
         AsyncStorage.setItem('kryziazodis', 'true');
         AsyncStorage.setItem('keliosmatematines', 'false');
-        alert("Užuomina: DEKANAS", [{ text: "Gerai", onPress: () => this.navigatetoras()}],{cancelable: false})
+        alert("Užuomina: DEKANAS", [{ text: "Gerai", onPress: () => navigatetoras()}],{cancelable: false})
         
      } else {
       AsyncStorage.setItem('kryziazodis', 'true');
@@ -315,7 +315,7 @@ export default function PositionLayout ({ navigation: { navigate }}) {
         "Užuomina: DEKANAS",
         
          
-        "", [{ text: "Gerai", onPress: () => this.navigatetoras()}],
+        "", [{ text: "Gerai", onPress: () => navigatetoras()}],
         
          
         { cancelable: false }
@@ -329,7 +329,7 @@ export default function PositionLayout ({ navigation: { navigate }}) {
   }
   });
   
- navigatetoras = () =>{
+ const navigatetoras = () =>{
     navigate("penktasVestibiulis");
   }
  

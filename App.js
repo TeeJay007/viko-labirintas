@@ -11,6 +11,7 @@ import Vikobankasdrauda from './pages/vikobankasdrauda';
 import Kryziazodis from './pages/Kryžiažodis'
 import ViktorinaPabaiga from './pages/Viktorina_Pabaiga'
 import ViktorinaAuditorija from './pages/Auditorija_viktorina'
+import ViktorinaBankas from './pages/Viktorina_Bankas'
 //Navigacija po pastata
 import Laukas from './pages/navigation_pages/laukas'
 import TreciasVestibiulis from './pages/navigation_pages/treciasvestibiulis'
@@ -33,7 +34,7 @@ import Dekanas from './pages/navigation_pages/dekanas';
 import KryziazodisKab from './pages/navigation_pages/kryziazodiskab';
 import VikoDrauda from './pages/navigation_pages/vikodrauda';
 import VikoDraudaIejimas from './pages/navigation_pages/vikodraudaiejimas';
-
+import Pabaiga from './pages/navigation_pages/pabaiga'
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -127,6 +128,10 @@ export default function App() {
           name="vikodraudaiejimas"
           component={VikoDraudaIejimas}
           options={{ title: '524 kabinetas' , headerShown: false, cardStyleInterpolator: forFade}} />
+          <Stack.Screen
+          name="pabaiga"
+          component={Pabaiga}
+          options={{ title: 'Laimėjimas' , headerShown: false, cardStyleInterpolator: forFade}} />
 
         <Stack.Screen
           name="baloons"
@@ -163,6 +168,10 @@ export default function App() {
           <Stack.Screen
           name="viktorinaPabaiga"
           component={ViktorinaPabaiga}
+          options={{ title: 'Viktorina' }} />
+          <Stack.Screen
+          name="viktorinaBankas"
+          component={ViktorinaBankas}
           options={{ title: 'Viktorina' }} />
       </Stack.Navigator>
     </NavigationContainer>
