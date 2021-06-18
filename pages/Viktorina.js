@@ -13,7 +13,7 @@ export default function Pavyzdinis({ navigation: { navigate }}) {
   const [_QnA_Prev,_setQnA_Prev]= useState();
   const [_Klausimai,_setKlausimai] = useState ([{Klausimas:""}]);
   const [_QnA,_setQnA] = useState ([{Atsakymai:"",KlausimuiPriklauso:""}]);
-  
+ 
   const filterKlausimai=(id,answer)=>{
     
     if(answer=="Teisingai"){
@@ -62,18 +62,18 @@ export default function Pavyzdinis({ navigation: { navigate }}) {
   
     
     if (Platform.OS === 'web') {
-      AsyncStorage.setItem('vikodraudos', 'true');
-      AsyncStorage.setItem('vikobankokahoot', 'false');
+      AsyncStorage.setItem('kompiuteriukahoot', 'true');
+      AsyncStorage.setItem('finansai', 'false');
       
-      alert("Užuomina: Laimėjote!.","Užuomina: Laimėjote!", [{ text: "Gerai", onPress: () => navigatetoras()}],{cancelable: false})
+      alert("Užuomina: Eikite į 515 kab.","Užuomina: Eikite į 515 kab.", [{ text: "Gerai", onPress: () => navigatetoras()}],{cancelable: false})
       
    } else {
-    AsyncStorage.setItem('vikodraudos', 'true');
-    AsyncStorage.setItem('vikobankokahoot', 'false');
+    AsyncStorage.setItem('kompiuteriukahoot', 'true');
+    AsyncStorage.setItem('finansai', 'false');
     Alert.alert(
 
 
-      "Užuomina: Laimėjote!",
+      "Užuomina: Eikite į 515 kab.",
       
        
       "", [{ text: "Gerai", onPress: () => navigatetoras()}],
@@ -93,7 +93,7 @@ export default function Pavyzdinis({ navigation: { navigate }}) {
 
 
 const navigatetoras = () =>{
-  navigate("pabaiga");
+  navigate("ketvirtasVestibiulis");
 }
 
   
@@ -108,7 +108,7 @@ const navigatetoras = () =>{
     _setload(1)
   }, [])
   useEffect(() => {
-    if(_load==1 ){
+    if(_load==1){
       _setload(2)
       
       
@@ -138,11 +138,11 @@ const navigatetoras = () =>{
   
   function showInfo(data, tabletop) {
     
-      _setKlausimai(data.Lapas5.elements)
-      _setQnA(data.Lapas6.elements)
-      _setKlausimai_Prev(data.Lapas5.elements)
-       _setQnA_Prev(data.Lapas6.elements)
-       var lengthh = data.Lapas5.elements
+      _setKlausimai(data.Lapas1.elements)
+      _setQnA(data.Lapas2.elements)
+      _setKlausimai_Prev(data.Lapas1.elements)
+       _setQnA_Prev(data.Lapas2.elements)
+       var lengthh = data.Lapas1.elements
        _setlength(lengthh.length)
       
     
