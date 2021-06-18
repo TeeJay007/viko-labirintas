@@ -9,8 +9,8 @@ import Finansai from './pages/finansai';
 import Balloons from './pages/Balloons';
 import Vikobankasdrauda from './pages/vikobankasdrauda';
 import Kryziazodis from './pages/Kryžiažodis'
-import ViktorinaPabaiga from './pages/Viktorina_Pabaiga'
-import ViktorinaAuditorija from './pages/Auditorija_viktorina'
+import Viktorina from './pages/Viktorina'
+import ViktorinaDrauda from './pages/Viktorina_Drauda'
 import ViktorinaBankas from './pages/Viktorina_Bankas'
 //Navigacija po pastata
 import Laukas from './pages/navigation_pages/laukas'
@@ -141,10 +141,6 @@ export default function App() {
           name="proLanga"
           component={ProLanga}
           options={{ title: 'Pro langą' }} />
-          <Stack.Screen
-          name="viktorinaAuditorija"
-          component={ViktorinaAuditorija}
-          options={{ title: 'Viktorina', headerShown: false }} />
         <Stack.Screen
           name="scrambleFinansai"
           component={ScrambleFinansai}
@@ -166,12 +162,16 @@ export default function App() {
           component={Lenteles}
           options={{ title: 'Lentelės',headerShown: false }} />
           <Stack.Screen
-          name="viktorinaPabaiga"
-          component={ViktorinaPabaiga}
+          name="viktorina"
+          component={Viktorina}
           options={{ title: 'Viktorina' }} />
           <Stack.Screen
           name="viktorinaBankas"
           component={ViktorinaBankas}
+          options={{ title: 'Viktorina' }} />
+          <Stack.Screen
+          name="viktorinaDrauda"
+          component={ViktorinaDrauda}
           options={{ title: 'Viktorina' }} />
       </Stack.Navigator>
     </NavigationContainer>

@@ -27,7 +27,7 @@ export default function Kompiuteriai({ navigation: { navigate }}) {
     return (
         <NavBase image={IMAGE} width={IMAGE_WIDTH} height={IMAGE_HEIGHT}>
             <TouchableOpacity onPress={() => {
-                navigate('viktorinaAuditorija')
+                navigate('viktorina')
             }}  style={{
                 backgroundColor: 'white',
                 opacity: 0.5,

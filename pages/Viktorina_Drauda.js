@@ -56,7 +56,6 @@ export default function Pavyzdinis({ navigation: { navigate }}) {
 
 }
 
-
   if(tt==_length+1){
     _setklaus(prev=>prev + 2)
   
@@ -65,7 +64,7 @@ export default function Pavyzdinis({ navigation: { navigate }}) {
       AsyncStorage.setItem('vikodraudos', 'true');
       AsyncStorage.setItem('vikobankokahoot', 'false');
       
-      alert("Užuomina: Laimėjote!.","Užuomina: Laimėjote!", [{ text: "Gerai", onPress: () => navigatetoras()}],{cancelable: false})
+      alert("Užuomina: Eikite į 401 kab.","Užuomina: Eikite į 401 kab.", [{ text: "Gerai", onPress: () => navigatetoras()}],{cancelable: false})
       
    } else {
     AsyncStorage.setItem('vikodraudos', 'true');
@@ -73,7 +72,7 @@ export default function Pavyzdinis({ navigation: { navigate }}) {
     Alert.alert(
 
 
-      "Užuomina: Laimėjote!",
+      "Užuomina: Eikite į 401 kab.",
       
        
       "", [{ text: "Gerai", onPress: () => navigatetoras()}],
@@ -93,7 +92,7 @@ export default function Pavyzdinis({ navigation: { navigate }}) {
 
 
 const navigatetoras = () =>{
-  navigate("pabaiga");
+  navigate("ketvirtasVestibiulis");
 }
 
   
@@ -108,7 +107,7 @@ const navigatetoras = () =>{
     _setload(1)
   }, [])
   useEffect(() => {
-    if(_load==1 ){
+    if(_load==1){
       _setload(2)
       
       
@@ -138,11 +137,11 @@ const navigatetoras = () =>{
   
   function showInfo(data, tabletop) {
     
-      _setKlausimai(data.Lapas5.elements)
-      _setQnA(data.Lapas6.elements)
-      _setKlausimai_Prev(data.Lapas5.elements)
-       _setQnA_Prev(data.Lapas6.elements)
-       var lengthh = data.Lapas5.elements
+      _setKlausimai(data.Lapas3.elements)
+      _setQnA(data.Lapas4.elements)
+      _setKlausimai_Prev(data.Lapas3.elements)
+       _setQnA_Prev(data.Lapas4.elements)
+       var lengthh = data.Lapas3.elements
        _setlength(lengthh.length)
       
     

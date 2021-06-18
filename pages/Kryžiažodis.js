@@ -2168,12 +2168,14 @@ export default function PositionLayout ({ navigation: { navigate }}) {
         ]}
       >
         <Text style={[styles.Crossnum]}>1 </Text>
-
+        <View style={[styles.TextInputNum]}>
         <TextInput style={styles.TextInput} editable={res1} ref={_1_1ref}  onChangeText={ (e)=> {
         CheckText("_1_1",e)
         
         }} maxLength={1}
         />
+        </View>
+        
       </View>
 
       <View
@@ -2242,11 +2244,13 @@ export default function PositionLayout ({ navigation: { navigate }}) {
         ]}
       >
         <Text style={[styles.Crossnum]}>2</Text>
+        <View style={[styles.TextInputNum]}>
         <TextInput ref={_1_5ref} style={styles.TextInput} editable={res1_2} onChangeText={ (e)=> {
         CheckText("_1_5",e)
         
         }} maxLength={1}
         />
+        </View>
       </View>
       <View
         style={[
@@ -2453,11 +2457,13 @@ export default function PositionLayout ({ navigation: { navigate }}) {
         ]}
       >
         <Text style={[styles.Crossnum]}>3</Text>
+        <View style={[styles.TextInputNum]}>
         <TextInput ref={_3_1ref} style={styles.TextInput} editable={res3}  onChangeText={ (e)=> {
         CheckText("_3_1",e)
         
         }} maxLength={1}
         />
+        </View>
       </View>
       <View
         style={[
@@ -2520,10 +2526,12 @@ export default function PositionLayout ({ navigation: { navigate }}) {
         ]}
       >
       <Text style={[styles.Crossnum]}>4</Text>
+      <View style={[styles.TextInputNum]}>
       <TextInput ref={_4_1ref} style={styles.TextInput} editable={res4} onChangeText={ (e)=> {
         CheckText("_4_1",e)
         
         }} maxLength={1}/>
+        </View>
       </View>
       <View
         style={[
@@ -2613,11 +2621,13 @@ export default function PositionLayout ({ navigation: { navigate }}) {
         ]}
       >
         <Text style={[styles.Crossnum]}>5</Text>
+        <View style={[styles.TextInputNum]}>
         <TextInput ref={_5_1ref} style={styles.TextInput} editable={res5} onChangeText={ (e)=> {
         CheckText("_5_1",e)
         
         }} maxLength={1}
         />
+        </View>
       </View>
       <View
         style={[
@@ -2734,11 +2744,13 @@ export default function PositionLayout ({ navigation: { navigate }}) {
         ]}
       >
         <Text style={[styles.Crossnum]}>15</Text>
+        <View style={[styles.TextInputNum]}>
         <TextInput ref={_5_9ref} style={styles.TextInput} editable={res5_15}  onChangeText={ (e)=> {
         CheckText("_5_9",e)
         
         }} maxLength={1}
         />
+        </View>
       </View>
       <View
         style={[
@@ -2784,11 +2796,13 @@ export default function PositionLayout ({ navigation: { navigate }}) {
         ]}
       >
         <Text style={[styles.Crossnum]}>6</Text>
+        <View style={[styles.TextInputNum]}>
         <TextInput ref={_6_1ref} style={styles.TextInput} editable={res6} onChangeText={ (e)=> {
         CheckText("_6_1",e)
         
         }} maxLength={1}
         />
+        </View>
       </View>
       <View
         style={[
@@ -2917,11 +2931,13 @@ export default function PositionLayout ({ navigation: { navigate }}) {
         ]}
       >
         <Text style={[styles.Crossnum]}>7</Text>
+        <View style={[styles.TextInputNum]}>
         <TextInput ref={_7_1ref} style={styles.TextInput} editable={res7} onChangeText={ (e)=> {
         CheckText("_7_1",e)
         
         }} maxLength={1}
         />
+        </View>
       </View>
       <View
         style={[
@@ -2980,11 +2996,13 @@ export default function PositionLayout ({ navigation: { navigate }}) {
         ]}
       >
         <Text style={styles.Crossnum}>10</Text>
+        <View style={[styles.TextInputNum]}>
         <TextInput ref={_7_5ref} style={styles.TextInput} editable={res7_10} onChangeText={ (e)=> {
         CheckText("_7_5",e)
         
         }} maxLength={1}
         />
+        </View>
       </View>
       </View>
       {/*---------- 8 ----------*/}
@@ -2999,11 +3017,13 @@ export default function PositionLayout ({ navigation: { navigate }}) {
         ]}
       >
         <Text style={[styles.Crossnum]}>8</Text>
+        <View style={[styles.TextInputNum]}>
         <TextInput ref={_8_1ref} style={styles.TextInput} editable={res8} onChangeText={ (e)=> {
         CheckText("_8_1",e)
         
         }} maxLength={1}
         />
+        </View>
         </View>
       <View
         style={[
@@ -3083,11 +3103,13 @@ export default function PositionLayout ({ navigation: { navigate }}) {
         ]}
       >
         <Text style={[styles.Crossnum]}>9</Text>
+        <View style={[styles.TextInputNum]}>
         <TextInput ref={_9_1ref} style={styles.TextInput} editable={res9} onChangeText={ (e)=> {
         CheckText("_9_1",e)
         
         }} maxLength={1}
         />
+        </View>
       </View>
       <View
         style={[
@@ -3265,11 +3287,13 @@ export default function PositionLayout ({ navigation: { navigate }}) {
         ]}
       >
         <Text style={styles.Crossnum}>11</Text>
+        <View style={[styles.TextInputNum]}>
         <TextInput ref={_11_1ref} style={styles.TextInput} editable={res11} onChangeText={ (e)=> {
         CheckText("_11_1",e)
         
         }} maxLength={1}
         />
+        </View>
       </View>
 
       <View
@@ -3302,11 +3326,13 @@ export default function PositionLayout ({ navigation: { navigate }}) {
         ]}
       >
         <Text style={styles.Crossnum}>12</Text>
+        <View style={[styles.TextInputNum]}>
         <TextInput ref={_12_1ref} style={styles.TextInput} editable={res12} onChangeText={ (e)=> {
         CheckText("_12_1",e)
         
         }} maxLength={1}
         />
+        </View>
       </View>
       <View
         style={[
@@ -3337,11 +3363,13 @@ export default function PositionLayout ({ navigation: { navigate }}) {
         ]}
       >
         <Text style={styles.Crossnum}>13</Text>
+        <View style={[styles.TextInputNum]}>
         <TextInput ref={_13_1ref} style={styles.TextInput} editable={res13}  onChangeText={ (e)=> {
         CheckText("_13_1",e)
         
         }} maxLength={1}
         />
+        </View>
       </View>
       </View>
       <View style={{ flexDirection: 'row', position: 'absolute',top:480 ,left:-180}}>
@@ -3375,11 +3403,13 @@ export default function PositionLayout ({ navigation: { navigate }}) {
         ]}
       >
         <Text style={styles.Crossnum}>14</Text>
+        <View style={[styles.TextInputNum]}>
         <TextInput ref={_14_1ref} style={styles.TextInput} editable={res14_13} onChangeText={ (e)=> {
         CheckText("_14_1",e)
         
         }} maxLength={1}
         />
+        </View>
       </View>
       <View
         style={[
@@ -3582,11 +3612,13 @@ export default function PositionLayout ({ navigation: { navigate }}) {
         ]}
       >
         <Text style={styles.Crossnum}>16</Text>
+        <View style={[styles.TextInputNum]}>
         <TextInput ref={_16_1ref} style={styles.TextInput} editable={res16} onChangeText={ (e)=> {
         CheckText("_16_1",e)
         
         }} maxLength={1}
         />
+        </View>
       </View>
       <View
         style={[
@@ -3734,6 +3766,8 @@ const styles = StyleSheet.create({
   box: {
     width: 40,
     height: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   text_klaus:{
     flexDirection: Platform.OS === 'web' ? "column" : "row", 
@@ -3753,8 +3787,16 @@ const styles = StyleSheet.create({
     
   },
   TextInput: {
-
-    fontSize: Platform.OS === 'web' ? 14: 12,
+    width: 30,
+    color: 'black',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
+    fontSize: Platform.OS === 'web' ? 14: 16,
+    fontWeight: "bold",
+  },
+  TextInputNum: {
+    top:-8,
   },
   Text:{
 
@@ -3763,8 +3805,9 @@ const styles = StyleSheet.create({
     textDecorationLine: "underline",
   },
   Crossnum:{
+    marginLeft: -25,
     fontSize: Platform.OS === 'web' ? 14: 10,
   },
   
+  
 });
-
