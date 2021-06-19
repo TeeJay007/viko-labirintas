@@ -27,8 +27,7 @@ export default function SAVidus({ navigation: { navigate }}) {
     mainBlue = require('../../Images/blue1.png');
     imageHeight = 192;
     imageWidth = 130;
-
-    console.log(washere + " --------------------------- is dddddata");
+    
     if(washere == 'false'){
         return (
             
@@ -54,6 +53,28 @@ export default function SAVidus({ navigation: { navigate }}) {
     else {
         return (
             <NavBase image={IMAGE} width={IMAGE_WIDTH} height={IMAGE_HEIGHT}>
+                <TouchableOpacity onPress={() => {
+                    navigate('penktasVestibiulis')
+                }}  style={{
+                    backgroundColor: 'white',
+                    opacity: 0.5,
+                    padding: 10,
+                    position: 'absolute',
+                    top: resizeHeight(3500),
+                    left: resizeWidth(1150),
+                    width: resizeWidth(616),
+                    height: resizeHeight(709),
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}>
+                    <Text style={{
+                        color: 'black',
+                        fontWeight: 'bold',
+                        textAlign: 'center',
+                    }}>
+                        Grįžti
+                    </Text>
+                </TouchableOpacity>
             </NavBase>
         );
     }

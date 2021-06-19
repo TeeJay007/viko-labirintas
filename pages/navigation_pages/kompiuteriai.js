@@ -54,6 +54,28 @@ export default function Kompiuteriai({ navigation: { navigate }}) {
 else {
 return (
     <NavBase image={IMAGE} width={IMAGE_WIDTH} height={IMAGE_HEIGHT}>
+                <TouchableOpacity onPress={() => {
+                    navigate('keturiDuVienas')
+                }}  style={{
+                    backgroundColor: 'white',
+                    opacity: 0.5,
+                    padding: 10,
+                    position: 'absolute',
+                    top: resizeHeight(300),
+                    left: resizeWidth(4750),
+                    width: resizeWidth(300),
+                    height: resizeHeight(600),
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}>
+                    <Text style={{
+                        color: 'black',
+                        fontWeight: 'bold',
+                        textAlign: 'center',
+                    }}>
+                        Grįžti
+                    </Text>
+                </TouchableOpacity>
     </NavBase>
 );
 }

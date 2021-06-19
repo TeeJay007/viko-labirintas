@@ -5,7 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import NavBase from './nav_base'
 
-const IMAGE = require('../../NavigationCovers/laukoiejimas_f.jpg');
+const IMAGE = require('../../NavigationCovers/laukoiejimas.jpg');
 const IMAGE_WIDTH = 6144;
 const IMAGE_HEIGHT = 1612;
 
@@ -21,14 +21,14 @@ export default function Laukas({ navigation: { navigate }}) {
     const addDataToAsync = () => {
         AsyncStorage.clear();
         AsyncStorage.setItem('matematinesulapeliais', 'false');
-        AsyncStorage.setItem('seimas', 'false');
-        AsyncStorage.setItem('balioneliai', 'false');
-        AsyncStorage.setItem('kompiuteriukahoot', 'false');
-        AsyncStorage.setItem('finansai', 'false');
-        AsyncStorage.setItem('kryziazodis', 'false');
-        AsyncStorage.setItem('keliosmatematines', 'false');
-        AsyncStorage.setItem('vikodraudos', 'false');
-        AsyncStorage.setItem('vikobankokahoot', 'false');
+        AsyncStorage.setItem('seimas', 'true');
+        AsyncStorage.setItem('balioneliai', 'true');
+        AsyncStorage.setItem('kompiuteriukahoot', 'true');
+        AsyncStorage.setItem('finansai', 'true');
+        AsyncStorage.setItem('kryziazodis', 'true');
+        AsyncStorage.setItem('keliosmatematines', 'true');
+        AsyncStorage.setItem('vikodraudos', 'true');
+        AsyncStorage.setItem('vikobankokahoot', 'true');
         navigate('treciasVestibiulis');
     }
     return (

@@ -41,6 +41,28 @@ export default function SAIejimas({ navigation: { navigate }}) {
                     UžEIK!
                 </Text>
             </TouchableOpacity>
+            <TouchableOpacity onPress={() => {
+                navigate('penktasVestibiulis')
+            }}  style={{
+                backgroundColor: 'white',
+                opacity: 0.5,
+                padding: 10,
+                position: 'absolute',
+                top: resizeHeight(2000),
+                left: resizeWidth(400),
+                width: resizeWidth(616),
+                height: resizeHeight(709),
+                justifyContent: 'center',
+                alignItems: 'center'
+            }}>
+                <Text style={{
+                    color: 'black',
+                    fontWeight: 'bold',
+                    textAlign: 'center',
+                }}>
+                    {'\u003C'}{'\u003C'}
+                </Text>
+            </TouchableOpacity>
         </NavBase>
     );
 }

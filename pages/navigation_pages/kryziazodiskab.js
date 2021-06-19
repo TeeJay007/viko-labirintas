@@ -60,6 +60,28 @@ export default function KryziazodisKab({ navigation: { navigate }}) {
     else {
     return (
         <NavBase image={IMAGE} width={IMAGE_WIDTH} height={IMAGE_HEIGHT}>
+            <TouchableOpacity onPress={() => {
+                navigate('penkiduketuri')
+            }}  style={{
+                backgroundColor: 'white',
+                opacity: 0.5,
+                padding: 10,
+                position: 'absolute',
+                top: resizeHeight(2000),
+                left: resizeWidth(2000),
+                width: resizeWidth(350),
+                height: resizeHeight(350),
+                justifyContent: 'center',
+                alignItems: 'center'
+            }}>
+                <Text style={{
+                    color: 'black',
+                    fontWeight: 'bold',
+                    textAlign: 'center',
+                }}>
+                    Grįžti
+                </Text>
+            </TouchableOpacity>
         </NavBase>
     );
 }

@@ -41,6 +41,28 @@ export default function KeturiDuVienas({ navigation: { navigate }}) {
                     UŽEIK!
                 </Text>
             </TouchableOpacity>
+            <TouchableOpacity onPress={() => {
+                navigate('ketvirtasVestibiulis')
+            }}  style={{
+                backgroundColor: 'white',
+                opacity: 0.5,
+                padding: 10,
+                position: 'absolute',
+                top: resizeHeight(1926),
+                left: resizeWidth(39),
+                width: resizeWidth(616),
+                height: resizeHeight(709),
+                justifyContent: 'center',
+                alignItems: 'center'
+            }}>
+                <Text style={{
+                    color: 'black',
+                    fontWeight: 'bold',
+                    textAlign: 'center',
+                }}>
+                    {'\u003C'}{'\u003C'}
+                </Text>
+            </TouchableOpacity>
         </NavBase>
     );
 }

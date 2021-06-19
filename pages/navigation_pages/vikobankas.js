@@ -41,6 +41,29 @@ export default function VikoBankas({ navigation: { navigate }}) {
                     UŽEIK!
                 </Text>
             </TouchableOpacity>
+            <TouchableOpacity onPress={() => {
+                    navigate('vikobankasiejimas')
+                }}  style={{
+                    backgroundColor: 'white',
+                    opacity: 0.5,
+                    padding: 10,
+                    position: 'absolute',
+                    top: resizeHeight(2000),
+                    left: resizeWidth(1600),
+                    width: resizeWidth(616),
+                    height: resizeHeight(409),
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}>
+                    <Text style={{
+                        color: 'black',
+                        fontWeight: 'bold',
+                        textAlign: 'center',
+                    }}>
+                        Grįžti
+                    </Text>
+                </TouchableOpacity>    
         </NavBase>
+        
     );
 }

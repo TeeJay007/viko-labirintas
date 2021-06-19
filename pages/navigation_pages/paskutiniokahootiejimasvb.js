@@ -58,6 +58,28 @@ export default function PaskutinioKahootIejimasVB({ navigation: { navigate }}) {
     else {
         return (
             <NavBase image={IMAGE} width={IMAGE_WIDTH} height={IMAGE_HEIGHT}>
+                <TouchableOpacity onPress={() => {
+                    navigate('vikobankas')
+                }}  style={{
+                    backgroundColor: 'white',
+                    opacity: 0.5,
+                    padding: 10,
+                    position: 'absolute',
+                    top: resizeHeight(3600),
+                    left: resizeWidth(1200),
+                    width: resizeWidth(616),
+                    height: resizeHeight(409),
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}>
+                    <Text style={{
+                        color: 'black',
+                        fontWeight: 'bold',
+                        textAlign: 'center',
+                    }}>
+                        Grįžti
+                    </Text>
+                </TouchableOpacity>  
             </NavBase>
         );
     }
