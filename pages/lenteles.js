@@ -115,9 +115,16 @@ export default function Lenteles({ navigation: { navigate }}) {
     { text: '156.6', key: '60', question: '20', answer: 'false' },
 
   ]);
+  
+  const updateStorage = () => {
+    AsyncStorage.setItem('matematinesulapeliais', 'true');
+    AsyncStorage.setItem('seimas', 'false');
+    navigate('ketvirtasVestibiulis');
+  }
+
   const filterQuestion = (id, answer) => {
-    console.log(answer)
-    console.log(ques)
+    // console.log(answer)
+    // console.log(ques)
     if (answer == "true") {
 
       var temp=ques+1;
@@ -157,19 +164,19 @@ export default function Lenteles({ navigation: { navigate }}) {
       setques(prev=>prev + 2)
       
       if (Platform.OS === 'web') {
-        AsyncStorage.setItem('lenteles', 'true');
-        AsyncStorage.setItem('proLanga', 'false');
-        alert("Ieškokite 522 kabineto", [{ text: "Gerai", onPress: () => navigate('ketvirtasVestibiulis')}],{cancelable: false})
+        AsyncStorage.setItem('matematinesulapeliais', 'true');
+        AsyncStorage.setItem('seimas', 'false');
+        alert("Ieškokite 522 kabineto", [{ text: "Gerai", onPress: () => updateStorage()}],{cancelable: false})
      } else {
-      AsyncStorage.setItem('lenteles', 'true');
-      AsyncStorage.setItem('proLanga', 'false');
+      AsyncStorage.setItem('matematinesulapeliais', 'true');
+      AsyncStorage.setItem('seimas', 'false');
       Alert.alert(
 
  
         "Ieškokite 522 kabineto",
 
 
-        "", [{ text: "Gerai", onPress:() => navigate('ketvirtasVestibiulis')}],
+        "", [{ text: "Gerai", onPress:() => updateStorage()}],
         
          
         { cancelable: false }
