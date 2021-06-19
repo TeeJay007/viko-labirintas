@@ -89,9 +89,9 @@ export default function Pavyzdinis({ navigation: { navigate }}) {
 
 };
 
-
-
 const navigatetoras = () =>{
+  AsyncStorage.setItem('vikodraudos', 'true');
+  AsyncStorage.setItem('vikobankokahoot', 'false');
   navigate("ketvirtasVestibiulis");
 }
 

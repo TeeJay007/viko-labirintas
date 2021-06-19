@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity, BackHandler, useWindowDimensions} from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function ProLanga({ navigation: { navigate }}) {
     const {width: screenW, height: screenH} = useWindowDimensions()
@@ -11,6 +11,12 @@ export default function ProLanga({ navigation: { navigate }}) {
     const correctAts = () => atsakymas == ats.raides.join('').toUpperCase()
 
     const [big, setBig] = useState(false);
+
+    const handleSubmitUpdateStorage = () => {
+      AsyncStorage.setItem('seimas', 'true');
+      AsyncStorage.setItem('balioneliai', 'false');
+      navigate('penktasVestibiulis');
+    }
 
     useFocusEffect(
       React.useCallback(() => {
@@ -86,7 +92,7 @@ export default function ProLanga({ navigation: { navigate }}) {
                 </View>
             </View>
             {correctAts() && <TouchableOpacity onPress={() => {
-                navigate('penktasVestibiulis')
+                handleSubmitUpdateStorage()
             }}  style={{
                 backgroundColor: 'green',
                 padding: 10,

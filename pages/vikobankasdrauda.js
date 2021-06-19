@@ -41,8 +41,8 @@ export default function Vikobankasdrauda({ navigation: { navigate }}) {
         </View>
       </View>
       {correctAts() && <TouchableOpacity onPress={() => {
-            AsyncStorage.setItem('vikoBankasDrauda', 'true');
-            AsyncStorage.setItem('vikobankokahoot', 'false');
+            AsyncStorage.setItem('keliosmatematines', 'true');
+            AsyncStorage.setItem('vikodraudos', 'false');
                 navigate('penktasVestibiulis')
             }}  style={{
                 backgroundColor: 'green',

@@ -25,7 +25,7 @@ export default function Dekanas({ navigation: { navigate }}) {
     const resizeWidth = (w) => w * getScreenWidth() / IMAGE_WIDTH
     const resizeHeight = (h) => h * getScreenHeight() / IMAGE_HEIGHT
 
-    if(washere == 'false'){
+    if(washere == 'false'){ //atkeist
         return (
             <NavBase image={IMAGE} width={IMAGE_WIDTH} height={IMAGE_HEIGHT}>
                 <TouchableOpacity onPress={() => {
@@ -47,7 +47,7 @@ export default function Dekanas({ navigation: { navigate }}) {
                         fontWeight: 'bold',
                         textAlign: 'center',
                     }}>
-                        MATEMATINĖS UŽDUOTYS
+                        UŽDUOTYS
                     </Text>
                 </TouchableOpacity>
             </NavBase>
