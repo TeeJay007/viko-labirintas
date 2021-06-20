@@ -44,12 +44,12 @@ export default function VikoBankas({ navigation: { navigate }}) {
             <TouchableOpacity onPress={() => {
                     navigate('vikobankasiejimas')
                 }}  style={{
-                    backgroundColor: 'white',
+                    backgroundColor: 'rgba(255,255,255,0.4)',
                     opacity: 0.5,
                     padding: 10,
                     position: 'absolute',
                     top: resizeHeight(2000),
-                    left: resizeWidth(1600),
+                    left: resizeWidth(2000),
                     width: resizeWidth(616),
                     height: resizeHeight(409),
                     justifyContent: 'center',

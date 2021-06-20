@@ -16,6 +16,7 @@ import ViktorinaBankas from './pages/Viktorina_Bankas'
 import Laukas from './pages/navigation_pages/laukas'
 import TreciasVestibiulis from './pages/navigation_pages/treciasvestibiulis'
 import KetvirtasVestibiulis from './pages/navigation_pages/ketvirtas_vestibiulis';
+import KetvirtasVestibiulisF from './pages/navigation_pages/ketvirtas_vestibiulis_f';
 import PenktasVestibiulis from './pages/navigation_pages/penktas_vestibiulis';
 import PenkiDuDu from './pages/navigation_pages/penkidudu';
 import PenkiDuDuVidus from './pages/navigation_pages/penkidudu_vidus';
@@ -55,6 +56,10 @@ export default function App() {
         <Stack.Screen
           name="ketvirtasVestibiulis"
           component={KetvirtasVestibiulis}
+          options={{ title: 'Ketvirtas aukštas' , headerShown: false, cardStyleInterpolator: forFade}} />
+        <Stack.Screen
+          name="ketvirtasVestibiulisF"
+          component={KetvirtasVestibiulisF}
           options={{ title: 'Ketvirtas aukštas' , headerShown: false, cardStyleInterpolator: forFade}} />
         <Stack.Screen
           name="penktasVestibiulis"
@@ -140,7 +145,7 @@ export default function App() {
         <Stack.Screen
           name="proLanga"
           component={ProLanga}
-          options={{ title: 'Pro langą' }} />
+          options={{ title: 'Pro langą', headerShown: false }} />
         <Stack.Screen
           name="scrambleFinansai"
           component={ScrambleFinansai}
@@ -148,15 +153,15 @@ export default function App() {
         <Stack.Screen
           name="finansai"
           component={Finansai}
-          options={{ title: 'Finansai' }} />
+          options={{ title: 'Finansai', headerShown: false }} />
            <Stack.Screen
           name="kryziazodis"
           component={Kryziazodis}
-          options={{ title: 'Kryziazodis' }} />
+          options={{ title: 'Kryziazodis', headerShown: false }} />
         <Stack.Screen
           name="vikoBankasDrauda"
           component={Vikobankasdrauda}
-          options={{ title: 'Viko bankas drauda' }} />
+          options={{ title: 'Viko bankas drauda', headerShown: false }} />
         <Stack.Screen
           name="lenteles"
           component={Lenteles}
@@ -164,15 +169,15 @@ export default function App() {
           <Stack.Screen
           name="viktorina"
           component={Viktorina}
-          options={{ title: 'Viktorina' }} />
+          options={{ title: 'Viktorina', headerShown: false }} />
           <Stack.Screen
           name="viktorinaBankas"
           component={ViktorinaBankas}
-          options={{ title: 'Viktorina' }} />
+          options={{ title: 'Viktorina', headerShown: false }} />
           <Stack.Screen
           name="viktorinaDrauda"
           component={ViktorinaDrauda}
-          options={{ title: 'Viktorina' }} />
+          options={{ title: 'Viktorina', headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

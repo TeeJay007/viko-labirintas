@@ -63,11 +63,11 @@ export default function KryziazodisKab({ navigation: { navigate }}) {
             <TouchableOpacity onPress={() => {
                 navigate('penkiduketuri')
             }}  style={{
-                backgroundColor: 'white',
+                backgroundColor: 'rgba(255,255,255,0.5)',
                 opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
-                top: resizeHeight(2000),
+                top: resizeHeight(2200),
                 left: resizeWidth(2000),
                 width: resizeWidth(350),
                 height: resizeHeight(350),

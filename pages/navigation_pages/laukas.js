@@ -20,7 +20,6 @@ export default function Laukas({ navigation: { navigate }}) {
 
     const addDataToAsync = () => {
         AsyncStorage.clear();
-        AsyncStorage.setItem('matematinesulapeliais', 'false');
         AsyncStorage.setItem('seimas', 'true');
         AsyncStorage.setItem('balioneliai', 'true');
         AsyncStorage.setItem('kompiuteriukahoot', 'true');

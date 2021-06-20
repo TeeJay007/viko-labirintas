@@ -22,7 +22,7 @@ export default function PenkiPenkiolika({ navigation: { navigate }}) {
             <TouchableOpacity onPress={() => {
                 navigate('penktasVestibiulis')
             }}  style={{
-                backgroundColor: 'white',
+                backgroundColor: 'rgba(255,255,255,0.5)',
                 opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
@@ -60,13 +60,20 @@ export default function PenkiPenkiolika({ navigation: { navigate }}) {
                     fontWeight: 'bold',
                     textAlign: 'center',
                 }}>
+                   Vadybininkai 515
+                </Text>
+                <Text style={{
+                    color: 'black',
+                    fontWeight: 'bold',
+                    textAlign: 'center',
+                }}>
                     UžEIK!
                 </Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => {
                 navigate('dekanoiejimas')
             }}  style={{
-                backgroundColor: 'white',
+                backgroundColor: 'rgba(255,255,255,0.5)',
                 opacity: 0.5,
                 padding: 10,
                 position: 'absolute',

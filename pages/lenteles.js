@@ -117,14 +117,11 @@ export default function Lenteles({ navigation: { navigate }}) {
   ]);
   
   const updateStorage = () => {
-    AsyncStorage.setItem('matematinesulapeliais', 'true');
     AsyncStorage.setItem('seimas', 'false');
     navigate('ketvirtasVestibiulis');
   }
 
   const filterQuestion = (id, answer) => {
-    // console.log(answer)
-    // console.log(ques)
     if (answer == "true") {
 
       var temp=ques+1;
@@ -144,44 +141,23 @@ export default function Lenteles({ navigation: { navigate }}) {
         alert("Atsakymas neteisingas!",{cancelable: false})
      } else {
       Alert.alert(
-
- 
         "Atsakymas neteisingas!",
-        
-         
         "", [{ text: "Bandyti dar kartą"}],
-        
-         
         { cancelable: false }
-        
-         
         );
     }
      }
 
     
-     if(temp==21){
+     if(temp==21){ //21
       setques(prev=>prev + 2)
-      
       if (Platform.OS === 'web') {
-        AsyncStorage.setItem('matematinesulapeliais', 'true');
-        AsyncStorage.setItem('seimas', 'false');
         alert("Ieškokite 522 kabineto", [{ text: "Gerai", onPress: () => updateStorage()}],{cancelable: false})
      } else {
-      AsyncStorage.setItem('matematinesulapeliais', 'true');
-      AsyncStorage.setItem('seimas', 'false');
       Alert.alert(
-
- 
         "Ieškokite 522 kabineto",
-
-
         "", [{ text: "Gerai", onPress:() => updateStorage()}],
-        
-         
         { cancelable: false }
-        
-         
         );
       }
     }

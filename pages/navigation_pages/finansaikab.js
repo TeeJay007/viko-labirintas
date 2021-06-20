@@ -60,11 +60,11 @@ export default function FinansaiKab({ navigation: { navigate }}) {
                 <TouchableOpacity onPress={() => {
                     navigate('penkipenkiolika')
                 }}  style={{
-                    backgroundColor: 'white',
+                    backgroundColor: 'rgba(255,255,255,0.5)',
                     opacity: 0.5,
                     padding: 10,
                     position: 'absolute',
-                    top: resizeHeight(1350),
+                    top: resizeHeight(1600),
                     left: resizeWidth(2300),
                     width: resizeWidth(350),
                     height: resizeHeight(350),

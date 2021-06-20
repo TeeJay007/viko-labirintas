@@ -22,7 +22,7 @@ export default function KeturiDuVienas({ navigation: { navigate }}) {
             <TouchableOpacity onPress={() => {
                 navigate('kompiuteriai')
             }}  style={{
-                backgroundColor: 'white',
+                backgroundColor: 'rgba(255,255,255,0.4)',
                 opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
@@ -38,13 +38,20 @@ export default function KeturiDuVienas({ navigation: { navigate }}) {
                     fontWeight: 'bold',
                     textAlign: 'center',
                 }}>
+                   Kompiuterių auditorija 421
+                </Text>
+                <Text style={{
+                    color: 'black',
+                    fontWeight: 'bold',
+                    textAlign: 'center',
+                }}>
                     UŽEIK!
                 </Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => {
                 navigate('ketvirtasVestibiulis')
             }}  style={{
-                backgroundColor: 'white',
+                backgroundColor: 'rgba(255,255,255,0.5)',
                 opacity: 0.5,
                 padding: 10,
                 position: 'absolute',

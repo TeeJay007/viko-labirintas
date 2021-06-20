@@ -38,6 +38,13 @@ export default function VikoDraudaIejimas({ navigation: { navigate }}) {
                     fontWeight: 'bold',
                     textAlign: 'center',
                 }}>
+                   Viko Drauda 402
+                </Text>
+                <Text style={{
+                    color: 'black',
+                    fontWeight: 'bold',
+                    textAlign: 'center',
+                }}>
                     UŽEIK!
                 </Text>
             </TouchableOpacity>

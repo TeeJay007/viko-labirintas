@@ -16,7 +16,6 @@ export default function PenktasVestibiulis({ navigation: { navigate }}) {
     
     const resizeWidth = (w) => w * getScreenWidth() / IMAGE_WIDTH
     const resizeHeight = (h) => h * getScreenHeight() / IMAGE_HEIGHT
-
     return (
         <NavBase image={IMAGE} width={IMAGE_WIDTH} height={IMAGE_HEIGHT}>
             <TouchableOpacity onPress={() => {
@@ -66,7 +65,7 @@ export default function PenktasVestibiulis({ navigation: { navigate }}) {
             <TouchableOpacity onPress={() => {
                 navigate('penkipenkiolika')
             }}  style={{
-                backgroundColor: 'rgba(255,255,255,0.5)',
+                backgroundColor: 'rgba(255,255,255,0.2)',
                 opacity: 0.7,
                 padding: 10,
                 position: 'absolute',

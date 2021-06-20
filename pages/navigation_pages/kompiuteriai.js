@@ -57,7 +57,7 @@ return (
                 <TouchableOpacity onPress={() => {
                     navigate('keturiDuVienas')
                 }}  style={{
-                    backgroundColor: 'white',
+                    backgroundColor: 'rgba(255,255,255,0.4)',
                     opacity: 0.5,
                     padding: 10,
                     position: 'absolute',
