@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "viko-labirintas",
+    "name": "Viko Labirintas",
     "slug": "viko-labirintas",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -20,13 +20,14 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "lt.viko.labirintas",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#FFFFFF"
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/icon.png"
     }
   }
 }
