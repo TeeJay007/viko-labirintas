@@ -35,8 +35,8 @@ export default function KryziazodisKab({ navigation: { navigate }}) {
             <TouchableOpacity onPress={() => {
                 navigate('kryziazodis')
             }}  style={{
-                backgroundColor: 'white',
-                opacity: 0.5,
+                backgroundColor: 'rgba(255,255,255,0.3)',
+                // opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
                 top: resizeHeight(1245),
