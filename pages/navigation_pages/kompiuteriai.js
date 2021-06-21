@@ -30,7 +30,7 @@ export default function Kompiuteriai({ navigation: { navigate }}) {
                 navigate('viktorina')
             }}  style={{
                 backgroundColor: 'white',
-                //opacity: 0.5,
+                opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
                 top: resizeHeight(699),

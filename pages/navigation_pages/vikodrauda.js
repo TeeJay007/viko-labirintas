@@ -32,7 +32,7 @@ export default function VikoDrauda({ navigation: { navigate }}) {
                 navigate('viktorinaDrauda')
             }}  style={{
                 backgroundColor: 'white',
-                //opacity: 0.5,
+                opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
                 top: resizeHeight(763),
