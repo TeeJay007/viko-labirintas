@@ -20,8 +20,8 @@ export default function KetvirtasVestibiulis({ navigation: { navigate }}) {
             <TouchableOpacity onPress={() => {
                 navigate('vikobankasiejimas')
             }}  style={{
-                backgroundColor: 'rgba(255,255,255,0.5)',
-                opacity: 0.5,
+                backgroundColor: 'rgba(255,255,255,0.3)',
+                //opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
                 top: resizeHeight(560),
@@ -42,8 +42,8 @@ export default function KetvirtasVestibiulis({ navigation: { navigate }}) {
             <TouchableOpacity onPress={() => {
                 navigate('penktasVestibiulis')
             }}  style={{
-                backgroundColor: 'rgba(255,255,255,0.4)',
-                opacity: 0.5,
+                backgroundColor: 'rgba(255,255,255,0.3)',
+                //opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
                 top: resizeHeight(308),
@@ -65,8 +65,8 @@ export default function KetvirtasVestibiulis({ navigation: { navigate }}) {
             <TouchableOpacity onPress={() => {
                 navigate('keturiDuVienas')
             }}  style={{
-                backgroundColor: 'rgba(255,255,255,0.5)',
-                opacity: 0.5,
+                backgroundColor: 'rgba(255,255,255,0.3)',
+                //opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
                 top: resizeHeight(558),

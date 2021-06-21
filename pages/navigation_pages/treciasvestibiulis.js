@@ -24,8 +24,8 @@ export default function TreciasVestibiulis({ navigation: { navigate }}) {
             <TouchableOpacity onPress={() => {
                 updateStorage();
             }}  style={{
-                backgroundColor: 'rgba(255,255,255,0.5)',
-                opacity: 0.5,
+                backgroundColor: 'rgba(255,255,255,0.3)',
+                //opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
                 top: resizeHeight(800),

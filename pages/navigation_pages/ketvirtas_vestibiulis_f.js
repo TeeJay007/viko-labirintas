@@ -22,7 +22,7 @@ export default function KetvirtasVestibiulisF({ navigation: { navigate }}) {
                 navigate('lenteles')
             }}  style={{
                 backgroundColor: 'rgba(255,255,255,0.3)',
-                opacity: 0.5,
+                //opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
                 top: resizeHeight(547),

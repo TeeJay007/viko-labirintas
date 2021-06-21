@@ -33,8 +33,8 @@ export default function PaskutinioKahootIejimasVB({ navigation: { navigate }}) {
             <TouchableOpacity onPress={() => {
                  navigate('viktorinaBankas')
             }}  style={{
-                backgroundColor: 'rgba(255,255,255,0.4)',
-                opacity: 0.5,
+                backgroundColor: 'rgba(255,255,255,0.3)',
+                //opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
                 top: resizeHeight(1029),
@@ -62,7 +62,7 @@ export default function PaskutinioKahootIejimasVB({ navigation: { navigate }}) {
                     navigate('vikobankas')
                 }}  style={{
                     backgroundColor: 'white',
-                    opacity: 0.5,
+                    //opacity: 0.5,
                     padding: 10,
                     position: 'absolute',
                     top: resizeHeight(3600),

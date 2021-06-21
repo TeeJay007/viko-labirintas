@@ -22,8 +22,8 @@ export default function PenkiDuDu({ navigation: { navigate }}) {
             <TouchableOpacity onPress={() => {
                 navigate('penkiDuDuVidus')
             }}  style={{
-                backgroundColor: 'rgba(255,255,255,0.5)',
-                opacity: 0.5,
+                backgroundColor: 'rgba(255,255,255,0.3)',
+                //opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
                 top: resizeHeight(648),
@@ -44,8 +44,8 @@ export default function PenkiDuDu({ navigation: { navigate }}) {
             <TouchableOpacity onPress={() => {
                 navigate('penkiduketuri')
             }}  style={{
-                backgroundColor: 'rgba(255,255,255,0.5)',
-                opacity: 0.5,
+                backgroundColor: 'rgba(255,255,255,0.3)',
+                //opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
                 top: resizeHeight(720),

@@ -44,8 +44,8 @@ export default function DekanoIejimas({ navigation: { navigate }}) {
             <TouchableOpacity onPress={() => {
                 navigate('dekanas')
             }}  style={{
-                backgroundColor: 'rgba(255,255,255,0.5)',
-                opacity: 0.5,
+                backgroundColor: 'rgba(255,255,255,0.3)',
+                //opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
                 top: resizeHeight(843),
@@ -66,8 +66,8 @@ export default function DekanoIejimas({ navigation: { navigate }}) {
             <TouchableOpacity onPress={() => {
                 navigate('penkiduketuri')
             }}  style={{
-                backgroundColor: 'rgba(255,255,255,0.5)',
-                opacity: 0.5,
+                backgroundColor: 'rgba(255,255,255,0.3)',
+                //opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
                 top: resizeHeight(1827),

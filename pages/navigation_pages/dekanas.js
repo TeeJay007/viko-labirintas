@@ -31,8 +31,8 @@ export default function Dekanas({ navigation: { navigate }}) {
                 <TouchableOpacity onPress={() => {
                     navigate('vikoBankasDrauda')
                 }}  style={{
-                    backgroundColor: 'rgba(255,255,255,0.5)',
-                    opacity: 0.5,
+                    backgroundColor: 'rgba(255,255,255,0.3)',
+                    //opacity: 0.5,
                     padding: 10,
                     position: 'absolute',
                     top: resizeHeight(750),
@@ -58,8 +58,8 @@ export default function Dekanas({ navigation: { navigate }}) {
                 <TouchableOpacity onPress={() => {
                     navigate('dekanoiejimas')
                 }}  style={{
-                    backgroundColor: 'rgba(255,255,255,0.5)',
-                    opacity: 0.5,
+                    backgroundColor: 'rgba(255,255,255,0.3)',
+                    //opacity: 0.5,
                     padding: 10,
                     position: 'absolute',
                     top: resizeHeight(1700),

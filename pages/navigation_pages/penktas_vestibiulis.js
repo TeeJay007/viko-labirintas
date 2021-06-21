@@ -21,8 +21,8 @@ export default function PenktasVestibiulis({ navigation: { navigate }}) {
             <TouchableOpacity onPress={() => {
                 navigate('ketvirtasVestibiulis')
             }}  style={{
-                backgroundColor: 'rgba(255,255,255,0.4)',
-                opacity: 0.7,
+                backgroundColor: 'rgba(255,255,255,0.3)',
+                //opacity: 0.7,
                 padding: 10,
                 position: 'absolute',
                 top: resizeHeight(630),
@@ -43,8 +43,8 @@ export default function PenktasVestibiulis({ navigation: { navigate }}) {
             <TouchableOpacity onPress={() => {
                 navigate('saiejimas')
             }}  style={{
-                backgroundColor: 'rgba(255,255,255,0.4)',
-                opacity: 0.7,
+                backgroundColor: 'rgba(255,255,255,0.3)',
+                //opacity: 0.7,
                 padding: 10,
                 position: 'absolute',
                 top: resizeHeight(670),
@@ -65,8 +65,8 @@ export default function PenktasVestibiulis({ navigation: { navigate }}) {
             <TouchableOpacity onPress={() => {
                 navigate('penkipenkiolika')
             }}  style={{
-                backgroundColor: 'rgba(255,255,255,0.2)',
-                opacity: 0.7,
+                backgroundColor: 'rgba(255,255,255,0.3)',
+                //opacity: 0.7,
                 padding: 10,
                 position: 'absolute',
                 top: resizeHeight(644),

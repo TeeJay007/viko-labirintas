@@ -23,7 +23,7 @@ export default function PenkiPenkiolikaIejimas({ navigation: { navigate }}) {
                 navigate('savidus')
             }}  style={{
                 backgroundColor: 'white',
-                opacity: 0.5,
+                //opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
                 top: resizeHeight(1276),

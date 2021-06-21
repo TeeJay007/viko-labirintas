@@ -35,7 +35,7 @@ export default function SAVidus({ navigation: { navigate }}) {
                <TouchableOpacity onPress={() => {
                     navigate('baloons')
                 }}  style={{
-                    opacity: 0.5,
+                    //opacity: 0.5,
                     padding: 10,
                     position: 'absolute',
                     top: resizeHeight(1200),
@@ -56,8 +56,8 @@ export default function SAVidus({ navigation: { navigate }}) {
                 <TouchableOpacity onPress={() => {
                     navigate('penktasVestibiulis')
                 }}  style={{
-                    backgroundColor: 'rgba(255,255,255,0.5)',
-                    opacity: 0.5,
+                    backgroundColor: 'rgba(255,255,255,0.3)',
+                    //opacity: 0.5,
                     padding: 10,
                     position: 'absolute',
                     top: resizeHeight(3500),
