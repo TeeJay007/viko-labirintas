@@ -148,12 +148,12 @@ export default function App() {
           options={{ title: 'Pro langą', headerShown: false }} />
         <Stack.Screen
           name="scrambleFinansai"
-          component={ScrambleFinansai}
-          options={{ title: 'Finansai', headerShown: false }} />
-        <Stack.Screen
-          name="finansai"
           component={Finansai}
           options={{ title: 'Finansai', headerShown: false }} />
+        {/* <Stack.Screen
+          name="finansai"
+          component={Finansai}
+          options={{ title: 'Finansai', headerShown: false }} /> */}
            <Stack.Screen
           name="kryziazodis"
           component={Kryziazodis}

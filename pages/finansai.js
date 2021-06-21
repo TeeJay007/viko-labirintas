@@ -1,11 +1,19 @@
 import React, { useEffect, useRef, useContext, useState } from 'react';
-import { StyleSheet, Text, View, PanResponder, Animated, useWindowDimensions, Platform } from 'react-native';
+import { StyleSheet, Text, View, PanResponder, Alert, Animated, useWindowDimensions, Platform, ImageBackground, TouchableOpacity } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const Draggable = ({letter = " " }) => {
+
+
+const LetterPosContext = React.createContext()
+const InputValues = React.createContext()
+
+const Draggable = ({letter = "", enabled = true, id = 0, disable = () => {}}) => {
     const pan = useRef(new Animated.ValueXY()).current;
+    const {width} = useWindowDimensions();
+    const {letters, setLetters} = useContext(LetterPosContext)
+    const {fields, setFields} = useContext(InputValues)
 
-    const {letters, setLetters} = useContext(LetterPosContext);
-    const [enabled, setEnabled] = useState(true);
 
     const panResponder = PanResponder.create({
         onStartShouldSetPanResponder: () => true,
@@ -14,14 +22,18 @@ const Draggable = ({letter = " " }) => {
         ],{useNativeDriver: false}),
         onPanResponderRelease: (e, gesture) => {
             for(let i in letters){
-                const letterData = letters[i]
-                if(gesture.moveX > letterData.x && gesture.moveX < letterData.x + letterData.size){
-                    if(gesture.moveY > letterData.y && gesture.moveY < letterData.y + letterData.size){
-                        console.log(`ON ${letterData.id}`)
-                        if(letterData.letter.toUpperCase() == letter.toUpperCase()){
-                            setLetters(old => old.map(v => v.id == letterData.id ? {...v, hidden: false} : v));
-                            setEnabled(false);
-                        }
+                if(gesture.moveX >= letters[i].x && gesture.moveX <= letters[i].x + letters[i].size){
+                    if(gesture.moveY >= letters[i].y && gesture.moveY <= letters[i].y + letters[i].size){
+                        if(fields[i] != '')
+                            break;
+
+                        pan.setValue({ x: 0, y: 0 })
+
+                        let lo = [...fields]
+                        lo[i] = letter
+                        setFields(lo)
+                        disable()
+                        break;
                     }
                 }
             }
@@ -35,114 +47,168 @@ const Draggable = ({letter = " " }) => {
             <Animated.View {...panResponder.panHandlers} style={[
                 pan.getLayout(),
                 styles.letterBox,
-                { backgroundColor: 'gainsboro' }
+                {
+                    width: width*0.13,
+                    height: width*0.13,
+                    maxWidth: 50,
+                    maxHeight: 50,
+                    backgroundColor: 'gainsboro',
+                }
             ]}>
-                <Text style={{
-                    color: '#333',
-                    fontSize: 24
-                }}>{letter}</Text>
+                <Text style={{fontSize: width * 0.06 > 24 ? 24 : width * 0.06}}>{letter}</Text>
             </Animated.View>
-        </View>) : null;
+        </View>) : <View style={[
+                styles.letterBox,
+                {
+                    width: width*0.13,
+                    height: width*0.13,
+                    maxWidth: 50,
+                    maxHeight: 50,
+                    backgroundColor: 'gainsboro',
+                }
+            ]}>
+                <Text style={{fontSize: width * 0.06 > 24 ? 24 : width * 0.06}}></Text>
+            </View>;
 };
 
-const LetterPosContext = React.createContext()
 
-const InputBox = ({letter = '', id = 0, size = 50}) => {
-    const {letters, setLetters} = useContext(LetterPosContext);
+const getRandomInt = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min);
+}
 
-    const getLetter = () => {
-        if(letters[id] == undefined)
-            return ''
 
-        if(letters[id].hidden)
-            return ''
-        
-        return letters[id].letter.toUpperCase()
+const Lette = ({value = '', id = 0}) => {
+    const {width} = useWindowDimensions()
+    const {letters, setLetters} = useContext(LetterPosContext)
+
+    return (
+    <View style={{
+        padding: 5,
+        backgroundColor: 'gainsboro',
+        width: width*0.11,
+        height: width*0.11,
+        maxWidth: 50,
+        maxHeight: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 5,
+        margin: 2
+    }} onLayout={(event) => {
+        const target = Platform.OS === 'web' ? event.nativeEvent.target : event.target
+        target.measure((x, y, width, height, pageX, pageY) =>{
+            setLetters((letters) => {
+                if(letters.filter(v => v.id == id).length > 0){
+                    return letters.map(v => v.id == id ? {
+                        id,
+                        x: pageX,
+                        y: pageY,
+                        size: width
+                    } : v)
+                }
+                return [...letters, {
+                    id,
+                    x: pageX,
+                    y: pageY,
+                    size: width
+                }]
+            })
+        })
+    }
+}>
+        <Text style={{fontSize: width * 0.06 > 24 ? 24 : width * 0.06}}>{value}</Text>
+    </View>)
+}
+
+
+const AllInput = ({word = '', scrambled = '', navigate = null}) => {
+    const [fields, setFields] = useState(word.split('').map(v => ''))
+    const [enabled, setEnabled] = useState(word.split('').map(v => true))
+
+    const buildLetters = () => {
+        let boxes = []
+        for(let i = 0; i < enabled.length; i++){
+            boxes = [...boxes, <Draggable id={i} key={i} enabled={enabled[i]} disable={() => {
+                let z = [...enabled]
+                z[i] = false
+                setEnabled(z)
+            }} letter={scrambled[i]} />]
+        }
+
+        return [
+            <View key="A" style={{flexDirection: 'row'}}>
+                {boxes.slice(0, Math.ceil(word.length/2))}
+            </View>,
+            <View key="B" style={{flexDirection: 'row'}}>
+                {boxes.slice(-Math.ceil(word.length/2))}
+            </View>
+        ]
     }
 
-    return(
-        <View style={[styles.inputLetter, {
-            width: size,
-            height: size,
-            maxWidth: 50,
-            maxHeight: 50
-        }]} onLayout={(event) => {
-            const target = Platform.OS === 'web' ? event.nativeEvent.target : event.target
+    return (
+        <InputValues.Provider value={{fields, setFields}}>
+            <View style={[styles.inputBox, {flexDirection: 'row'}]}>
+                {fields.map((v, i) => <Lette id={i} key={i} value={v} />)}
+            </View>
+            <View style={styles.draggableLetterBox}>
+                {buildLetters()}
+            </View>
+            <View style={{
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                }}>
+                <TouchableOpacity style={styles.refreshButton} onPress={() => {
+                    setFields(word.split('').map(v => ''))
+                    setEnabled(word.split('').map(v => true))
+                }}>
+                    <Text style={styles.refreshButtonText}>Perkrauti</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.refreshButton} onPress={() => {
+                    if(fields.join('') == word){
+                        Alert.alert(
+                            "Teisingai!",
+                            "Bandykime surasti Finansų katedrą?", [{ text: "Taip", onPress: () => {
+                                AsyncStorage.setItem('finansai', 'true');
+                                AsyncStorage.setItem('kryziazodis', 'false');
 
-            target.measure((x, y, width, height, pageX, pageY) =>{
-                if(letters[id] == undefined){
-                    setLetters(old => [...old, {
-                        id,
-                        letter,
-                        hidden: true,
-                        x: pageX,
-                        y: pageY,
-                        size: width
-                    }])
-                }else{
-                    setLetters(old => old.map(v => v.id == id ? {
-                        id,
-                        letter,
-                        hidden: true,
-                        x: pageX,
-                        y: pageY,
-                        size: width
-                    } : v))
-                }
-            })
-
-
-        }}>
-            <Text style={styles.inputLetterText}>{getLetter()}</Text>
-        </View>
+                                navigate('penktasVestibiulis')
+                            }}],
+                            {cancelable: false}
+                        );
+                    }else{
+                        Alert.alert(
+                            "Neteisingai!",
+                            "Dėliokite toliau!", [{ text: "OK"}],
+                            {cancelable: false}
+                        );
+                    }
+                }}>
+                    <Text style={styles.refreshButtonText}>Patikrinti</Text>
+                </TouchableOpacity>
+            </View>
+            <StatusBar hidden={true} />
+        </InputValues.Provider>
     )
 }
 
-const Input = ({secretWord = ""}) => {
-    const {width} = useWindowDimensions();
-    let inputBoxes = [];
-    const len = secretWord.length
 
-    for(let i = 0; i < len; i++){
-        inputBoxes = [...inputBoxes, <InputBox letter={secretWord[i]} id={i} key={i} size={width/(len+1)} />]
-    }
-
-    return inputBoxes;
-}
-
-
-
-export default function Finansai() {
+export default function Finansai({ navigation: { navigate }}) {
     const [letters, setLetters] = useState([]) //cia saugomos raides
-
-    const secretWord = "finansai"
+    const secretWord = "FINANSAI"
+    const [loaded, setLoaded] = useState(false)
 
     return (
         <LetterPosContext.Provider value={{letters, setLetters}}>
-            <View style={styles.container}>
-                <View style={styles.textBox}>
-                    <Text style={styles.titleText}>Tai yra terminas, apibrėžiantis metodus, kuriais asmenys ar organizacijos įgyja, sukaupia, kontroliuoja ir naudoja piniginius išteklius per laikotarpį, įvertinant patiriamą riziką.</Text>
-                </View>
-                <View style={styles.inputBox}>
-                    <View style={styles.input}>
-                        <Input secretWord={secretWord} />
+            <ImageBackground onLoad={() => {setLoaded(true)}} source={require('../NavigationCovers/finansubackgroundas.jpg')} style={styles.container}>
+                {loaded && <>
+                    <View style={styles.textBox}>
+                        <Text style={[styles.titleText, {paddingBottom: 20}]}>Tai yra terminas, apibrėžiantis metodus, kuriais asmenys ar organizacijos įgyja, sukaupia, kontroliuoja ir naudoja piniginius išteklius per laikotarpį, įvertinant patiriamą riziką.</Text>
+                        <Text style={styles.titleText}>Kokia tai sąvoka?</Text>
                     </View>
-                </View>
-                <View style={styles.draggableLetterBox}>
-                    <View style={{flexDirection: 'row'}}>
-                        <Draggable letter='F' />
-                        <Draggable letter='I' />
-                        <Draggable letter='N' />
-                        <Draggable letter='A' />
-                    </View>
-                    <View style={{flexDirection: 'row'}}>
-                        <Draggable letter='N' />
-                        <Draggable letter='S' />
-                        <Draggable letter='A' />
-                        <Draggable letter='I' />
-                    </View>
-                </View>
-            </View>
+                    <AllInput word={secretWord} scrambled={secretWord.split('').sort(() => .5 - Math.random()).join('')} navigate={navigate} />
+                </>}
+            </ImageBackground>
         </LetterPosContext.Provider>
     );
 }
@@ -151,22 +217,32 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
+        justifyContent: 'space-around'
     },
     textBox: {
-        flex: 1,
         justifyContent: 'center',
-        backgroundColor: 'green',
     },
     titleText: {
         textAlign: 'center',
+        padding: 10,
         fontSize: 20,
         fontWeight: "bold"
     },
-
+    refreshButton: {
+        backgroundColor: "#005baa",
+        padding: 10,
+        margin: 10,
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: 10,
+    },
+    refreshButtonText: {
+        fontSize: 24,
+        color: "white",
+        fontWeight: "bold",
+    },
 
     inputBox: {
-        flex: 1,
-        backgroundColor: 'blue',
         justifyContent: 'center'
     },
     input: {
@@ -185,14 +261,10 @@ const styles = StyleSheet.create({
     },
 
     draggableLetterBox: {
-        flex: 1,
-        backgroundColor: 'red',
         alignItems: 'center',
         justifyContent: 'space-around'
     },
     letterBox: {
-        width: 50,
-        height: 50,
         margin: 8,
         borderRadius: 5,
         justifyContent: 'center',
