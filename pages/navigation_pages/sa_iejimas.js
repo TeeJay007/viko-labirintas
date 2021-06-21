@@ -45,7 +45,7 @@ export default function SAIejimas({ navigation: { navigate }}) {
                 navigate('penktasVestibiulis')
             }}  style={{
                 backgroundColor: 'white',
-                //opacity: 0.5,
+                opacity: 0.5,
                 padding: 10,
                 position: 'absolute',
                 top: resizeHeight(2000),
